@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2021/10/25/2021-10-24/"/>
-      <url>/2021/10/25/2021-10-24/</url>
-      
-        <content type="html"><![CDATA[<h2 id="我的第一个博客"><a href="#我的第一个博客" class="headerlink" title="我的第一个博客"></a>我的第一个博客</h2><h2 id="关于怎么发布一个博客到搭建好的博客"><a href="#关于怎么发布一个博客到搭建好的博客" class="headerlink" title="关于怎么发布一个博客到搭建好的博客"></a>关于怎么发布一个博客到搭建好的博客</h2><h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><p>首先来认识一些hexo命令</p><blockquote><p>  hexo g #完整命令为hexo generate,用于生成静态文件</p><p>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</p><p>hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上</p><p>hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章</p></blockquote><h2 id="用markdown编辑器写一篇文章"><a href="#用markdown编辑器写一篇文章" class="headerlink" title="用markdown编辑器写一篇文章"></a>用markdown编辑器写一篇文章</h2><p>csdn自带markdown编辑器</p><ol><li>点击右上角自己头像</li><li><img src="https://img-blog.csdnimg.cn/a9359e63f93c4f5792de887f10d5686a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">在左边标签下滑找到博客设置</li><li><img src="https://img-blog.csdnimg.cn/01227a801990417db5a1ebe5d11e42c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">点击博客设置在右边找到markdown编辑器复选框勾选即可</li><li><img src="https://img-blog.csdnimg.cn/d7a01b21a18a4a0592036c2b31d3a23c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><h2 id="写一篇博客"><a href="#写一篇博客" class="headerlink" title="写一篇博客"></a>写一篇博客</h2><img src="https://img-blog.csdnimg.cn/5ce14921a5c04d3984c69d3d9c3ef170.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>点击发布-&gt; 文章<br><img src="https://img-blog.csdnimg.cn/c3cc80fa214443538b747d373d217513.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>写好之后点击发布，这里不展示怎么用markdown语法了，有不知道的小伙伴可以问度娘，CSDN markdown编辑器默认右边也有帮助文档。</li><li>点击生成之后，会生成一个扩展名为.md的文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md。</li><li>复制完之后，用submit或者记事本编辑，在第一行加上title:标题,标题内容没有要求。 —-</li><li><pre><code>                                        title:标题内容  </code></pre></li><li><pre><code>                                        ---                        </code></pre></li><li>接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件。</li><li>然后 输入 hexo s(完整命令为hexo server)， 打开浏览器输入 localhost:4000，可以预览效果。</li><li>最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上（可能因为网络原因，hexo d会不起作用，建议多试几次等到网络好了就可以成功部署了）。</li><li>现在就完成了所有步骤了，有用的话请三连支持一波。 </li></ol>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>小呆的测试文章</title>
       <link href="/2021/10/21/xiao-ai-de-ce-shi-wen-zhang/"/>
       <url>/2021/10/21/xiao-ai-de-ce-shi-wen-zhang/</url>
@@ -34,9 +21,36 @@
       <link href="/2021/10/12/hello-world/"/>
       <url>/2021/10/12/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2021/01/01/2021-10-24/"/>
+      <url>/2021/01/01/2021-10-24/</url>
+      
+        <content type="html"><![CDATA[<h2 id="我的第一个博客"><a href="#我的第一个博客" class="headerlink" title="我的第一个博客"></a>我的第一个博客</h2><h2 id="关于怎么发布一个博客到搭建好的博客"><a href="#关于怎么发布一个博客到搭建好的博客" class="headerlink" title="关于怎么发布一个博客到搭建好的博客"></a>关于怎么发布一个博客到搭建好的博客</h2><h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><p>首先来认识一些hexo命令</p><blockquote><p>  hexo g #完整命令为hexo generate,用于生成静态文件</p><p>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</p><p>hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上</p><p>hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章</p></blockquote><h2 id="用markdown编辑器写一篇文章"><a href="#用markdown编辑器写一篇文章" class="headerlink" title="用markdown编辑器写一篇文章"></a>用markdown编辑器写一篇文章</h2><p>csdn自带markdown编辑器</p><ol><li>点击右上角自己头像</li><li><img src="https://img-blog.csdnimg.cn/a9359e63f93c4f5792de887f10d5686a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">在左边标签下滑找到博客设置</li><li><img src="https://img-blog.csdnimg.cn/01227a801990417db5a1ebe5d11e42c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">点击博客设置在右边找到markdown编辑器复选框勾选即可</li><li><img src="https://img-blog.csdnimg.cn/d7a01b21a18a4a0592036c2b31d3a23c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><h2 id="写一篇博客"><a href="#写一篇博客" class="headerlink" title="写一篇博客"></a>写一篇博客</h2><img src="https://img-blog.csdnimg.cn/5ce14921a5c04d3984c69d3d9c3ef170.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>点击发布-&gt; 文章<br><img src="https://img-blog.csdnimg.cn/c3cc80fa214443538b747d373d217513.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>写好之后点击发布，这里不展示怎么用markdown语法了，有不知道的小伙伴可以问度娘，CSDN markdown编辑器默认右边也有帮助文档。</li><li>点击生成之后，会生成一个扩展名为.md的文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md。</li><li>复制完之后，用submit或者记事本编辑，在第一行加上title:标题,标题内容没有要求。 —-</li><li><pre><code>                                        title:标题内容  </code></pre></li><li><pre><code>                                        ---                        </code></pre></li><li>接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件。</li><li>然后 输入 hexo s(完整命令为hexo server)， 打开浏览器输入 localhost:4000，可以预览效果。</li><li>最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上（可能因为网络原因，hexo d会不起作用，建议多试几次等到网络好了就可以成功部署了）。</li><li>现在就完成了所有步骤了，有用的话请三连支持一波。 </li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 发布第一个HEXO博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 说明 </tag>
+            
+            <tag> other tag </tag>
+            
+        </tags>
       
     </entry>
     
