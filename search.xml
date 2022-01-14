@@ -1,135 +1,691 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>python学习笔记</title>
-      <link href="/2021/11/25/python-zheng-ze-biao-da-shi/"/>
-      <url>/2021/11/25/python-zheng-ze-biao-da-shi/</url>
-      
-        <content type="html"><![CDATA[<ul><li>/+文本</li><li>.代表任意字符</li><li>/ ?  ？代表匹配前一个字符 出现0次或者1次</li><li><ul><li>代表前一个字符出现0次或者多次</li></ul></li><li><ul><li>代表前一个字符出现1次或者1次以上</li></ul></li><li>字符{number} 代表字符出现 number次（{n,m} {n,})</li><li>/(ab)+ 代表匹配ab一次或者多次</li></ul><p> <strong>或运算</strong></p><ul><li>/a (cat|dog) 匹配a cat 或者 a dog</li></ul><p> ** 字符类**</p><ul><li>/[abc]+ 代表要求匹配的字符只能取自于它们</li><li>/[0-9A-Za-z]+ </li></ul><pre><code>[^0-9]+</code></pre><p><strong>元字符</strong><br>大多数元字符都是以反斜杠\开头<br>/\d+ 等同于 /[0-9]<br>/\w+ 所有的英文字符 数字、字母加上下划线<br>/\s 代表空白符 同时包含Tab字符以及换行符</p><p>&lt;.+&gt;匹配所有 贪婪匹配<br>&lt;.+?&gt; ?会将贪婪匹配切换成懒惰匹配</p><p><img data-src="https://img-blog.csdnimg.cn/8980ee50210f4513a922e02c0743d0a6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用"></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>发布第一个博客</title>
+    <url>/2021/01/01/2021-10-24/</url>
+    <content><![CDATA[<h2 id="我的第一个博客"><a href="#我的第一个博客" class="headerlink" title="我的第一个博客"></a>我的第一个博客</h2><h2 id="关于怎么发布一个博客到搭建好的博客"><a href="#关于怎么发布一个博客到搭建好的博客" class="headerlink" title="关于怎么发布一个博客到搭建好的博客"></a>关于怎么发布一个博客到搭建好的博客</h2><h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><p>首先来认识一些hexo命令</p>
+<blockquote>
+<p>  hexo g #完整命令为hexo generate,用于生成静态文件</p>
+<p>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</p>
+<p>hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上</p>
+<p>hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章</p>
+</blockquote>
+<h2 id="用markdown编辑器写一篇文章"><a href="#用markdown编辑器写一篇文章" class="headerlink" title="用markdown编辑器写一篇文章"></a>用markdown编辑器写一篇文章</h2><p>csdn自带markdown编辑器</p>
+<ol>
+<li>点击右上角自己头像</li>
+<li><img data-src="https://img-blog.csdnimg.cn/a9359e63f93c4f5792de887f10d5686a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">在左边标签下滑找到博客设置</li>
+<li><img data-src="https://img-blog.csdnimg.cn/01227a801990417db5a1ebe5d11e42c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">点击博客设置在右边找到markdown编辑器复选框勾选即可</li>
+<li><img data-src="https://img-blog.csdnimg.cn/d7a01b21a18a4a0592036c2b31d3a23c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><h2 id="写一篇博客"><a href="#写一篇博客" class="headerlink" title="写一篇博客"></a>写一篇博客</h2><img data-src="https://img-blog.csdnimg.cn/5ce14921a5c04d3984c69d3d9c3ef170.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>点击发布-&gt; 文章<br><img data-src="https://img-blog.csdnimg.cn/c3cc80fa214443538b747d373d217513.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>写好之后点击发布，这里不展示怎么用markdown语法了，有不知道的小伙伴可以问度娘，CSDN markdown编辑器默认右边也有帮助文档。</li>
+<li>点击生成之后，会生成一个扩展名为.md的文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md。</li>
+<li>复制完之后，用submit或者记事本编辑，在第一行加上title:标题,标题内容没有要求。 —-</li>
+<li><pre><code>                                        title:标题内容  
+</code></pre>
+</li>
+<li><pre><code>                                        ---                        
+</code></pre>
+</li>
+<li>接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件。</li>
+<li>然后 输入 hexo s(完整命令为hexo server)， 打开浏览器输入 localhost:4000，可以预览效果。</li>
+<li>最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上（可能因为网络原因，hexo d会不起作用，建议多试几次等到网络好了就可以成功部署了）。</li>
+<li>现在就完成了所有步骤了，有用的话请三连支持一波。 </li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 学习笔记 </category>
-          
+        <category>发布第一个HEXO博客</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习笔记 </tag>
-            
-        </tags>
-      
-    </entry>
+      <tags>
+        <tag>说明</tag>
+        <tag>other tag</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/12/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>三级网络笔记整理</title>
+    <url>/2021/10/31/san-ji-wang-luo-bi-ji-zheng-li/</url>
+    <content><![CDATA[<p>@<a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%AD%89%E7%BA%A7%E8%80%83%E8%AF%95%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0">TOC</a></p>
+<h2 id="RPR"><a href="#RPR" class="headerlink" title="RPR"></a>RPR</h2><ul>
+<li>使用双环结构</li>
+<li>由目的节点从环中收回</li>
+<li>执行SRP公平算法</li>
+<li>能够在50ms内实现自愈或者隔离出现故障的节点和光纤</li>
+<li>内环和外环都可以用于传输数据分组和控制分组</li>
+<li>是一种光纤传输分组的技术</li>
+<li>两个RPR节点最大长度为100公里</li>
+<li>用统计复用（ATDM）的方法传输IP分组</li>
+<li>RPR沿顺时针传输的光纤叫做外环 沿逆时针传输的叫做内环</li>
+</ul>
+<h2 id="宽带城域网"><a href="#宽带城域网" class="headerlink" title="宽带城域网"></a>宽带城域网</h2><ul>
+<li>三个平台和一个出口</li>
+<li>网络平台、业务平台、管理平台和城市宽带出口</li>
+<li>能够为用户提供带宽保证实现流量工程        核心层</li>
+<li>利用NAT解决IP地址资源不足的问题         汇聚层</li>
+<li>利用SNMP（网络管理协议）实现带外管理    接入层</li>
+<li>利用传统电信网实现带内管理</li>
+<li>对汇聚层及其以上设备采取带外管理，对汇聚层以下采取带内管理</li>
+<li>服务质量保障（QOS）的主要技术有资源预留（RSVP）、区分服务（DIFFServ）、多协议标记交换（MPLS）</li>
+<li>以TCP/IP协议为基础 以光传输网为基础 融合无线城域网 支持电信、电视与IP业务</li>
+</ul>
+<h2 id="宽带城域网汇聚层的基本功能"><a href="#宽带城域网汇聚层的基本功能" class="headerlink" title="宽带城域网汇聚层的基本功能"></a>宽带城域网汇聚层的基本功能</h2><ul>
+<li>汇聚接入层 根据接入层  根据处理结果把用户流量转发到核心交换层或本地进行路由处理</li>
+<li>宽带城域网核心（交换）层的基本功能</li>
+<li>将多个汇聚层连接起来，为汇聚层网络提供高速分组转发 为整个城域网提供数据传输环境</li>
+<li>实现与主干网络的互联 提供城市的宽带IP出口</li>
+<li>提供用户访问Internet所需要的路由服务  </li>
+</ul>
+<h2 id="OC"><a href="#OC" class="headerlink" title="OC"></a>OC</h2><ul>
+<li>OC-3  155.520Mbps </li>
+<li>OC-12 622.080Mbps  OC-3 *4 </li>
+<li> OC-24 1.244Gbps </li>
+<li> OC-48  2.488Gbps </li>
+<li>OC-192 9.954Gbps</li>
+</ul>
+<h2 id="接入网：解决用户接入因特网的需求（最后一公里）"><a href="#接入网：解决用户接入因特网的需求（最后一公里）" class="headerlink" title="接入网：解决用户接入因特网的需求（最后一公里）"></a>接入网：解决用户接入因特网的需求（最后一公里）</h2><ul>
+<li>xDSL技术按照上行与下行速率分为速率对称与非对称</li>
+<li>HDSL 上行传输速率为1.544Mbps</li>
+<li>ADSL：非对称数字用户电话线</li>
+<li>ADSL技术在现有用户电话线上同时支持电话业务和数字业务</li>
+<li>ADSL上行传输速率可以达到64Kbps-640Kbps</li>
+<li>ADSL下行传输速率可以达到500Kbps-7Mbps</li>
+<li>ADSL使用一对铜双绞线 上下行速率是不对称的</li>
+<li>ADSL modem 用于连接计算机</li>
+<li>采用ADSL技术可以通过PSTN接入Internet</li>
+<li></li>
+</ul>
+<h3 id="HFC（光纤同轴电缆混合网）技术"><a href="#HFC（光纤同轴电缆混合网）技术" class="headerlink" title="HFC（光纤同轴电缆混合网）技术"></a>HFC（光纤同轴电缆混合网）技术</h3><ul>
+<li>HFC为有线电视用户提供了一种接入Internet方式</li>
+<li>HFC是一种双向传输系统</li>
+<li>HFC光纤结点通过同轴电缆下引线为用户提供服务</li>
+<li>HFC通过Cable Modem将用户计算机与有线电视网同轴电缆连接起来  ！！</li>
+<li>Cable Modem 利用频分多路复用</li>
+<li>传输速率可达到10-36Mbps<h3 id="QOS：服务质量保障"><a href="#QOS：服务质量保障" class="headerlink" title="QOS：服务质量保障"></a>QOS：服务质量保障</h3>服务质量保障（QOS）的主要技术有资源预留（RSVP）、区分服务（DIFFServ）、多协议标记交换（MPLS）<h3 id="光以太网"><a href="#光以太网" class="headerlink" title="光以太网"></a>光以太网</h3></li>
+<li>APON 有线接入    </li>
+<li> SDH不属于宽带接入技术</li>
+<li> 以帧为单位传输数据 </li>
+<li>支持MPLS协议    </li>
+<li>提供分级的QOS服务<h3 id="无线接入技术"><a href="#无线接入技术" class="headerlink" title="无线接入技术"></a>无线接入技术</h3></li>
+<li>主要有WIFI（IEEE802.11） WIMAX（IEEE802.16） WPAN（IEEE802.15） Ad hoc 、WLAN（无线局域网） WMAN（无线城域网） WPAN（无线个人网）</li>
+<li>802.15 近距离无线带宽</li>
+<li>802.16最高传输速率为134Mbps</li>
+<li>802.16a 802.16d 802.16e 用于固定接入或者移动接入<h3 id="接入技术"><a href="#接入技术" class="headerlink" title="接入技术"></a>接入技术</h3></li>
+<li>宽带接入技术包括xDSL HFC 光纤接入 无线接入 - 和局域网接入</li>
+<li>无线接入技术主要WLAN WMAN</li>
+<li>802.11b将传输速率提高到11Mbps </li>
+<li>802.11a将传输速率提高到 54Mbps</li>
+<li>802.11g将传输速率提高到54Mbps</li>
+<li>光纤传输系统的中继距离可达100km以上   </li>
+<li>Cable Modem 频分多路复用<h3 id="ADSL-非对称"><a href="#ADSL-非对称" class="headerlink" title="ADSL 非对称"></a>ADSL 非对称</h3></li>
+<li>三网融合 ：计算机网络 电信通信网 广播电视网</li>
+<li>无源光接入网比有源光接入网 成本低</li>
+<li>通过HFC方式 每个用户不能独享信道带宽<h2 id="设备选型"><a href="#设备选型" class="headerlink" title="设备选型"></a>设备选型</h2><h3 id="服务器技术"><a href="#服务器技术" class="headerlink" title="服务器技术"></a>服务器技术</h3><h4 id="CPU相关"><a href="#CPU相关" class="headerlink" title="CPU相关"></a>CPU相关</h4>服务器的总体性能不仅取决于cpu的数量，而且与cpu主频、系统内存、网络速度等都有关系<br>采用RISC（精简指令集）结构相关处理器通常使用unix系统 而不采用Windows系统<h4 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h4>分布式内存访问（NUMA）技术将对称多处理器（SMP）和集群（Cluster）技术结合起。<h4 id="硬盘相关"><a href="#硬盘相关" class="headerlink" title="硬盘相关"></a>硬盘相关</h4></li>
+<li>磁盘性能体现在磁盘存储容量与I/O速度</li>
+<li>采用RAID技术可以提高磁盘存储容量，但是不能提高磁盘容错能力</li>
+<li>有些服务器自带RAID控制器 有些服务器需要外加一个RAID卡才能实现RAID功能</li>
+<li>RAID10 就是RAID0 和RAID1的组合</li>
+<li>RAID卡可以提供IDE、SCSI、SATA接口</li>
+<li>RAID卡可以提供给多个磁盘接口通道</li>
+<li>RAID5 可靠性优于RAID1<h4 id="整体相关"><a href="#整体相关" class="headerlink" title="整体相关"></a>整体相关</h4></li>
+<li>集群（Cluster）系统中一台主机出现故障时不会影响系统的正常服务</li>
+<li>集群系统一台主机出现故障时不会影响系统的整体性能</li>
+<li>服务器的可靠性用平均无故障时间（MTBF）描述</li>
+<li>服务器的可用性=MTBF/（MTBF +MTBR）平均维修时间（MTBR）</li>
+<li>热插拔功能允许用户在不切断电源的情况下更换硬盘、内存、电源、板卡等（不包括主板、主背板）<h3 id="关于B-S"><a href="#关于B-S" class="headerlink" title="关于B/S"></a>关于B/S</h3></li>
+<li>统一了客户端的程序</li>
+<li>网络应用建立在Web服务的基础上</li>
+<li>访问不同的应用服务器只需要Web浏览器作为统一的客户端程序</li>
+<li>浏览器不能直接访问数据库服务器</li>
+<li>采用三级架构<h3 id="路由器技术指标"><a href="#路由器技术指标" class="headerlink" title="路由器技术指标"></a>路由器技术指标</h3></li>
+<li>技术指标主要包括吞吐量、背板能力、丢包率、时延与时延抖动、突发处理能力、路由表容量、服务质量</li>
+<li>网管能力 可靠性 和可用性（不包括可堆叠数）</li>
+<li>吞吐量是指路由器的包转发能力</li>
+<li>背板能力决定了路由器的吞吐量  ！！！  </li>
+<li>丢包率通常是衡量路由器超负荷工作时的性能指标（之一）</li>
+<li>语音、视频业务对时延抖动要求较高</li>
+<li>突发处理能力 是以最小帧间隔发送数据包而不引起丢失的最大发送速率</li>
+<li>路由器的包转发能力与端口数量、端口速率、包长度和包类型有关</li>
+<li>高性能路由器一般采用可交换结构</li>
+<li>队列管理机制是指路由器的队列调度算法和拥塞管理机制</li>
+<li>路由器通过路由表来决定包转发路径<h3 id="关于高端路由器的可靠性与可用性指标"><a href="#关于高端路由器的可靠性与可用性指标" class="headerlink" title="关于高端路由器的可靠性与可用性指标"></a>关于高端路由器的可靠性与可用性指标</h3></li>
+<li>无故障连续工作时间大于10万个小时</li>
+<li>系统故障恢复时间小于30分钟</li>
+<li>主备系统切换时间小于50毫秒</li>
+<li>SDH和ATM接口具有自动保护切换功能 切换时间小于50毫秒<h2 id="交换机总带宽"><a href="#交换机总带宽" class="headerlink" title="交换机总带宽"></a>交换机总带宽</h2></li>
+<li>交换机总带宽计算方法：端口数<em>端口速率</em>2 </li>
+<li>在网络系统分层设计中，层次之间的上联端口带宽与下联带宽之比一般控制在1：20</li>
+<li><strong>==特别注意：在计算上联端口带宽时，不用除以20，其实就是计算总带宽==</strong><h2 id="服务器系统可用性"><a href="#服务器系统可用性" class="headerlink" title="服务器系统可用性"></a>服务器系统可用性</h2></li>
+<li>如果系统高可用性达到99.9%，那么每年的停机时间&lt;=8.8小时</li>
+<li>如果系统高可用性达到99.99%，那么每年的停机时间&lt;=53分钟（平均无故障时间可达525547分钟，365天减去53分钟）</li>
+<li>如果系统高可用性达到99.999%，那么每年的停机时间&lt;=5分钟<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2>使用私有地址的原因：可以节省IP地址<br>```</li>
+</ul>
+<p>10.0.0.0-10.255.255.255<br>172.16.0.0-172.31.255.255<br>192.168.0.0-192.168.255.255</p>
+<pre><code> - 两个计算机中的进程要互相通信，不仅要知道对方的IP地址（为了找到对方的计算机）
+而且要知道对方的端口号（为了找到对方计算机中的应用进程）
+ - 端口使用一个16位（二进制）端口进行标志，有65535个不同的端口。
+ - 服务器使用的端口（熟知端口）数值一般位0~1023
+</code></pre>
+<p>服务端常使用端口<br>FTP：21 TELNET：23 SMTP：25 DNS：53  TFTP：69<br>HTTP：80 SNMP：161 SNMP（trap）：162 HTTPS：443</p>
+<pre><code> - 客户端使用的端口号（随机端口）数值一般为1024~65535
+     - 第一类：内网主机访问外网服务器
+          - 判断哪一步是第一步 观察S后面的端口是否为    随机地址（左下角或者右上角的框）
+           - 主机访问外网服务器时：S被转换 D不变
+           - 服务器响应客户时 S不变 D被转换 
+ - 第二类：内网发布服务器，允许外网访问在外网主机连接内网服务器时必须使用公共地址，在路由器NAT转换表中D被转换，S 不变
+
+ - 路由器分组转发过程中，数据包中包含目的主机IP地址和下一跳MAC地址
+**==IPv6 二进制长度128位==**  
+ - 冒号十六进制允许零压缩  一个地址只能使用一次零压缩
+ - 不能使用子网掩码表示网络号长度
+ - 分为单播 组播 任意播
+## BGP
+ - 在互联网中，一个大的ISP就是一个自治系统（AS）
+ - 互联网把路由协议划分位两大类，一类是内部网关协议IGP这类路由协议使用的最多 如RIP和OSPF协议
+ - 另一类是外部网关协议EGP 目前使用的最多外部网关协议是BGP的版本4（BGP-4）
+ - 不同自治系统的路由器之间交换路由信息
+ - 一个BGP发言人使用TCP与其他自治系统中的BGP发言人交换路由信息
+ - BGP协议交换路由信息的节点数是以自治系统数为单位的
+ - BGP协议交换路由信息的节点数不小于自治系统数
+ - BGP-4采用路由（路径）向量协议
+ - **BGP路由选择协议执行中使用的四个分组为打开（open）、更新（update）、保活（keepalive）和通知（notification）**
+ - Open分组用来与相邻的另一个BGP发言人建立关系
+ - 两个属于不同自治域系统的边界路由器初始协商时首先要发送open分组
+ - 当路由信息变化时，BGP发言人使用update分组通知相邻自治系统
+ - 使用update分组更新路由时，一个报文只能增加一条路由
+ - 两个BGP发言人需要周期性地交换keep live分组来确认双方的相邻关系
+ - BGP协议的分组中，需要周期性交换的是keepalive
+## RIP
+ - 路由更新报文主要内容是由若干（V、D）组成的表
+ - 矢量V标识该路由器可以达到的目的网络或目的主机
+ - D代表距离，指出该路由器达到目的网络或目的主-机的距离（跳数）
+ - 路由器在接受到（V、D）报文后按照最短路径原则更新路由表
+ - 要求路由器周期性地向外发送路由更新报文 相邻路由
+ - RIP定时更新路由，默认每隔30秒更新一次
+ - 在RIP路由配置模式下，用passive-interface命令可配置被动接口
+ - RIP限制的最大跳数是15，如果超过15，则意味着路径不可到达
+ - RIP缺省的管理距离值是120，在路由配置模式下可用distance命令重新设置该值
+-**==方法：列表法（考试推荐使用）==**
+</code></pre>
+<p>R1之前的D        R1更新以后的D         R2传过来的D<br>0                     0         &lt;          3=2+1<br>？                    4         =          4=3+1<br>？                    4         &lt;          4=3+1<br>？                    3         &lt;          5=4+1</p>
+<pre><code> - 第三条和第四条路由信息&lt;说明没有更新，那么之前的值一定是4，3，第二条路由信息 =说明之前的值大于或等于4 
+ - 第一条路由信息，值是0说明R1直连此网段
+ - 如果R1的路由表没有此项纪录，R1在路由表中增加该项，由于要经过R2转发，因此距离D值加1
+ - 如果R1的路由表中的一项纪录比R2发送的D值加1还要大 R1修改该项      新的D值等于R2提供的D值加1
+ - 如果R1的路由表中的一项纪录小于等于R2发送的距离D值加1，则此项纪录保持不变
+</code></pre>
+<p>Router(config)#router rip<br>Router (config-router)#passive-interface g0/1<br>Router(config-router)#network ip<br>Rip不支持使用子网掩码 rip是有类路由协议 </p>
+<pre><code>## Ospf
+ - 适用规模很大的网络，ospf通过划分区域来提高路由更新速度
+ - 拥有一个32位的区域标识符
+ - Ospf区域内的每个路由器的链路状态包含本区域而不是全网的拓扑结构信息
+ - 一个区域的路由器数一般不超过200个
+ - 在一个ospf区域内部的路由器不知道其他区域的网络拓扑
+ - Ospf协议要求当链路状态发生变化时用洪泛法发送此信息（向所有路由器）
+ - 距离、延时、带宽都可以作为ospf协议链路状态度量
+ - Ospf使用最短路径算法 分布式链路状态协议
+ - 链路状态度量主要是指费用、延时、距离、带宽等。
+ - 使用ospf协议的路由器都建立一个链路状态数据库，即拓扑结构图（不是路由表）
+ - Ospf区域的数字标识符称为区域id
+ - 骨干区域的id为0
+ - 区域id为0 ~0.0.0.0
+ - Ospf的network语句中使用通配符掩码（反掩码），area语句中使用子网掩码
+## 设备工作层次
+ - 物理层的功能：比特流同行或信号通信
+ - 数据链路层：帧通信，例如以太网帧
+ - 网络层：包通信，例如IP包
+ - 集线器运行CSMA/CD介质访问控制方法（不是协议）
+    - CSMA/CD 以太网 CSMA/CA WIFI
+ - 连接到一个集线器的多个结点可以同时接受数据帧，但是同时只能由一个结点发送数据
+ - 集线器不能基于MAC地址完成数据转发
+ - 工作在数据链路层的设备：二层交换机 网桥 网卡
+透明网桥一般用在两个MAC层协议相同的网段之间的互联
+    - 网桥的主要性能指标包括帧转发速率和帧过滤速率 
+    - 网桥能够互联传输速率不同的局域网
+    - 交换机在源端口与目的端口间建立虚连接
+    - 连接二层交换机上不同VLAN成员之间不可以直接通信（通信需要三层设备）
+    - 二层交换机维护一个表示MAC地址与交换机端口对应关系的交换表   ！！！
+ - X type -y Name ：x表示以Mbps为单位的传输速率 
+ - type表示数据传输方式是基带传输方式还是频带
+y表示网段的最大长度，单位为100m
+ - IEEE 802.3 10Base-5采用基带传输
+## 综合布线
+
+- 建筑群子系统之间一般用光缆、双绞线、电器保护设备等来连接
+- 对于建筑群子系统来说，管道内布线是最理想的方式
     
+- ### 垂直干线子系统
+    - 干线线缆经常采用点对点结合和分支结合两种方式
+- ###    管理间子系统
+    - 采用在管理子系统中更改、增加、交换、扩展线缆的方式来改变线缆路由
+    -     管理子系统设置在楼层配线间内
+    -     管理子系统提供与其他子系统连接的手段
     
+- ###    水平子系统
+    -     双绞线扭绞可以减少电磁干扰
+    -     STP成本比UTP高 抗干扰能力强
+    -     作为水平布线系统电缆时 UTP电缆长度应该在90米以内
     
-    <entry>
-      <title>代码块测试</title>
-      <link href="/2021/11/11/dai-ma-kuai-an-niu-ce-shi/"/>
-      <url>/2021/11/11/dai-ma-kuai-an-niu-ce-shi/</url>
-      
-        <content type="html"><![CDATA[<h2 id="测试代码块"><a href="#测试代码块" class="headerlink" title="测试代码块"></a>测试代码块</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> Test<span class="token punctuation">;</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayUtilTest</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>        Arrayutil util<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Arrayutil</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">34</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">88</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> max<span class="token operator">=</span>util<span class="token punctuation">.</span><span class="token function">getMax</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最大值为："</span><span class="token operator">+</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"排序前："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        util<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>        util<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"排序后："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       util<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>              System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"查找："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>    <span class="token punctuation">}</span></code></pre>]]></content>
-      
-      
+- ###    工作区子系统
+    -     对高速率终端可采用光纤直接到桌面的方案
+    -     当在单一信息插座上进行两项服务时，宜采用Y形适配器
+    -     适配器具有转换不同速率的功能
+    -     嵌入式安装插座用来连接双绞线的
+    -     多介质插座是用来连接铜缆和光纤
+    -    在设备连接器与不同的信息插座连接时，可选用专用电缆或适配器。
+
+-    ### 综合部分
+    -    网络拓扑结构的组合逻辑描述网络功能的体系结构，配置形式描述网络单元的邻接关系
+    - PDS（综合布线系统）工程的设备配置是指各种配线架、布线子系统、传输介质和信息插座等的配置
+- 综合布线系统的标准 ：带568A或者568B的  GB/T 50311-2000
+- 对线缆最有利的和最不利的方式分别是管道内布线和直埋布线
+
+## 交换机  
+&lt;br/&gt;&lt;/br&gt;
+- 交换机接受数据包中的MAC地址和转发数据（不是IP地址）
+- 交换机建立和维护一个表示目的MAC地址与交换机端口对应关系的交换表
+- 交换表中没有接受某些帧的目的MAC地址时，交换机用flood（泛洪）技术转发该帧
+- 在一些高端交换机中，交换表通常被保存在CAM存储器（可编址内容存储器）中
+- Show mac-address-table 显示小型交换机的交换表内容 cisco大型交换机指的是 Catalyst 6500系列和Catalyst 4000系列 
+- Show cam dynamic 显示大型交换机的交换表的内容 
+- 采用盖时间戳的方法刷新交换表
+- 根据帧中目的地址，通过查询交换表确定是丢弃还是转发该帧，完成数据帧的转发或者过滤
+- 可将多台数据终端设备连接在一起，构成星状结构的网络，允许多对站点进行并发通信
+- 在交换机源端口和目的端口之间建立虚连接
+==**交换机由存储转发、快速转发和碎片丢弃三种交换模式。**==
+**- 交换机有三种配置模式 console（本地控制台）、telnet（远程命令行）、IE（web调试）**
+    - Console用于出厂第一次配置时采用的模式
+    - telnet要求交换机已经连接到网上 ，而且已配置了交换机的设备管理地址
+    - 直通交换模式的交换机开始转发数据帧已经接收到的帧长度为14个字节
+    - 碎片丢弃转发的交换机接收到的数据帧长度为64个字节
+    - 存储转发的交换机转发之前将整个帧读取到内存里，合法的帧长度为64-1518个字节
+- 数据字段的长度在46~1500字节之间
+- MAC帧格式  读取前14个字节（**物理层8个字节+数据链路层6个字节 目的地址**）
+- 对于大型交换机 交换表第一列是VLAN号 第二列是目的地址 第三列目的地址所对应的交换机端口号
+**如果没有VLAN则省略该列**
+- 对于小型交换机 交换表第一列是目的MAC地址（通常用点分隔） 第二列是地址类型 第三列是VLAN号 第四列是该目的MAC地址所对应的交换机端口号 
+- ==小型交换机设置时间的格式是 clock set 小时：分钟：秒 日 月 年 （没有星期）==
+- ==大型交换机设置时间的格式是 set time 星期 月/日/年 小时：分钟 ：秒==
+## 交换机基本命令 
+- 配置交换机的设备管理地址首先要进入VLAN 
+- VLAN1是用于设备管理的缺省VLAN 语句：
+</code></pre>
+<p>switch 3548（config）#interface VLAN1</p>
+<pre><code>- 表示进入接口 switch 3548（config-if）#ip address ip 子网掩码 表示为交换机添加管理IP 配置缺省路由语句：
+</code></pre>
+<p>switch-3548（config）#IP default-gateway 路由地址</p>
+<pre><code>- 配置远程登录管理口令 
+</code></pre>
+<p>line vty 0 45</p>
+<pre><code>
+## VLAN
+- VLAN以交换式网络为基础
+-     工作在数据链路层 
+-     VLAN之间通信必须通过路由器 内部不能通信
+-     VLAN通常用VLAN ID 和VLAN name标识
+-     Vlan id范围1-1001（或者1-1000） 以太网vlan   扩展vlan id 范围1025~4094
+-     用于标识VLAN 的VLAN id 用12bit表示
+-     IEEE802.1Q 标准规定，VLAN name 最多用32个字符表示 VLAN id用12bit表示
+- 缺省的vlan名是系统根据vlan id自动生成的
+-     把每个连接到交换机设备的mac地址定义vlan成员是一种动态的vlan
+-     工作在VTP client模式下的交换机 要学习来自VTP server的VLAN信息
+-     不同厂家交换机互连要实现 VLAN trunk 功能时 必须在直连的两台交换机端口上都封装上IEEE 802.1Q协议，从而保证协议的一致性
+-     **Vlan 1是系统默认vlan 不能使用 no vlan1删除vlan 添加vlan id号 name vlan名**
+-     建立vlan配置语句 
+</code></pre>
+<p>vlan 500 name vlan名</p>
+<pre><code>-     划分vlan 可以基于mac地址或者基于端口
+-     VRP server提供VTP信息 VTP client 可以请求VTP消息学习相同域名的VTP消息 VTP transparenet模式相当于一个独立的交换机不参与VTP工作
+- 设置VTP域名的语句是VTP domain 域名
+## STP
+1.    Stp(生成树协议)标准是IEEE 802.1D
+2.    STP是一个二层链路管理协议
+3.    STP运行在交换机和网桥设备上，通过计算建立一个稳定的树状结构网络
+4.    STP到运行在交换机上（不包括路由器）
+5.    STP无论是根的确定还是树状结构的生成，主要依靠BPDU提供的信息
+6.    Birdg id由8个字节组成，两个字节的优先级值和6个字节的交换机MAC地址
+7.    Bridge id由优先级值和交换机的MAC地址组成，优先级的增量式4096
+8.    在配置BPDU的bridge id中，优先级的取值范围是0~61440，增量为4096
+9.    优先级取值越小，优先级越高 当优先级相同时 就根据MAC地址的值决定根网桥 MAC地址值最小的为根网桥
+10.    一般交换机的优先级默认值为32768
+11.    Bridge id值最小的成为根网桥或者根交换机
+12.    拓扑变化通知BPDU数据包的长度不超过4个字节（小于等于四个字节）
+13.    配置BPDU数据包的长度小于等于35个字节
+14.    Stp在交换机之间传递BPDU数据包，默认每2秒定时发送一次
+15.    生成树中阻塞端口只能接收和读取BPDU，不能接收和转发数据流
+16.    网桥协议数据单元携带的实现生成树算法的信息 不包括Root MAC Address
+17.    非直连链路失效，使用BackboneFast功能。 Set spantree backbonefast enable
+18.    直连链路失效，使用uplinkFast 功能。
+19.    配置直连链路失效时的收敛速度 命令为 spanning-tree uplinkfast max- update-rate 32000
+20.    加快pc机和服务器接入到网络中的速度，stp可选的正确配置时 set spantree portfast 4/1-24 enable
+21.    设置交换机优先级 set spantree priority 优先级数
+## 6500交换机
+1. Cisco大型交换机主要指 catalyst 6500 和catalyst 4000系列 其他型号为小型交换机
+2. 所有命令的英文字母不区分大小写 ，只有作为名称使用时才区分大小写
+3. ==大型交换机设置时间 星期 月日 年 时分秒==
+4. ==小型交换机设置时间 时分秒 日月年==
+**2/1 模块号/端口号**
+</code></pre>
+<p>6500<br>Set port duplex 4/5 half 半双工<br>Set port duplex 4/5 FULL 全双工<br>Set port speed 4/5 1000 设置千兆速率<br>Set port enable 5/1-12 激活端口 5/1-5/12 (×)<br>3500<br>Interface g0/1<br>No shutdown 激活端口<br>Duplex full 全双工<br>Speed 1000 设置速率</p>
+<pre><code>### 交换机6500配置设备管理地址 和缺省路由
+ **Set interface sc0 ip地址 子网掩码 广播地址**
+**Set ip route 0.0.0.0 路由地址**
+### 交换机3548配置设备管理地址和缺省路由
+**Interface vlan1 
+IP address IP地址
+IP default gateway 网关地址**
+### 配置6500交换机vlan ：
+- **配置vlan的trunk模式  （enable） set trunk 5/1 on dot1q**
+-     **配置允许中继的**
+- **vlan   set trunk 5/1 vlan 10-35**  
+-     **配置不允许中继的vlan  （enable） clear trunk 5/1 23**
+### 配置3500 交换机
+**Switchport trunk  encapsulation 协议名**
+**Switchport trunk   allowed vlan 端口范围**
+**Switchport trunk   allowed vlan except 3-16**
+
+## 路由器
+- 路由器分组转发的数据包中包括是目的主机的IP地址和下一跳MAC地址 而不是目的主机的MAC地址
+-     Cisco路由器 回答 no 进入用户模式 回答yes进入设置模式
+-     执行命令enable 进入特权模式 router #
+-     在特权模式下执行命令 configure terminal 进入全局配置模式 Router（config ）# 
+-     在全局模式下执行命令line vty  0 4 进入虚拟终端配置模式 Router（config -line）# 执行exit返回全局配置模式
+-     执行命令 router IP 进入路由协议配置模式 
+-     执行路由器的IP route 命令必须进入的工作模式是 全局配置模式
+-     显示路由器的配置信息时，路由器必须进入的工作模式 特权模式  查看路由表信息命令 show up route
+-      Global configuration 全局模式 Privileged EXEC（特权模式） setup是设置模式 user EXEC（用户模式）
+-     恢复密码必须进入的模式时 RXBOOT（维护模式）
+-     煤油任何配置的Cisco路由器需要进入的模式是设置模式
+-     Cisco 路由器主要存储器和对应的存储文件：
+1. Rom存储器 （只读存储器），存储开诊断程序、引导程序、IOS（设备操作系统）
+2. RAM存储器（主内存），存储running-config 文件（运行配置文件）
+3. NVRAM（非易失性存储器），存储startup-config 文件（启动配置文件）
+4. Flash存储器（闪存），存储IOS（设备操作系统）映像和微代码
+- 管理距离的值越小，路由信息源的可信度越高。 
+-     直接连接 0 静态路由 1 OSPF 110 RIP 120 外部**BGP 20 内部 BGP 200 未知 255**
+-     最短路径优先协议（OSPF）使用分布式链路状态算法
+-     路由信息协议（RIP）是一种基于距离向量的路由选择协议
+-     边界网关协议（BGP）可以在两个自治域系统间传递路由选择信息
+-     链路状态度量主要包括带宽、距离、费用、延时等
+
+### 路由表
+1.    第一列表示路由项的来源 标识这个路由项是通过什么方式或者通过何种路由选择协议建立的
+2.    第二列表示目的网络地址和子网掩码
+3.    第三列表示目的端口或下一跳路由器的地址
+4.    第四列 【】中前半部分为管理距离 后半部分为权值
+5.    第五列是vlan网络
+**C表示直连（connected）管理距离 0 
+S表示静态（static）路由  管理距离1 
+O表示OSPF协议 管理距离110 
+IGRP 100 IS-IS 115
+E1表示OSPF外部路由类型 1 E2表示外部路由类型2
+S*表示缺省路哟
+B表示BGP**
+- 查看路由表是否正确，使用排除法，步骤如下：
+    1.    先看中括号：第一个数字即管理距离（AD值）
+    2.    然后看via后跟IP地址（不是端口） 直连网段（C）没有 via
+    3.    默认路由（第一句和最后一句是否匹配） 网址和子网掩码都是0 0.0.0/0
+    4.    对路由器而言网段属于端口而不是vlan 对第三层交换机而言 网段属于vlan而不是端口
+## 路由器配置
+- Loopback（回环接口）是一个虚拟接口，没有一个实际的物理接口与之对应
+- 网络管理员为loop back接口分配一个IP地址 其掩码应为 255.255.255.255
+- Loop back永远处于激活状态，可用于网络管理
+- 通过拨号远程配置Cisco路由器时，应使用的接口是AUX 
+## 常考点
+</code></pre>
+<p>Router（config）#interface pos 3/0<br>Router（config-if）# bandwidth 1000000 带宽  位kbps<br>Router（config-if）#IP address IP地址 子网掩码 添加IP地址<br>Router（config-if）#crc  crc循环冗余校验 可选crc16或者32<br>Router（config-if）# pos framing sdh 帧格式 可选sdh或者sonet<br>Router（config-if）#no IP directed-broadcast 去掉广播功能<br>Router（config-if）#pos flag s1s0 2  s1s0 2对应sdh  s1s0 0对应SONET<br>No shutdown 激活接口<br>缺省（默认）路由是一种特殊的路由 写法是ip route 0.0.0.0 0.0.0.0 下一跳IP<br>Cisco路由器DHCP地址池配置</p>
+<ol>
+<li>   首先排除不用于动态分配的地址 router（config）#ip dhcp excluded-address  起始IP 结束IP</li>
+<li>   配置地址池  router（config） #IP dhcp pool</li>
+<li>   配置IP地址池的子网地址和子网掩码  router（dhcp-config） #network</li>
+<li>   配置缺省网关  router(dhcp-config) #default -router</li>
+<li>   配置IP地址池的域名 router（dhcp-config）#domain-name</li>
+<li>   配置域名服务器的IP地址 router(dhcp -config) #dns -server address</li>
+<li>   配置租借期 router （dhcp-config） #lease  天数 小时数 分钟数<br>异步串行接口 a开头 同步串行接口s开头<br>配置异步串行接口 async default IP address  IP<br>配置同步串行接口 IP address IP地址 子网掩码<br>```<h2 id="路由器ACL"><a href="#路由器ACL" class="headerlink" title="路由器ACL"></a>路由器ACL</h2></li>
+</ol>
+<ul>
+<li>分为两类ACL：<ol>
+<li>标准ACL：检查路由数据包的源IP地址</li>
+<li>扩展ACL：检查数据包的源和目的IP地址 或者特定的协议 端口和其他参</li>
+</ol>
+</li>
+<li>ACL编号 ：<strong>1 -99 1300-1999 代表标准ACL  100-199 或2000-2999表明扩展ACL</strong></li>
+<li>配置步骤<ol>
+<li>第一步：全局配置命令access-list来创建ACL </li>
+<li>第二步：接口配置命令ip access-group 在接口上应用ACL</li>
+</ol>
+</li>
+<li>ACL语句中的掩码应该使用反掩码<br>Eq （等于）</li>
+<li>Access-list 编号 deny udp 源IP 源port （随端口，一般省略） 目的IP 目的port</li>
+<li>命名式标准ACL<br>Ip access-list standard block<br>Config -std – nacl 2</li>
+<li>Permit icmp IP地址 子网掩码 any<br>有端口是扩展ACL<h2 id="无线网"><a href="#无线网" class="headerlink" title="无线网"></a>无线网</h2></li>
+<li>IEEE802.11 定义在ISM频段（波段） </li>
+<li><pre><code>ISM频段（波段）无须申请
+</code></pre>
+</li>
+<li><pre><code>传输速率为1Mbps或2Mbps 使用CSMA/CA
+</code></pre>
+</li>
+<li><pre><code>WIFI的组网类型     1. 点对点 对等 AD HOC 无AP 有无线网 不存在有线网 无线网卡    2. 基本 有AP 有无线网卡 无线网和有线网都存在 AP
+</code></pre>
+</li>
+<li>IEEE 802.11   2.4GHz ISM频段 最大传输速率1Mbps-2Mbps</li>
+<li><pre><code>IEEE 802.11b 2.4GHz ISM频段 最大传输速率11Mbps               
+</code></pre>
+</li>
+<li><pre><code>IEEE 802.11g 2.4GHz ISM频段 最大传输速率 54Mbps
+</code></pre>
+</li>
+<li><pre><code>IEEE 802.11a 5HzG UNII频段  最大传输速率54Mbps
+</code></pre>
+</li>
+<li><pre><code>最多256PC
+</code></pre>
+</li>
+<li><pre><code>Aironet 1100是AP
+</code></pre>
+</li>
+<li><pre><code>采用无线连接配置接入点时，不配置SSID或SSID配置为tsunmi SSID无线接入点名称
+</code></pre>
+</li>
+<li><pre><code>接入点的默认管理ip是10.0.0.1 密码为Cisco
+</code></pre>
+</li>
+<li><pre><code> 对称连接的异步信道速率是433.9kbps
+</code></pre>
+</li>
+<li><pre><code>非对称连接的异步信道速率是433.9kbps/57,6kbps
+</code></pre>
+</li>
+<li><pre><code>同步信道速率是64kbps
+</code></pre>
+</li>
+</ul>
+<p><img data-src="https://img-blog.csdnimg.cn/f7732206ba4d42b3808722b7c6fdd4fb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+]]></content>
       <categories>
-          
-          <category> 测试文章 </category>
-          
+        <category>笔记整理</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>三级网络笔记整理</title>
-      <link href="/2021/10/31/san-ji-wang-luo-bi-ji-zheng-li/"/>
-      <url>/2021/10/31/san-ji-wang-luo-bi-ji-zheng-li/</url>
-      
-        <content type="html"><![CDATA[<p>@<a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%AD%89%E7%BA%A7%E8%80%83%E8%AF%95%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0">TOC</a></p><h2 id="RPR"><a href="#RPR" class="headerlink" title="RPR"></a>RPR</h2><ul><li>使用双环结构</li><li>由目的节点从环中收回</li><li>执行SRP公平算法</li><li>能够在50ms内实现自愈或者隔离出现故障的节点和光纤</li><li>内环和外环都可以用于传输数据分组和控制分组</li><li>是一种光纤传输分组的技术</li><li>两个RPR节点最大长度为100公里</li><li>用统计复用（ATDM）的方法传输IP分组</li><li>RPR沿顺时针传输的光纤叫做外环 沿逆时针传输的叫做内环</li></ul><h2 id="宽带城域网"><a href="#宽带城域网" class="headerlink" title="宽带城域网"></a>宽带城域网</h2><ul><li>三个平台和一个出口</li><li>网络平台、业务平台、管理平台和城市宽带出口</li><li>能够为用户提供带宽保证实现流量工程        核心层</li><li>利用NAT解决IP地址资源不足的问题         汇聚层</li><li>利用SNMP（网络管理协议）实现带外管理    接入层</li><li>利用传统电信网实现带内管理</li><li>对汇聚层及其以上设备采取带外管理，对汇聚层以下采取带内管理</li><li>服务质量保障（QOS）的主要技术有资源预留（RSVP）、区分服务（DIFFServ）、多协议标记交换（MPLS）</li><li>以TCP/IP协议为基础 以光传输网为基础 融合无线城域网 支持电信、电视与IP业务</li></ul><h2 id="宽带城域网汇聚层的基本功能"><a href="#宽带城域网汇聚层的基本功能" class="headerlink" title="宽带城域网汇聚层的基本功能"></a>宽带城域网汇聚层的基本功能</h2><ul><li>汇聚接入层 根据接入层  根据处理结果把用户流量转发到核心交换层或本地进行路由处理</li><li>宽带城域网核心（交换）层的基本功能</li><li>将多个汇聚层连接起来，为汇聚层网络提供高速分组转发 为整个城域网提供数据传输环境</li><li>实现与主干网络的互联 提供城市的宽带IP出口</li><li>提供用户访问Internet所需要的路由服务  </li></ul><h2 id="OC"><a href="#OC" class="headerlink" title="OC"></a>OC</h2><ul><li>OC-3  155.520Mbps </li><li>OC-12 622.080Mbps  OC-3 *4 </li><li> OC-24 1.244Gbps </li><li> OC-48  2.488Gbps </li><li>OC-192 9.954Gbps</li></ul><h2 id="接入网：解决用户接入因特网的需求（最后一公里）"><a href="#接入网：解决用户接入因特网的需求（最后一公里）" class="headerlink" title="接入网：解决用户接入因特网的需求（最后一公里）"></a>接入网：解决用户接入因特网的需求（最后一公里）</h2><ul><li>xDSL技术按照上行与下行速率分为速率对称与非对称</li><li>HDSL 上行传输速率为1.544Mbps</li><li>ADSL：非对称数字用户电话线</li><li>ADSL技术在现有用户电话线上同时支持电话业务和数字业务</li><li>ADSL上行传输速率可以达到64Kbps-640Kbps</li><li>ADSL下行传输速率可以达到500Kbps-7Mbps</li><li>ADSL使用一对铜双绞线 上下行速率是不对称的</li><li>ADSL modem 用于连接计算机</li><li>采用ADSL技术可以通过PSTN接入Internet</li><li></li></ul><h3 id="HFC（光纤同轴电缆混合网）技术"><a href="#HFC（光纤同轴电缆混合网）技术" class="headerlink" title="HFC（光纤同轴电缆混合网）技术"></a>HFC（光纤同轴电缆混合网）技术</h3><ul><li>HFC为有线电视用户提供了一种接入Internet方式</li><li>HFC是一种双向传输系统</li><li>HFC光纤结点通过同轴电缆下引线为用户提供服务</li><li>HFC通过Cable Modem将用户计算机与有线电视网同轴电缆连接起来  ！！</li><li>Cable Modem 利用频分多路复用</li><li>传输速率可达到10-36Mbps<h3 id="QOS：服务质量保障"><a href="#QOS：服务质量保障" class="headerlink" title="QOS：服务质量保障"></a>QOS：服务质量保障</h3>服务质量保障（QOS）的主要技术有资源预留（RSVP）、区分服务（DIFFServ）、多协议标记交换（MPLS）<h3 id="光以太网"><a href="#光以太网" class="headerlink" title="光以太网"></a>光以太网</h3></li><li>APON 有线接入    </li><li> SDH不属于宽带接入技术</li><li> 以帧为单位传输数据 </li><li>支持MPLS协议    </li><li>提供分级的QOS服务<h3 id="无线接入技术"><a href="#无线接入技术" class="headerlink" title="无线接入技术"></a>无线接入技术</h3></li><li>主要有WIFI（IEEE802.11） WIMAX（IEEE802.16） WPAN（IEEE802.15） Ad hoc 、WLAN（无线局域网） WMAN（无线城域网） WPAN（无线个人网）</li><li>802.15 近距离无线带宽</li><li>802.16最高传输速率为134Mbps</li><li>802.16a 802.16d 802.16e 用于固定接入或者移动接入<h3 id="接入技术"><a href="#接入技术" class="headerlink" title="接入技术"></a>接入技术</h3></li><li>宽带接入技术包括xDSL HFC 光纤接入 无线接入 - 和局域网接入</li><li>无线接入技术主要WLAN WMAN</li><li>802.11b将传输速率提高到11Mbps </li><li>802.11a将传输速率提高到 54Mbps</li><li>802.11g将传输速率提高到54Mbps</li><li>光纤传输系统的中继距离可达100km以上   </li><li>Cable Modem 频分多路复用<h3 id="ADSL-非对称"><a href="#ADSL-非对称" class="headerlink" title="ADSL 非对称"></a>ADSL 非对称</h3></li><li>三网融合 ：计算机网络 电信通信网 广播电视网</li><li>无源光接入网比有源光接入网 成本低</li><li>通过HFC方式 每个用户不能独享信道带宽<h2 id="设备选型"><a href="#设备选型" class="headerlink" title="设备选型"></a>设备选型</h2><h3 id="服务器技术"><a href="#服务器技术" class="headerlink" title="服务器技术"></a>服务器技术</h3><h4 id="CPU相关"><a href="#CPU相关" class="headerlink" title="CPU相关"></a>CPU相关</h4>服务器的总体性能不仅取决于cpu的数量，而且与cpu主频、系统内存、网络速度等都有关系<br>采用RISC（精简指令集）结构相关处理器通常使用unix系统 而不采用Windows系统<h4 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a>内存相关</h4>分布式内存访问（NUMA）技术将对称多处理器（SMP）和集群（Cluster）技术结合起。<h4 id="硬盘相关"><a href="#硬盘相关" class="headerlink" title="硬盘相关"></a>硬盘相关</h4></li><li>磁盘性能体现在磁盘存储容量与I/O速度</li><li>采用RAID技术可以提高磁盘存储容量，但是不能提高磁盘容错能力</li><li>有些服务器自带RAID控制器 有些服务器需要外加一个RAID卡才能实现RAID功能</li><li>RAID10 就是RAID0 和RAID1的组合</li><li>RAID卡可以提供IDE、SCSI、SATA接口</li><li>RAID卡可以提供给多个磁盘接口通道</li><li>RAID5 可靠性优于RAID1<h4 id="整体相关"><a href="#整体相关" class="headerlink" title="整体相关"></a>整体相关</h4></li><li>集群（Cluster）系统中一台主机出现故障时不会影响系统的正常服务</li><li>集群系统一台主机出现故障时不会影响系统的整体性能</li><li>服务器的可靠性用平均无故障时间（MTBF）描述</li><li>服务器的可用性=MTBF/（MTBF +MTBR）平均维修时间（MTBR）</li><li>热插拔功能允许用户在不切断电源的情况下更换硬盘、内存、电源、板卡等（不包括主板、主背板）<h3 id="关于B-S"><a href="#关于B-S" class="headerlink" title="关于B/S"></a>关于B/S</h3></li><li>统一了客户端的程序</li><li>网络应用建立在Web服务的基础上</li><li>访问不同的应用服务器只需要Web浏览器作为统一的客户端程序</li><li>浏览器不能直接访问数据库服务器</li><li>采用三级架构<h3 id="路由器技术指标"><a href="#路由器技术指标" class="headerlink" title="路由器技术指标"></a>路由器技术指标</h3></li><li>技术指标主要包括吞吐量、背板能力、丢包率、时延与时延抖动、突发处理能力、路由表容量、服务质量</li><li>网管能力 可靠性 和可用性（不包括可堆叠数）</li><li>吞吐量是指路由器的包转发能力</li><li>背板能力决定了路由器的吞吐量  ！！！  </li><li>丢包率通常是衡量路由器超负荷工作时的性能指标（之一）</li><li>语音、视频业务对时延抖动要求较高</li><li>突发处理能力 是以最小帧间隔发送数据包而不引起丢失的最大发送速率</li><li>路由器的包转发能力与端口数量、端口速率、包长度和包类型有关</li><li>高性能路由器一般采用可交换结构</li><li>队列管理机制是指路由器的队列调度算法和拥塞管理机制</li><li>路由器通过路由表来决定包转发路径<h3 id="关于高端路由器的可靠性与可用性指标"><a href="#关于高端路由器的可靠性与可用性指标" class="headerlink" title="关于高端路由器的可靠性与可用性指标"></a>关于高端路由器的可靠性与可用性指标</h3></li><li>无故障连续工作时间大于10万个小时</li><li>系统故障恢复时间小于30分钟</li><li>主备系统切换时间小于50毫秒</li><li>SDH和ATM接口具有自动保护切换功能 切换时间小于50毫秒<h2 id="交换机总带宽"><a href="#交换机总带宽" class="headerlink" title="交换机总带宽"></a>交换机总带宽</h2></li><li>交换机总带宽计算方法：端口数<em>端口速率</em>2 </li><li>在网络系统分层设计中，层次之间的上联端口带宽与下联带宽之比一般控制在1：20</li><li><strong>==特别注意：在计算上联端口带宽时，不用除以20，其实就是计算总带宽==</strong><h2 id="服务器系统可用性"><a href="#服务器系统可用性" class="headerlink" title="服务器系统可用性"></a>服务器系统可用性</h2></li><li>如果系统高可用性达到99.9%，那么每年的停机时间&lt;=8.8小时</li><li>如果系统高可用性达到99.99%，那么每年的停机时间&lt;=53分钟（平均无故障时间可达525547分钟，365天减去53分钟）</li><li>如果系统高可用性达到99.999%，那么每年的停机时间&lt;=5分钟<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2>使用私有地址的原因：可以节省IP地址<br>```</li></ul><p>10.0.0.0-10.255.255.255<br>172.16.0.0-172.31.255.255<br>192.168.0.0-192.168.255.255</p><pre><code> - 两个计算机中的进程要互相通信，不仅要知道对方的IP地址（为了找到对方的计算机）而且要知道对方的端口号（为了找到对方计算机中的应用进程） - 端口使用一个16位（二进制）端口进行标志，有65535个不同的端口。 - 服务器使用的端口（熟知端口）数值一般位0~1023</code></pre><p>服务端常使用端口<br>FTP：21 TELNET：23 SMTP：25 DNS：53  TFTP：69<br>HTTP：80 SNMP：161 SNMP（trap）：162 HTTPS：443</p><pre><code> - 客户端使用的端口号（随机端口）数值一般为1024~65535     - 第一类：内网主机访问外网服务器          - 判断哪一步是第一步 观察S后面的端口是否为    随机地址（左下角或者右上角的框）           - 主机访问外网服务器时：S被转换 D不变           - 服务器响应客户时 S不变 D被转换  - 第二类：内网发布服务器，允许外网访问在外网主机连接内网服务器时必须使用公共地址，在路由器NAT转换表中D被转换，S 不变 - 路由器分组转发过程中，数据包中包含目的主机IP地址和下一跳MAC地址**==IPv6 二进制长度128位==**   - 冒号十六进制允许零压缩  一个地址只能使用一次零压缩 - 不能使用子网掩码表示网络号长度 - 分为单播 组播 任意播## BGP - 在互联网中，一个大的ISP就是一个自治系统（AS） - 互联网把路由协议划分位两大类，一类是内部网关协议IGP这类路由协议使用的最多 如RIP和OSPF协议 - 另一类是外部网关协议EGP 目前使用的最多外部网关协议是BGP的版本4（BGP-4） - 不同自治系统的路由器之间交换路由信息 - 一个BGP发言人使用TCP与其他自治系统中的BGP发言人交换路由信息 - BGP协议交换路由信息的节点数是以自治系统数为单位的 - BGP协议交换路由信息的节点数不小于自治系统数 - BGP-4采用路由（路径）向量协议 - **BGP路由选择协议执行中使用的四个分组为打开（open）、更新（update）、保活（keepalive）和通知（notification）** - Open分组用来与相邻的另一个BGP发言人建立关系 - 两个属于不同自治域系统的边界路由器初始协商时首先要发送open分组 - 当路由信息变化时，BGP发言人使用update分组通知相邻自治系统 - 使用update分组更新路由时，一个报文只能增加一条路由 - 两个BGP发言人需要周期性地交换keep live分组来确认双方的相邻关系 - BGP协议的分组中，需要周期性交换的是keepalive## RIP - 路由更新报文主要内容是由若干（V、D）组成的表 - 矢量V标识该路由器可以达到的目的网络或目的主机 - D代表距离，指出该路由器达到目的网络或目的主-机的距离（跳数） - 路由器在接受到（V、D）报文后按照最短路径原则更新路由表 - 要求路由器周期性地向外发送路由更新报文 相邻路由 - RIP定时更新路由，默认每隔30秒更新一次 - 在RIP路由配置模式下，用passive-interface命令可配置被动接口 - RIP限制的最大跳数是15，如果超过15，则意味着路径不可到达 - RIP缺省的管理距离值是120，在路由配置模式下可用distance命令重新设置该值-**==方法：列表法（考试推荐使用）==**</code></pre><p>R1之前的D        R1更新以后的D         R2传过来的D<br>0                     0         &lt;          3=2+1<br>？                    4         =          4=3+1<br>？                    4         &lt;          4=3+1<br>？                    3         &lt;          5=4+1</p><pre><code> - 第三条和第四条路由信息&lt;说明没有更新，那么之前的值一定是4，3，第二条路由信息 =说明之前的值大于或等于4  - 第一条路由信息，值是0说明R1直连此网段 - 如果R1的路由表没有此项纪录，R1在路由表中增加该项，由于要经过R2转发，因此距离D值加1 - 如果R1的路由表中的一项纪录比R2发送的D值加1还要大 R1修改该项      新的D值等于R2提供的D值加1 - 如果R1的路由表中的一项纪录小于等于R2发送的距离D值加1，则此项纪录保持不变</code></pre><p>Router(config)#router rip<br>Router (config-router)#passive-interface g0/1<br>Router(config-router)#network ip<br>Rip不支持使用子网掩码 rip是有类路由协议 </p><pre><code>## Ospf - 适用规模很大的网络，ospf通过划分区域来提高路由更新速度 - 拥有一个32位的区域标识符 - Ospf区域内的每个路由器的链路状态包含本区域而不是全网的拓扑结构信息 - 一个区域的路由器数一般不超过200个 - 在一个ospf区域内部的路由器不知道其他区域的网络拓扑 - Ospf协议要求当链路状态发生变化时用洪泛法发送此信息（向所有路由器） - 距离、延时、带宽都可以作为ospf协议链路状态度量 - Ospf使用最短路径算法 分布式链路状态协议 - 链路状态度量主要是指费用、延时、距离、带宽等。 - 使用ospf协议的路由器都建立一个链路状态数据库，即拓扑结构图（不是路由表） - Ospf区域的数字标识符称为区域id - 骨干区域的id为0 - 区域id为0 ~0.0.0.0 - Ospf的network语句中使用通配符掩码（反掩码），area语句中使用子网掩码## 设备工作层次 - 物理层的功能：比特流同行或信号通信 - 数据链路层：帧通信，例如以太网帧 - 网络层：包通信，例如IP包 - 集线器运行CSMA/CD介质访问控制方法（不是协议）    - CSMA/CD 以太网 CSMA/CA WIFI - 连接到一个集线器的多个结点可以同时接受数据帧，但是同时只能由一个结点发送数据 - 集线器不能基于MAC地址完成数据转发 - 工作在数据链路层的设备：二层交换机 网桥 网卡透明网桥一般用在两个MAC层协议相同的网段之间的互联    - 网桥的主要性能指标包括帧转发速率和帧过滤速率     - 网桥能够互联传输速率不同的局域网    - 交换机在源端口与目的端口间建立虚连接    - 连接二层交换机上不同VLAN成员之间不可以直接通信（通信需要三层设备）    - 二层交换机维护一个表示MAC地址与交换机端口对应关系的交换表   ！！！ - X type -y Name ：x表示以Mbps为单位的传输速率  - type表示数据传输方式是基带传输方式还是频带y表示网段的最大长度，单位为100m - IEEE 802.3 10Base-5采用基带传输## 综合布线- 建筑群子系统之间一般用光缆、双绞线、电器保护设备等来连接- 对于建筑群子系统来说，管道内布线是最理想的方式    - ### 垂直干线子系统    - 干线线缆经常采用点对点结合和分支结合两种方式- ###    管理间子系统    - 采用在管理子系统中更改、增加、交换、扩展线缆的方式来改变线缆路由    -     管理子系统设置在楼层配线间内    -     管理子系统提供与其他子系统连接的手段    - ###    水平子系统    -     双绞线扭绞可以减少电磁干扰    -     STP成本比UTP高 抗干扰能力强    -     作为水平布线系统电缆时 UTP电缆长度应该在90米以内    - ###    工作区子系统    -     对高速率终端可采用光纤直接到桌面的方案    -     当在单一信息插座上进行两项服务时，宜采用Y形适配器    -     适配器具有转换不同速率的功能    -     嵌入式安装插座用来连接双绞线的    -     多介质插座是用来连接铜缆和光纤    -    在设备连接器与不同的信息插座连接时，可选用专用电缆或适配器。-    ### 综合部分    -    网络拓扑结构的组合逻辑描述网络功能的体系结构，配置形式描述网络单元的邻接关系    - PDS（综合布线系统）工程的设备配置是指各种配线架、布线子系统、传输介质和信息插座等的配置- 综合布线系统的标准 ：带568A或者568B的  GB/T 50311-2000- 对线缆最有利的和最不利的方式分别是管道内布线和直埋布线## 交换机  &lt;br/&gt;&lt;/br&gt;- 交换机接受数据包中的MAC地址和转发数据（不是IP地址）- 交换机建立和维护一个表示目的MAC地址与交换机端口对应关系的交换表- 交换表中没有接受某些帧的目的MAC地址时，交换机用flood（泛洪）技术转发该帧- 在一些高端交换机中，交换表通常被保存在CAM存储器（可编址内容存储器）中- Show mac-address-table 显示小型交换机的交换表内容 cisco大型交换机指的是 Catalyst 6500系列和Catalyst 4000系列 - Show cam dynamic 显示大型交换机的交换表的内容 - 采用盖时间戳的方法刷新交换表- 根据帧中目的地址，通过查询交换表确定是丢弃还是转发该帧，完成数据帧的转发或者过滤- 可将多台数据终端设备连接在一起，构成星状结构的网络，允许多对站点进行并发通信- 在交换机源端口和目的端口之间建立虚连接==**交换机由存储转发、快速转发和碎片丢弃三种交换模式。**==**- 交换机有三种配置模式 console（本地控制台）、telnet（远程命令行）、IE（web调试）**    - Console用于出厂第一次配置时采用的模式    - telnet要求交换机已经连接到网上 ，而且已配置了交换机的设备管理地址    - 直通交换模式的交换机开始转发数据帧已经接收到的帧长度为14个字节    - 碎片丢弃转发的交换机接收到的数据帧长度为64个字节    - 存储转发的交换机转发之前将整个帧读取到内存里，合法的帧长度为64-1518个字节- 数据字段的长度在46~1500字节之间- MAC帧格式  读取前14个字节（**物理层8个字节+数据链路层6个字节 目的地址**）- 对于大型交换机 交换表第一列是VLAN号 第二列是目的地址 第三列目的地址所对应的交换机端口号**如果没有VLAN则省略该列**- 对于小型交换机 交换表第一列是目的MAC地址（通常用点分隔） 第二列是地址类型 第三列是VLAN号 第四列是该目的MAC地址所对应的交换机端口号 - ==小型交换机设置时间的格式是 clock set 小时：分钟：秒 日 月 年 （没有星期）==- ==大型交换机设置时间的格式是 set time 星期 月/日/年 小时：分钟 ：秒==## 交换机基本命令 - 配置交换机的设备管理地址首先要进入VLAN - VLAN1是用于设备管理的缺省VLAN 语句：</code></pre><p>switch 3548（config）#interface VLAN1</p><pre><code>- 表示进入接口 switch 3548（config-if）#ip address ip 子网掩码 表示为交换机添加管理IP 配置缺省路由语句：</code></pre><p>switch-3548（config）#IP default-gateway 路由地址</p><pre><code>- 配置远程登录管理口令 </code></pre><p>line vty 0 45</p><pre><code>## VLAN- VLAN以交换式网络为基础-     工作在数据链路层 -     VLAN之间通信必须通过路由器 内部不能通信-     VLAN通常用VLAN ID 和VLAN name标识-     Vlan id范围1-1001（或者1-1000） 以太网vlan   扩展vlan id 范围1025~4094-     用于标识VLAN 的VLAN id 用12bit表示-     IEEE802.1Q 标准规定，VLAN name 最多用32个字符表示 VLAN id用12bit表示- 缺省的vlan名是系统根据vlan id自动生成的-     把每个连接到交换机设备的mac地址定义vlan成员是一种动态的vlan-     工作在VTP client模式下的交换机 要学习来自VTP server的VLAN信息-     不同厂家交换机互连要实现 VLAN trunk 功能时 必须在直连的两台交换机端口上都封装上IEEE 802.1Q协议，从而保证协议的一致性-     **Vlan 1是系统默认vlan 不能使用 no vlan1删除vlan 添加vlan id号 name vlan名**-     建立vlan配置语句 </code></pre><p>vlan 500 name vlan名</p><pre><code>-     划分vlan 可以基于mac地址或者基于端口-     VRP server提供VTP信息 VTP client 可以请求VTP消息学习相同域名的VTP消息 VTP transparenet模式相当于一个独立的交换机不参与VTP工作- 设置VTP域名的语句是VTP domain 域名## STP1.    Stp(生成树协议)标准是IEEE 802.1D2.    STP是一个二层链路管理协议3.    STP运行在交换机和网桥设备上，通过计算建立一个稳定的树状结构网络4.    STP到运行在交换机上（不包括路由器）5.    STP无论是根的确定还是树状结构的生成，主要依靠BPDU提供的信息6.    Birdg id由8个字节组成，两个字节的优先级值和6个字节的交换机MAC地址7.    Bridge id由优先级值和交换机的MAC地址组成，优先级的增量式40968.    在配置BPDU的bridge id中，优先级的取值范围是0~61440，增量为40969.    优先级取值越小，优先级越高 当优先级相同时 就根据MAC地址的值决定根网桥 MAC地址值最小的为根网桥10.    一般交换机的优先级默认值为3276811.    Bridge id值最小的成为根网桥或者根交换机12.    拓扑变化通知BPDU数据包的长度不超过4个字节（小于等于四个字节）13.    配置BPDU数据包的长度小于等于35个字节14.    Stp在交换机之间传递BPDU数据包，默认每2秒定时发送一次15.    生成树中阻塞端口只能接收和读取BPDU，不能接收和转发数据流16.    网桥协议数据单元携带的实现生成树算法的信息 不包括Root MAC Address17.    非直连链路失效，使用BackboneFast功能。 Set spantree backbonefast enable18.    直连链路失效，使用uplinkFast 功能。19.    配置直连链路失效时的收敛速度 命令为 spanning-tree uplinkfast max- update-rate 3200020.    加快pc机和服务器接入到网络中的速度，stp可选的正确配置时 set spantree portfast 4/1-24 enable21.    设置交换机优先级 set spantree priority 优先级数## 6500交换机1. Cisco大型交换机主要指 catalyst 6500 和catalyst 4000系列 其他型号为小型交换机2. 所有命令的英文字母不区分大小写 ，只有作为名称使用时才区分大小写3. ==大型交换机设置时间 星期 月日 年 时分秒==4. ==小型交换机设置时间 时分秒 日月年==**2/1 模块号/端口号**</code></pre><p>6500<br>Set port duplex 4/5 half 半双工<br>Set port duplex 4/5 FULL 全双工<br>Set port speed 4/5 1000 设置千兆速率<br>Set port enable 5/1-12 激活端口 5/1-5/12 (×)<br>3500<br>Interface g0/1<br>No shutdown 激活端口<br>Duplex full 全双工<br>Speed 1000 设置速率</p><pre><code>### 交换机6500配置设备管理地址 和缺省路由 **Set interface sc0 ip地址 子网掩码 广播地址****Set ip route 0.0.0.0 路由地址**### 交换机3548配置设备管理地址和缺省路由**Interface vlan1 IP address IP地址IP default gateway 网关地址**### 配置6500交换机vlan ：- **配置vlan的trunk模式  （enable） set trunk 5/1 on dot1q**-     **配置允许中继的**- **vlan   set trunk 5/1 vlan 10-35**  -     **配置不允许中继的vlan  （enable） clear trunk 5/1 23**### 配置3500 交换机**Switchport trunk  encapsulation 协议名****Switchport trunk   allowed vlan 端口范围****Switchport trunk   allowed vlan except 3-16**## 路由器- 路由器分组转发的数据包中包括是目的主机的IP地址和下一跳MAC地址 而不是目的主机的MAC地址-     Cisco路由器 回答 no 进入用户模式 回答yes进入设置模式-     执行命令enable 进入特权模式 router #-     在特权模式下执行命令 configure terminal 进入全局配置模式 Router（config ）# -     在全局模式下执行命令line vty  0 4 进入虚拟终端配置模式 Router（config -line）# 执行exit返回全局配置模式-     执行命令 router IP 进入路由协议配置模式 -     执行路由器的IP route 命令必须进入的工作模式是 全局配置模式-     显示路由器的配置信息时，路由器必须进入的工作模式 特权模式  查看路由表信息命令 show up route-      Global configuration 全局模式 Privileged EXEC（特权模式） setup是设置模式 user EXEC（用户模式）-     恢复密码必须进入的模式时 RXBOOT（维护模式）-     煤油任何配置的Cisco路由器需要进入的模式是设置模式-     Cisco 路由器主要存储器和对应的存储文件：1. Rom存储器 （只读存储器），存储开诊断程序、引导程序、IOS（设备操作系统）2. RAM存储器（主内存），存储running-config 文件（运行配置文件）3. NVRAM（非易失性存储器），存储startup-config 文件（启动配置文件）4. Flash存储器（闪存），存储IOS（设备操作系统）映像和微代码- 管理距离的值越小，路由信息源的可信度越高。 -     直接连接 0 静态路由 1 OSPF 110 RIP 120 外部**BGP 20 内部 BGP 200 未知 255**-     最短路径优先协议（OSPF）使用分布式链路状态算法-     路由信息协议（RIP）是一种基于距离向量的路由选择协议-     边界网关协议（BGP）可以在两个自治域系统间传递路由选择信息-     链路状态度量主要包括带宽、距离、费用、延时等### 路由表1.    第一列表示路由项的来源 标识这个路由项是通过什么方式或者通过何种路由选择协议建立的2.    第二列表示目的网络地址和子网掩码3.    第三列表示目的端口或下一跳路由器的地址4.    第四列 【】中前半部分为管理距离 后半部分为权值5.    第五列是vlan网络**C表示直连（connected）管理距离 0 S表示静态（static）路由  管理距离1 O表示OSPF协议 管理距离110 IGRP 100 IS-IS 115E1表示OSPF外部路由类型 1 E2表示外部路由类型2S*表示缺省路哟B表示BGP**- 查看路由表是否正确，使用排除法，步骤如下：    1.    先看中括号：第一个数字即管理距离（AD值）    2.    然后看via后跟IP地址（不是端口） 直连网段（C）没有 via    3.    默认路由（第一句和最后一句是否匹配） 网址和子网掩码都是0 0.0.0/0    4.    对路由器而言网段属于端口而不是vlan 对第三层交换机而言 网段属于vlan而不是端口## 路由器配置- Loopback（回环接口）是一个虚拟接口，没有一个实际的物理接口与之对应- 网络管理员为loop back接口分配一个IP地址 其掩码应为 255.255.255.255- Loop back永远处于激活状态，可用于网络管理- 通过拨号远程配置Cisco路由器时，应使用的接口是AUX ## 常考点</code></pre><p>Router（config）#interface pos 3/0<br>Router（config-if）# bandwidth 1000000 带宽  位kbps<br>Router（config-if）#IP address IP地址 子网掩码 添加IP地址<br>Router（config-if）#crc  crc循环冗余校验 可选crc16或者32<br>Router（config-if）# pos framing sdh 帧格式 可选sdh或者sonet<br>Router（config-if）#no IP directed-broadcast 去掉广播功能<br>Router（config-if）#pos flag s1s0 2  s1s0 2对应sdh  s1s0 0对应SONET<br>No shutdown 激活接口<br>缺省（默认）路由是一种特殊的路由 写法是ip route 0.0.0.0 0.0.0.0 下一跳IP<br>Cisco路由器DHCP地址池配置</p><ol><li>   首先排除不用于动态分配的地址 router（config）#ip dhcp excluded-address  起始IP 结束IP</li><li>   配置地址池  router（config） #IP dhcp pool</li><li>   配置IP地址池的子网地址和子网掩码  router（dhcp-config） #network</li><li>   配置缺省网关  router(dhcp-config) #default -router</li><li>   配置IP地址池的域名 router（dhcp-config）#domain-name</li><li>   配置域名服务器的IP地址 router(dhcp -config) #dns -server address</li><li>   配置租借期 router （dhcp-config） #lease  天数 小时数 分钟数<br>异步串行接口 a开头 同步串行接口s开头<br>配置异步串行接口 async default IP address  IP<br>配置同步串行接口 IP address IP地址 子网掩码<br>```<h2 id="路由器ACL"><a href="#路由器ACL" class="headerlink" title="路由器ACL"></a>路由器ACL</h2></li></ol><ul><li>分为两类ACL：<ol><li>标准ACL：检查路由数据包的源IP地址</li><li>扩展ACL：检查数据包的源和目的IP地址 或者特定的协议 端口和其他参</li></ol></li><li>ACL编号 ：<strong>1 -99 1300-1999 代表标准ACL  100-199 或2000-2999表明扩展ACL</strong></li><li>配置步骤<ol><li>第一步：全局配置命令access-list来创建ACL </li><li>第二步：接口配置命令ip access-group 在接口上应用ACL</li></ol></li><li>ACL语句中的掩码应该使用反掩码<br>Eq （等于）</li><li>Access-list 编号 deny udp 源IP 源port （随端口，一般省略） 目的IP 目的port</li><li>命名式标准ACL<br>Ip access-list standard block<br>Config -std – nacl 2</li><li>Permit icmp IP地址 子网掩码 any<br>有端口是扩展ACL<h2 id="无线网"><a href="#无线网" class="headerlink" title="无线网"></a>无线网</h2></li><li>IEEE802.11 定义在ISM频段（波段） </li><li><pre><code>ISM频段（波段）无须申请</code></pre></li><li><pre><code>传输速率为1Mbps或2Mbps 使用CSMA/CA</code></pre></li><li><pre><code>WIFI的组网类型     1. 点对点 对等 AD HOC 无AP 有无线网 不存在有线网 无线网卡    2. 基本 有AP 有无线网卡 无线网和有线网都存在 AP</code></pre></li><li>IEEE 802.11   2.4GHz ISM频段 最大传输速率1Mbps-2Mbps</li><li><pre><code>IEEE 802.11b 2.4GHz ISM频段 最大传输速率11Mbps               </code></pre></li><li><pre><code>IEEE 802.11g 2.4GHz ISM频段 最大传输速率 54Mbps</code></pre></li><li><pre><code>IEEE 802.11a 5HzG UNII频段  最大传输速率54Mbps</code></pre></li><li><pre><code>最多256PC</code></pre></li><li><pre><code>Aironet 1100是AP</code></pre></li><li><pre><code>采用无线连接配置接入点时，不配置SSID或SSID配置为tsunmi SSID无线接入点名称</code></pre></li><li><pre><code>接入点的默认管理ip是10.0.0.1 密码为Cisco</code></pre></li><li><pre><code> 对称连接的异步信道速率是433.9kbps</code></pre></li><li><pre><code>非对称连接的异步信道速率是433.9kbps/57,6kbps</code></pre></li><li><pre><code>同步信道速率是64kbps</code></pre></li></ul><p><img data-src="https://img-blog.csdnimg.cn/f7732206ba4d42b3808722b7c6fdd4fb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>小呆的测试文章</title>
+    <url>/2021/10/21/xiao-ai-de-ce-shi-wen-zhang/</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> 笔记整理 </category>
-          
+        <category>测试文章</category>
       </categories>
-      
-      
-    </entry>
+      <tags>
+        <tag>测试文章</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码块测试</title>
+    <url>/2021/11/11/dai-ma-kuai-an-niu-ce-shi/</url>
+    <content><![CDATA[<h2 id="测试代码块"><a href="#测试代码块" class="headerlink" title="测试代码块"></a>测试代码块</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> Test<span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayUtilTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Arrayutil util<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Arrayutil</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">34</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">88</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> max<span class="token operator">=</span>util<span class="token punctuation">.</span><span class="token function">getMax</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"最大值为："</span><span class="token operator">+</span>max<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"排序前："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        util<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        util<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"排序后："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       util<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       
+       System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"查找："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     
+    <span class="token punctuation">}</span>
     
-    
-    
-    <entry>
-      <title>小呆的测试文章</title>
-      <link href="/2021/10/21/xiao-ai-de-ce-shi-wen-zhang/"/>
-      <url>/2021/10/21/xiao-ai-de-ce-shi-wen-zhang/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+<span class="token punctuation">}</span>
+</code></pre>
+]]></content>
       <categories>
-          
-          <category> 测试文章 </category>
-          
+        <category>测试文章</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试文章 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2021/10/12/hello-world/"/>
-      <url>/2021/10/12/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>发布第一个博客</title>
-      <link href="/2021/01/01/2021-10-24/"/>
-      <url>/2021/01/01/2021-10-24/</url>
-      
-        <content type="html"><![CDATA[<h2 id="我的第一个博客"><a href="#我的第一个博客" class="headerlink" title="我的第一个博客"></a>我的第一个博客</h2><h2 id="关于怎么发布一个博客到搭建好的博客"><a href="#关于怎么发布一个博客到搭建好的博客" class="headerlink" title="关于怎么发布一个博客到搭建好的博客"></a>关于怎么发布一个博客到搭建好的博客</h2><h2 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h2><p>首先来认识一些hexo命令</p><blockquote><p>  hexo g #完整命令为hexo generate,用于生成静态文件</p><p>hexo s #完整命令为hexo server,用于启动服务器，主要用来本地预览</p><p>hexo d #完整命令为hexo deploy,用于将本地文件发布到github等git仓库上</p><p>hexo n “my article” #完整命令为hexo new,用于新建一篇名为“my article”的文章</p></blockquote><h2 id="用markdown编辑器写一篇文章"><a href="#用markdown编辑器写一篇文章" class="headerlink" title="用markdown编辑器写一篇文章"></a>用markdown编辑器写一篇文章</h2><p>csdn自带markdown编辑器</p><ol><li>点击右上角自己头像</li><li><img data-src="https://img-blog.csdnimg.cn/a9359e63f93c4f5792de887f10d5686a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">在左边标签下滑找到博客设置</li><li><img data-src="https://img-blog.csdnimg.cn/01227a801990417db5a1ebe5d11e42c3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center">点击博客设置在右边找到markdown编辑器复选框勾选即可</li><li><img data-src="https://img-blog.csdnimg.cn/d7a01b21a18a4a0592036c2b31d3a23c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><h2 id="写一篇博客"><a href="#写一篇博客" class="headerlink" title="写一篇博客"></a>写一篇博客</h2><img data-src="https://img-blog.csdnimg.cn/5ce14921a5c04d3984c69d3d9c3ef170.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>点击发布-&gt; 文章<br><img data-src="https://img-blog.csdnimg.cn/c3cc80fa214443538b747d373d217513.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>写好之后点击发布，这里不展示怎么用markdown语法了，有不知道的小伙伴可以问度娘，CSDN markdown编辑器默认右边也有帮助文档。</li><li>点击生成之后，会生成一个扩展名为.md的文件，把它复制到你hexo博客文件夹 中 source 下的 _posts 中，默认只有一个 hello-world.md。</li><li>复制完之后，用submit或者记事本编辑，在第一行加上title:标题,标题内容没有要求。 —-</li><li><pre><code>                                        title:标题内容  </code></pre></li><li><pre><code>                                        ---                        </code></pre></li><li>接着在你博客站点文件夹下右键空白处，选择Git Bash Here，输入 hexo g (完整命令为hexo generate)，用于生成静态文件。</li><li>然后 输入 hexo s(完整命令为hexo server)， 打开浏览器输入 localhost:4000，可以预览效果。</li><li>最后输入hexo d(hexo deploy)，用于将本地文件发布到github等git仓库上（可能因为网络原因，hexo d会不起作用，建议多试几次等到网络好了就可以成功部署了）。</li><li>现在就完成了所有步骤了，有用的话请三连支持一波。 </li></ol>]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>python学习笔记</title>
+    <url>/2021/11/25/python-zheng-ze-biao-da-shi/</url>
+    <content><![CDATA[<ul>
+<li>/+文本</li>
+<li>.代表任意字符</li>
+<li>/ ?  ？代表匹配前一个字符 出现0次或者1次</li>
+<li><ul>
+<li>代表前一个字符出现0次或者多次</li>
+</ul>
+</li>
+<li><ul>
+<li>代表前一个字符出现1次或者1次以上</li>
+</ul>
+</li>
+<li>字符{number} 代表字符出现 number次（{n,m} {n,})</li>
+<li>/(ab)+ 代表匹配ab一次或者多次</li>
+</ul>
+<p> <strong>或运算</strong></p>
+<ul>
+<li>/a (cat|dog) 匹配a cat 或者 a dog</li>
+</ul>
+<p> ** 字符类**</p>
+<ul>
+<li>/[abc]+ 代表要求匹配的字符只能取自于它们</li>
+<li>/[0-9A-Za-z]+ </li>
+</ul>
+<pre><code>[^0-9]+
+</code></pre>
+<p><strong>元字符</strong><br>大多数元字符都是以反斜杠\开头<br>/\d+ 等同于 /[0-9]<br>/\w+ 所有的英文字符 数字、字母加上下划线<br>/\s 代表空白符 同时包含Tab字符以及换行符</p>
+<p>&lt;.+&gt;匹配所有 贪婪匹配<br>&lt;.+?&gt; ?会将贪婪匹配切换成懒惰匹配</p>
+<p><img data-src="https://img-blog.csdnimg.cn/8980ee50210f4513a922e02c0743d0a6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用"></p>
+]]></content>
       <categories>
-          
-          <category> 发布第一个HEXO博客 </category>
-          
+        <category>学习笔记</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 说明 </tag>
-            
-            <tag> other tag </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/01/14/git-yu-github/</url>
+    <content><![CDATA[<h1 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>-Git 是一个版本控制系统，你也可以理解成是一个工具，跟 Java 类似，使用之前必须得先下载安装，所以第一步必须要安装，我用的是 Mac ， Mac 上其实系统自带 Git 的，不过这里统一提供一下各平台的安装方式，这部分就不过多介绍，相信大家这里搞的定。</p>
+<p>Mac：<a href="https://sourceforge.net/projects/git-osx-installer/">链接</a></p>
+<p>Windows：<a href="https://git-for-windows.github.io/">Windows</a></p>
+<p>Linux：</p>
+<blockquote>
+<p>apt-get install git</p>
+</blockquote>
+<h2 id="git基础命令"><a href="#git基础命令" class="headerlink" title="git基础命令"></a>git基础命令</h2><ul>
+<li>Git 所有的操作命令开头都要以 git 开头</li>
+<li>在进行任何 Git 操作之前，都要先切换到 Git 仓库目录，也就是先要先切换到项目的文件夹目录下。</li>
+<li>在命令行输入git测试git是否安装成功<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3></li>
+</ul>
+<p>紧接着我们输入 git status 命令，会有如下提示：<br><img data-src="https://img-blog.csdnimg.cn/e02aae16f7154f5a8e993eb898252f75.png" alt="效果图"><br>意思就是当前目录还不是一个 Git 仓库。</p>
+<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>这个时候用到了第一个命令，代表初始化 git 仓库，输入 git init 之后会提示：<br><img data-src="https://img-blog.csdnimg.cn/f3409dac3c004a27a79572fe193182fb.png" alt="效果图"><br>可以看到初始化成了，至此 testgit 目录已经是一个 git 仓库了。</p>
+<h3 id="git-status-1"><a href="#git-status-1" class="headerlink" title="git status"></a>git status</h3><p>紧接着我们输入 git status 命令，会有如下提示<br><img data-src="https://img-blog.csdnimg.cn/bc991818b9ba42179455273174a19628.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="效果图"><br>默认就直接在 master 分支，关于分支的概念后面会提，这时最主要的是提示 a.md 文件 Untracked files ，就是说 a.md 这个文件还没有被跟踪，还没有提交在 git 仓库里呢，而且提示你可以使用 git add <file> 去操作你想要提交的文件。</file></p>
+<p>git status 这个命令顾名思义就是查看状态，这个命令可以算是使用最频繁的一个命令了，建议大家没事就输入下这个命令，来查看你当前 git 仓库的一些状态。</p>
+<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>上面提示 a.md 文件还没有提交到 git 仓库里，这个时候我们可以随便编辑下 a.md 文件，然后输入 git add a.md ，然后再输入 git status :<br><img data-src="https://img-blog.csdnimg.cn/f387850d9d2a4bedaf51848989c0a434.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAcXFfNTQ3NDM3Mzg=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="效果图"><br>此时提示以下文件 Changes to be committed ， 意思就是 a.md 文件等待被提交，当然你可以使用 git rm –cached 这个命令去移除这个缓存。</p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>接着我们输入 <strong>git commit -m ‘first commit’</strong> ，这个命令什么意思呢？ commit 是提交的意思，-m 代表是提交信息，执行了以上命令代表我们已经正式进行了第一次提交。</p>
+<p>这个时候再输入 git status ，会提示 nothing to commit。</p>
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><p>这个时候我们输入 git log 命令，会看到如下：<br><img data-src="https://img-blog.csdnimg.cn/76fbd68e1dab4aaabefd1b29fe639c35.png" alt="效果图"></p>
+<h3 id="git-add-amp-git-commit"><a href="#git-add-amp-git-commit" class="headerlink" title="git add &amp; git commit"></a>git add &amp; git commit</h3><p>看到这里估计很多人会有疑问，我想要提交直接进行 commit 不就行了么，为什么先要再 add 一次呢？首先 git add 是先把改动添加到一个「暂存区」，你可以理解成是一个缓存区域，临时保存你的改动，而 git commit 才是最后真正的提交。这样做的好处就是防止误提交，当然也有办法把这两步合并成一步，不过后面再介绍，建议新手先按部就班的一步步来。</p>
+<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>branch 即分支的意思，分支的概念很重要，尤其是团队协作的时候，假设两个人都在做同一个项目，这个时候分支就是保证两人能协同合作的最大利器了。举个例子，A, B俩人都在做同一个项目，但是不同的模块，这个时候A新建了一个分支叫a， B新建了一个分支叫b，这样A、B做的所有代码改动都各自在各自的分支，互不影响，等到俩人都把各自的模块都做完了，最后再统一把分支合并起来。</p>
+<p>执行 git init 初始化git仓库之后会默认生成一个主分支 master ，也是你所在的默认分支，也基本是实际开发正式环境下的分支，一般情况下 master 分支不会轻易直接在上面操作的，你们可以输入 git branch 查看下当前分支情况：<br><img data-src="https://img-blog.csdnimg.cn/86f0f14e10854dd2948420bce4428cbe.png" alt="效果图"><br>如果我们想在此基础上新建一个分支呢，很简单，执行 git branch a 就新建了一个名字叫 a 的分支，这时候分支 a 跟分支 master 是一模一样的内容，我们再输入 git branch 查看的当前分支情况<br><img data-src="https://img-blog.csdnimg.cn/44b3ed544d2f499b904ffa475d21263e.png" alt="效果图"><br>但是可以看到 master 分支前有个 * 号，即虽然新建了一个 a 的分支，但是当前所在的分支还是在 master 上，如果我们想在 a 分支上进行开发，首先要先切换到 a 分支上才行，所以下一步要切换分支</p>
+<h3 id="git-checkout-a"><a href="#git-checkout-a" class="headerlink" title="git checkout a"></a>git checkout a</h3><p>执行这个命令，然后再输入 git branch 查看下分支情况：<br><img data-src="https://img-blog.csdnimg.cn/65694c3584ab407aa1d81c99968c53fe.png" alt="效果图"></p>
+<h3 id="git-checkout-b-a"><a href="#git-checkout-b-a" class="headerlink" title="git checkout -b a"></a>git checkout -b a</h3><p>这个命令的意思就是新建一个a分支，并且自动切换到a分支。</p>
+<ul>
+<li>git merge</li>
+</ul>
+<p>A同学在a分支代码写的不亦乐乎，终于他的功能完工了，并且测试也都ok了，准备要上线了，这个时候就需要把他的代码合并到主分支master上来，然后发布。git merge 就是合并分支用到的命令，针对这个情况，需要先做两步，<strong>第一步是切换到 master 分支，如果你已经在了就不用切换了，第二步执行 git merge a ，意思就是把a分支的代码合并过来</strong>，不出意外，这个时候a分支的代码就顺利合并到 master 分支来了。为什么说不出意外呢？因为这个时候可能会有冲突而合并失败。</p>
+<h3 id="git-branch-d"><a href="#git-branch-d" class="headerlink" title="git branch -d"></a>git branch -d</h3><p>有新建分支，那肯定有删除分支，假如这个分支新建错了，或者a分支的代码已经顺利合并到 master 分支来了，那么a分支没用了，需要删除，这个时候执行 git branch -d a 就可以把a分支删除了。</p>
+<h3 id="git-branch-D"><a href="#git-branch-D" class="headerlink" title="git branch -D"></a>git branch -D</h3><p>有些时候可能会删除失败，比如如果a分支的代码还没有合并到master，你执行 git branch -d a 是删除不了的，它会智能的提示你a分支还有未合并的代码，但是如果你非要删除，那就执行 git branch -D a 就可以强制删除a分支。</p>
+<h2 id="向GitHub提交代码"><a href="#向GitHub提交代码" class="headerlink" title="向GitHub提交代码"></a>向GitHub提交代码</h2><h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><p>你拥有了一个 GitHub 账号之后，就可以自由的 clone 或者下载其他项目，也可以创建自己的项目，但是你没法提交代码。仔细想想也知道，肯定不可能随意就能提交代码的，如果随意可以提交代码，那么 GitHub 上的项目岂不乱了套了，所以提交代码之前一定是需要某种授权的，而 GitHub 上一般都是基于 SSH 授权的。</p>
+<p>那么什么是 SSH 呢？</p>
+<p>简单点说，SSH是一种网络协议，用于计算机之间的加密登录。目前是每一台 Linux 电脑的标准配置。而大多数 Git 服务器都会选择使用 SSH 公钥来进行授权，所以想要在 GitHub 提交代码的第一步就是要先添加 SSH key 配置。</p>
+<h3 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h3><p>Linux 与 Mac 都是默认安装了 SSH ，而 Windows 系统安装了 Git Bash 应该也是带了 SSH 的。大家可以在终端（win下在 Git Bash 里）输入 ssh 如果出现以下提示证明你本机已经安装 SSH， 否则请搜索自行安装下。<br>紧接着输入 ssh-keygen -t rsa ，什么意思呢？就是指定 rsa 算法生成密钥，接着连续三个回车键（不需要输入密码），然后就会生成两个文件 id_rsa 和 id_rsa.pub ，而 id_rsa 是密钥，id_rsa.pub 就是公钥。这两文件默认分别在如下目录里生成：</p>
+<p>Linux/Mac 系统 在 ~/.ssh 下，win系统在 /c/Documents and Settings/username/.ssh 下，都是隐藏文件，相信你们有办法查看的。</p>
+<p>接下来要做的是把 id_rsa.pub 的内容添加到 GitHub 上，这样你本地的 id_rsa 密钥跟 GitHub 上的 id_rsa.pub 公钥进行配对，授权成功才可以提交代码。</p>
+<h3 id="GitHub添加ssh-key"><a href="#GitHub添加ssh-key" class="headerlink" title="GitHub添加ssh key"></a>GitHub添加ssh key</h3><ul>
+<li>第一步先在 GitHub 上的设置页面，点击最左侧 SSH and GPG keys ：</li>
+<li>然后点击右上角的 New SSH key 按钮：</li>
+<li>SSH key 添加成功之后，输入 ssh -T <a href="mailto:git@github.com">git@github.com</a> 进行测试，如果出现以下提示证明添加成功了。<h3 id="Push-amp-Pull"><a href="#Push-amp-Pull" class="headerlink" title="Push &amp; Pull"></a>Push &amp; Pull</h3>Push ：直译过来就是「推」的意思，什么意思呢？如果你本地代码有更新了，那么就需要把本地代码推到远程仓库，这样本地仓库跟远程仓库就可以保持同步了。</li>
+</ul>
+<p>代码示例： git push origin master</p>
+<p>意思就是把本地代码推到远程 master 分支。</p>
+<p>Pull：直译过来就是「拉」的意思，如果别人提交代码到远程仓库，这个时候你需要把远程仓库的最新代码拉下来，然后保证两端代码的同步。</p>
+<p>代码示例： git pull origin master</p>
+<p>意思就是把远程最新的代码更新到本地。一般我们在 push 之前都会先 pull ，这样不容易冲突</p>
+<h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><p>添加 SSH key 成功之后，我们就有权限向 GitHub 上我们自己的项目提交代码了，而提交代码有两种方法：</p>
+<h4 id="clone自己的项目"><a href="#clone自己的项目" class="headerlink" title="clone自己的项目"></a>clone自己的项目</h4><p><img data-src="https://img-blog.csdnimg.cn/bc20add7a8cf487c9c219595e427d04f.png" alt="效果图"><br>git clone时出现RPC failed； curl 56 OpenSSL SSL_read解决方法：</p>
+<blockquote>
+<p>输入以下3个命令：<br>git init<br>git config http.postBuffer 524288000<br>git config http.sslVerify “false”</p>
+</blockquote>
+<p>这样就把 test 项目 clone 到了本地，你可以把 clone 命令理解为高级点的复制，这个时候该项目本身就已经是一个git 仓库了，不需要执行 git init 进行初始化，而且甚至都已经关联好了远程仓库，我们只需要在这个 test 目录下任意修改或者添加文件，然后进行 commit ，之后就可以执行：</p>
+<blockquote>
+<p>git commit -m ‘描述 比如first commit’</p>
+<p>git push origin main （main代表分支 可以修改） </p>
+</blockquote>
+<p>进行代码提交，这种是最简单方便的一种方式。<br>提示：在提交前建议配置全局config</p>
+<blockquote>
+<p>$ git config –global user.name “GitHub用户名”<br>$ git config –global user.email ‘GitHub绑定的电子邮箱’<br>不然可能会提示输入GitHub key</p>
+</blockquote>
+<h4 id="关联本地已有项目"><a href="#关联本地已有项目" class="headerlink" title="关联本地已有项目"></a>关联本地已有项目</h4><p>如果我们本地已经有一个完整的 git 仓库，并且已经进行了很多次 commit ，这个时候第一种方法就不适合了。</p>
+<p>假设我们本地有个 test2 的项目，我们需要的是在 GitHub 上建一个 test 的项目，然后把本地 test2 上的所有代码 commit 记录提交到 GitHub 上的 test 项目。</p>
+<p>第一步就是在 GitHub 上建一个 test 项目，这个想必大家都会了，就不用多讲了。</p>
+<p>第二步把本地 test2 项目与 GitHub 上的 test 项目进行关联，切换到 test2 目录，执行如下命令：</p>
+<blockquote>
+<p>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:stormzhang/test.git</p>
+</blockquote>
+<p>什么意思呢？就是添加一个远程仓库，他的地址是 <a href="mailto:git@github.com">git@github.com</a>:stormzhang/test.git ，而 origin 是给这个项目的远程仓库起的名字，是的，名字你可以随便取，只不过大家公认的只有一个远程仓库时名字就是 origin ，为什么要给远程仓库取名字？因为我们可能一个项目有多个远程仓库？比如 GitHub 一个，比如公司一个，这样的话提交到不同的远程仓库就需要指定不同的仓库名字了。</p>
+<p>查看我们当前项目有哪些远程仓库可以执行如下命令：</p>
+<blockquote>
+<p>git remote -v</p>
+</blockquote>
+<p>接下来，我们本地的仓库就可以向远程仓库进行代码提交了：</p>
+<blockquote>
+<p>git push origin master</p>
+</blockquote>
+<p>就是默认向 GitHub 上的 test 目录提交了代码，而这个代码是在 master 分支。当然你可以提交到指定的分支。</p>
+<p>对了，友情提醒，在提交代码之前先要设置下自己的用户名与邮箱，这些信息会出现在所有的 commit 记录里，执行以下代码就可以设置：</p>
+<blockquote>
+<p> git config –global user.name “GitHub用户名”<br> git config –global user.email ‘GitHub绑定的电子邮箱’<br>不然可能会提示输入GitHub key</p>
+</blockquote>
+]]></content>
+  </entry>
 </search>
