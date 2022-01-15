@@ -602,9 +602,10 @@ B表示BGP**
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>git与GitHub</title>
     <url>/2022/01/14/git-yu-github/</url>
-    <content><![CDATA[<h1 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>-Git 是一个版本控制系统，你也可以理解成是一个工具，跟 Java 类似，使用之前必须得先下载安装，所以第一步必须要安装，我用的是 Mac ， Mac 上其实系统自带 Git 的，不过这里统一提供一下各平台的安装方式，这部分就不过多介绍，相信大家这里搞的定。</p>
+    <content><![CDATA[<p>@<a href="Git%E4%B8%8EGitHub">TOC</a></p>
+<h1 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>-Git 是一个版本控制系统，你也可以理解成是一个工具，跟 Java 类似，使用之前必须得先下载安装，所以第一步必须要安装，我用的是 Mac ， Mac 上其实系统自带 Git 的，不过这里统一提供一下各平台的安装方式，这部分就不过多介绍，相信大家这里搞的定。</p>
 <p>Mac：<a href="https://sourceforge.net/projects/git-osx-installer/">链接</a></p>
 <p>Windows：<a href="https://git-for-windows.github.io/">Windows</a></p>
 <p>Linux：</p>
@@ -687,5 +688,8 @@ B表示BGP**
 <p> git config –global user.name “GitHub用户名”<br> git config –global user.email ‘GitHub绑定的电子邮箱’<br>不然可能会提示输入GitHub key</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>笔记整理</category>
+      </categories>
   </entry>
 </search>
