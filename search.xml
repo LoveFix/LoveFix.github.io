@@ -693,7 +693,7 @@ B表示BGP**
       </categories>
   </entry>
   <entry>
-    <title>Python爬基础以及豆瓣项目</title>
+    <title>Python爬虫基础以及豆瓣项目</title>
     <url>/2022/02/25/python-pa-chong-ji-chu/</url>
     <content><![CDATA[<h2 id="安装python环境"><a href="#安装python环境" class="headerlink" title="安装python环境"></a>安装python环境</h2><p>个人建议不要选最新版本的 安装之后在命令行下输入 python查看python版本</p>
 <h2 id="安装python编译器pycharm"><a href="#安装python编译器pycharm" class="headerlink" title="安装python编译器pycharm"></a>安装python编译器pycharm</h2><p>目前安装的是2021.3专业版<br><a href="https://www.bilibili.com/read/cv14405454">永久破解方法（仅限2021.3）</a></p>
