@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lovefix.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVASE笔记(补充)">
+<meta property="og:url" content="http://lovefix.github.io/2022/03/29/javase-bi-ji-bu-chong/index.html">
+<meta property="og:site_name" content="七凉">
+<meta property="og:description" content="JAVA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3d732c3f9a624ac1b4ec6459bc0abf86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0a82e6416a134b3a9df699dbe5efb143.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f14de2f725b34620bdf6e553b1e0f165.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a9afbde3cd59448ca2c2c93b9a7d33d6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/582a5995eab2409fa7279dfb3844cf8a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4f315514e8a0418d813e32f8095667b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8b3bbeb8c6cb41f98a4c5b196efd39ab.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bffedd2faad248088c2716ac12426daf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b74b5bad202145d6a6b278020288e612.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f9d8b3950eca4f229ef09be5609b6d23.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5d6eb36bffa841ee857351c7b3022620.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2912223765fb4e37b4f205c72b696df0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cc6586039ea94742837e2d0cf213a690.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3230cdf50d29434ca5e8d2e5fbd534ba.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a08c9124ad714c618a05d2c9fd1ce486.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b96408eb663c411c9204810c92e0c7c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/15baf0240f4046e09f961f3c5399e6a8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9d574155085547e19c8dfcc9e1022043.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/45cc695c0dba45cfbba561b2106a9dab.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6f09d489ce894a63b54ba9e24c4b5b39.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/11a03a5b36e34048b72727f5a0ac1c67.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5c07f457a50f4a4c8c5f9a8905747fd3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3e85679455e14d908d3540e94afc3766.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5f109fbef7844b788609b29f19a6069e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/38282d1e39f74c4a8571164e312ff713.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ee15f67169fc49d288524af0fcfe776e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d32795f042ea4d109e282deda94e14ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7a43e08fced64636949f41a739017568.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/efe528ad20fc49e6825e3edc5896aa96.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f48cbf6e0ff243b8ac907deb01da551c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f3e653ccab9f4b2885f8ecac5764c227.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3b201f61a7694d46b20c0f51ff72a533.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/752452f4c9a748979515c84c66e66945.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2a9523f94f704dcab89068b4123e5eda.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b1880e4da2064da79ec9374c5522f3ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b70c2bc0cc044048ede13ce0ce9429c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9907f644ac074f4299b2bb817c827fe1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/571ea2cced76403a9cacb69640353f7b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d99a09ac44fd4f3db80f4c128d107710.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8c021699293e48bbb114af8bbc1a441c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b893dab7177c47af8e4c86c2bc14f358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b94d5680da614b2baa00393c8987afcd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c50c62c40624413093ab83436ba54c7f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cb98f9b372774a7cb03b7c3c6abc2d4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b6833d32780845b7a57ed6d595f1d7b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/57d6bb3b134b41c4ad39264220c9e6db.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bed16640f85a486fb9291655161b51b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c8e9be57b2064e4582ea66a392aded86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d90c0626653e40c1a7f8e308c8ef883b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b64abf17a9d4555b5286b486ba836c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fdfd8a6436c64f97b543d2314b5f8194.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b2b04a16148a4f80be142c0d4dbc1239.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/40d4b9f43a1e4c81858ca98c90f0e31a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9556d84e3bf944e4af255277ac07680b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a256a7b216fb46349ddacc4ee3dc6a30.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e4fc9408ef2d488dbd9eca175395530d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/645a23cb45a44db1886acd19884115ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a467f944d8df4dd2a73088252f7c413e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7885b2ea3cd44b0fbe25456fdc46e006.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/99ed41c64b82490e9100516a15e657aa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f58dda3bf7504649941028ae7d880d5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/08b91e34d6fc4d5d9d3d934682b1e587.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bec897540160475a96abd9c7161278d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9c63d8672db4496fbbf28d33a2cc2808.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/68c27f7c59d74da096077f88fc46110f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ff90347d983c4fcaa71c8911adb33e0c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9004faad92f040e3aca737a75afd8c5e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0bb0db5c5bb948a4be01dccc049b3cda.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1465c8425039491ea4b65d8b5c4e11ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_9,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/df2861c5555c4595953d14b331b3644f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_13,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b3f5363a0ab64964a80362a1905713ca.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ff87e30d3bef4cfb8860dc27f224a393.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/35224d3faac64f47bbf43ccbf67833f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/41b31a8ae5a94876b40a19502cc9bd31.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7396144e294a49f9a264ad533668764f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_16,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3bd6aa7953404d59a57d93859b5129e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_15,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2022-03-29T08:56:47.362Z">
+<meta property="article:modified_time" content="2022-03-29T08:57:22.430Z">
+<meta property="article:author" content="LoveFit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/3d732c3f9a624ac1b4ec6459bc0abf86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+
+<link rel="canonical" href="http://lovefix.github.io/2022/03/29/javase-bi-ji-bu-chong/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+
+  <title>JAVASE笔记(补充) | 七凉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="七凉" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">七凉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个喜欢摸鱼的码农</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/LoveFix" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lovefix.github.io/2022/03/29/javase-bi-ji-bu-chong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="LoveFit">
+      <meta itemprop="description" content="成功的秘诀：知识 汗水 灵感 机遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="七凉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JAVASE笔记(补充)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-29 16:56:47 / 修改时间：16:57:22" itemprop="dateCreated datePublished" datetime="2022-03-29T16:56:47+08:00">2022-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">笔记整理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+            <div class="post-description">JAVA</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JAVASE（补充）"><a href="#JAVASE（补充）" class="headerlink" title="JAVASE（补充）"></a>JAVASE（补充）</h1><h2 id="泛型应用禁忌"><a href="#泛型应用禁忌" class="headerlink" title="泛型应用禁忌"></a>泛型应用禁忌</h2><p><strong>不能使用基本数据类型实例化泛型类</strong><br>java泛型是一种编译的语法规则<br>只在接口 类 集合 或者参数范围限制</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ParseManger</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span><span class="token punctuation">{</span>
+<span class="token keyword">private</span> K key<span class="token punctuation">;</span>
+<span class="token keyword">private</span> V value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ParseManger<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> pm<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ParseManger</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//错误</span>
+ParseManger <span class="token operator">&lt;</span>Character<span class="token punctuation">,</span>Integer<span class="token operator">></span> pm <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ParseManger</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//正确</span>
+</code></pre>
+<p><strong>不能new类型参数的实例</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>E<span class="token operator">></span> <span class="token keyword">void</span> <span class="token function">folloew</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>E<span class="token operator">></span> list<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+E elem <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">E</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//编译错误</span>
+list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>elem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>E<span class="token operator">></span> <span class="token keyword">void</span> <span class="token function">folloew</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>E<span class="token operator">></span> list<span class="token punctuation">,</span>Class<span class="token operator">&lt;</span>E<span class="token operator">></span> cls<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+E elem <span class="token operator">=</span>cls<span class="token punctuation">.</span>newInstance<span class="token comment" spellcheck="true">//编译通过</span>
+list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>elem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>禁用static字段泛型</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Factory</span><span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">{</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> T object<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//错误</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>重载方法泛型参数禁用区</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Mathematical</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span>    T <span class="token function">count</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>Double<span class="token operator">></span> douList<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span>    T <span class="token function">count</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> intList<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span>    T <span class="token function">count</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>Long<span class="token operator">></span> lonList<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="JAVA异常处理"><a href="#JAVA异常处理" class="headerlink" title="JAVA异常处理"></a>JAVA异常处理</h2><h3 id="异常处理的重要性"><a href="#异常处理的重要性" class="headerlink" title="异常处理的重要性"></a>异常处理的重要性</h3><p>任何编程语言中异常处理都是非常重要的。从应用程序而言出现错误是不可避免的，但是尽可能将程序中出错的几率讲到最低，从而能够让应用程序尽可能顺利执行。<br>对于任何计算机编程语言来讲，程序一但在开发阶段出现错误，应能够在出错的时候提供更多的错误信息和清晰轨迹，从而能够让开发人员方便及时处理错误使得程序重新进行调试运行。<br>程序中的错误在软件系统发布后通常在出错时还要被记录，以便对错误进行分析处理，以维护生产环境中系统的正常运行。</p>
+<h3 id="Java异常组织结构"><a href="#Java异常组织结构" class="headerlink" title="Java异常组织结构"></a>Java异常组织结构</h3><p><strong>Java语言设置编写的核心是面向对象</strong>，对于异常处理Java仍然是以面向对象未核心进行设计错误异常处理。<br>任何一个错误/异常的出现都被看做是一个异常对象，异常对象必需属于某个错误/异常类型。Java中异常对象的出现导致此方法调用终止，程序将转向异常异常处理程序。<br>异常处理能够让编程者跟踪错误信息，确定程序中的错误异常的位置，从而调试应用程序，是指调整后重新运行。</p>
+<h3 id="Java异常组织结构-1"><a href="#Java异常组织结构-1" class="headerlink" title="Java异常组织结构"></a>Java异常组织结构</h3><p><img data-src="https://img-blog.csdnimg.cn/3d732c3f9a624ac1b4ec6459bc0abf86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Java异常组织结构"></p>
+<h3 id="异常的声明和抛出"><a href="#异常的声明和抛出" class="headerlink" title="异常的声明和抛出"></a>异常的声明和抛出</h3><p>方法名称() throws 异常类型1,异常类型2{</p>
+<p>throw 异常对象;<br>}</p>
+<h3 id="异常的捕获和处理"><a href="#异常的捕获和处理" class="headerlink" title="异常的捕获和处理"></a>异常的捕获和处理</h3><ul>
+<li>声明了编译型异常的方法调用时必需进行异常捕获和处理</li>
+<li>使用try块捕获异常或使用throws在调用方法中继续声明</li>
+<li>使用catch块处理try捕获的异常</li>
+<li>使用finally块强制执行必需执行的代码<h3 id="异常常用的方法"><a href="#异常常用的方法" class="headerlink" title="异常常用的方法"></a>异常常用的方法</h3></li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">FileNotFoundException</span><span class="token punctuation">(</span><span class="token string">"目标文件不存在请检查参数"</span><span class="token operator">+</span><span class="token string">"'"</span><span class="token operator">+</span>file<span class="token operator">+</span><span class="token string">"'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><ul>
+<li>自定义异常必需直接或间接继承Exception类</li>
+<li>通常在Java预定义异常不能满足要求时自定义异常</li>
+<li>自定义异常通常是编译型异常</li>
+<li>自定义异常可以重写父类的相关方法</li>
+</ul>
+<h2 id="File类"><a href="#File类" class="headerlink" title="File类"></a>File类</h2><p>Java语言中File类是唯一表示文件对象和目录对象的数据类型。<br>在java语言中文件路径分隔符使用’/‘或’\‘。<br>文件可以存储字节或字符；目录不能直接存储字节或字符，只能存储文件和子目录。<br>文件可以被读取二号写入，而目录不能执行读写操作，只能建立，删除及获取其中包含的子目录及文件。<br>对于文件和目录通常要严格区分，File类提供方法可以判断此File对象还是目录。</p>
+<h3 id="创建文件对象"><a href="#创建文件对象" class="headerlink" title="创建文件对象"></a>创建文件对象</h3><pre class=" language-java"><code class="language-java"><span class="token function">File</span><span class="token punctuation">(</span>String pathName<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//通过将给定路径文字字符串转换为抽象路径名来创建一个File实例。</span>
+<span class="token comment" spellcheck="true">//构建File对象时，无论文件是否真是存在File对象都不是null</span>
+
+<span class="token function">File</span><span class="token punctuation">(</span>File dir<span class="token punctuation">,</span>String child<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//根据dir抽象路径名和child路径名字字符串创建一个新File实例</span>
+<span class="token function">File</span><span class="token punctuation">(</span>String parenet<span class="token punctuation">,</span>String child<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//根据parent路径名字字符串和child路径名字字符串创建一个新File实例</span>
+<span class="token function">File</span><span class="token punctuation">(</span>URI uri<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//通过将给定的file:URI转换为一个抽象路径名来创建一个新的File实例</span>
+</code></pre>
+<h3 id="File类常用方法"><a href="#File类常用方法" class="headerlink" title="File类常用方法"></a>File类常用方法</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canWrite</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">canRead</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">careteNewFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">exist</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> String <span class="token function">getAbsolutePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//只显示文件名</span>
+<span class="token keyword">public</span> String <span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> String <span class="token function">getPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> File<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">listFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>mkdir方法必须保证当前目录的所有父路径都存在否则失败<br>例如 d:/files/my/doc 如果my目录不存在则创建失败<br>但是mkdirs方法没有这个要求 这个方法可以补全不存在的目录</p>
+<h3 id="File文件流分类"><a href="#File文件流分类" class="headerlink" title="File文件流分类"></a>File文件流分类</h3><p>方向：<br>输入（input）流——读取文件<br>输出流（Output）——写入文件<br>内容：<br>字节（Byte）流——读写二进制文件<br>字符（Char）流——读写文本文件<br>方式：<br>节点流：——针对文件建立<br>处理流：——针对其他文件流建立</p>
+<h3 id="输入流"><a href="#输入流" class="headerlink" title="输入流"></a>输入流</h3><ul>
+<li>输入流是指建立在文件或其他文件流上的用来对目标文件进行读取的文件流。</li>
+<li>输入流只能对文件进行读取</li>
+<li>读取二进制文件使用字节输入流，读取文本文件使用文本输入流<br><img data-src="https://img-blog.csdnimg.cn/0a82e6416a134b3a9df699dbe5efb143.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="字节输入流组织结构"></li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">int</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">int</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">int</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> off<span class="token punctuation">,</span><span class="token keyword">int</span> len<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+</code></pre>
+<p><img data-src="https://img-blog.csdnimg.cn/f14de2f725b34620bdf6e553b1e0f165.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="字符输入流"><br><img data-src="https://img-blog.csdnimg.cn/a9afbde3cd59448ca2c2c93b9a7d33d6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="主要方法"><br>BufferedReader 可以实现按行读取</p>
+<p>SimpleDateFormat 转换为Date 使用parse方法</p>
+<h3 id="输出流"><a href="#输出流" class="headerlink" title="输出流"></a>输出流</h3><ul>
+<li>输出流是指建立在文件或其他文件流上的用来对目标文件进行写入的文件流。</li>
+<li>输出流只对目标文件进行写入操作。</li>
+<li>写入二进制文件使用字节输出流，写入问文本文件使用文本输出流<br><img data-src="https://img-blog.csdnimg.cn/582a5995eab2409fa7279dfb3844cf8a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="字节输出流"><br><img data-src="https://img-blog.csdnimg.cn/4f315514e8a0418d813e32f8095667b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="主要方法"><br><img data-src="https://img-blog.csdnimg.cn/8b3bbeb8c6cb41f98a4c5b196efd39ab.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="字符输出流"></li>
+</ul>
+<p><img data-src="https://img-blog.csdnimg.cn/bffedd2faad248088c2716ac12426daf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="主要方法"></p>
+<p>File是唯一表示硬盘或者目录的类型<br>通过方法判断目录File对象是文件还是目录<br>文件的读写操作<br>流的分类<br>        按照方向：输入（读取）和输出（写入）<br>        按照处理数据方：字节流和字符流<br>        流的功能：基于目标文件的建立的普通节点流和基于某个节点流建立的处理流<br>读写文件过程<br>1.建立目标文件<br>2.基于目标文件建立文件流<br>3.进行读写操作<br>4.关闭相关文件流对象，释放资源（要注意文件的读写操作异常处理）</p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>Java不仅提供了以字节和字符形式读写文件的功能，而且也提供了对任何数据类型进行读写的能力<br> 将一个数据以Java对象的形式存储到文件中或从目标文件中获取一个Java对象的操作被称为序列化操作，能够被序列化的对象称之为序列化对象<br><strong>Java规定任何实现Serializable接口的类，被看作是序列化类，此类的实例既是一个序列化对象。</strong><br>序列化对象可以通过序列化输入和输出流进行读写操作，<strong>通常序列化类必须提供一个公共无参的构造器</strong>，在反序列化（读取序列化对象）中JVM使用公共无参构造器创建Java对象<br><strong>static修饰的不能被序列化因为属于类</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/b74b5bad202145d6a6b278020288e612.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="序列化文件流"></p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="Java线程简介"><a href="#Java线程简介" class="headerlink" title="Java线程简介"></a>Java线程简介</h3><p><strong>进程：</strong>本身可以看成是系统资源和程序代码的执行位置的结合。在操作系统中，每个应用程序的执行都在操作系统内核中登记一个进程标志，操作系统根据分配的标志对应用程序的执行进行调度和系统资源分配。<br><strong>每个进程都有自己的内存单元，进程之间是互相独立的，一个进程一般不允许访问其他进程的内存空间，因此，进程间通信非常困难。</strong><br><strong>线程：</strong> 是比进程更小的执行单位，如果将进程概念一分为二，则进程中的系统资源，可以看成是一个静态的对象；<strong>而程序代码的执行位置，可以看成一个动态对象，这个动态的部分就是线程。</strong>进程在执行过程中拥有独立的内存单元，而多个线程可以共享内存，线程之间的通信相对进程比较容易解决，从而极大地提高了程序的运行效率，通常一个进程可以包含多个线程。</p>
+<p>多线程就是多个线程的集合。就是一个程序（进程）中同时执行一个以上的线程，一个线程的执行不必等待另一个线程执行完才执行，所有线程都可以发生在同一时刻。但JVM仍然认为每个线程不是独立的应用，来实现进程的调度和管理以及资源分配，而是将这个包含多个线程的程序作为一个系统进程处理；这样的Java程序被称为多线程应用。<br>多线程程序中，多个线程共享内存，从而在某个情况下使用多线程可以提高程序的运行效率。<br>多线程程序通常比较复杂，由于多个线程共享一个JVM内存，从而会设计到数据共享及操作的冲突等问题，因此在非必需情况下要谨慎选择使用多线程方式处理业务逻辑。</p>
+<h3 id="多线程结构"><a href="#多线程结构" class="headerlink" title="多线程结构"></a>多线程结构</h3><p><img data-src="https://img-blog.csdnimg.cn/f9d8b3950eca4f229ef09be5609b6d23.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="多线程结构"></p>
+<h3 id="线程组件"><a href="#线程组件" class="headerlink" title="线程组件"></a>线程组件</h3><p><img data-src="https://img-blog.csdnimg.cn/5d6eb36bffa841ee857351c7b3022620.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Java线程组件"><br><img data-src="https://img-blog.csdnimg.cn/2912223765fb4e37b4f205c72b696df0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Thread线程组件"><br><img data-src="https://img-blog.csdnimg.cn/cc6586039ea94742837e2d0cf213a690.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="构造线程"></p>
+<h3 id="Runnable线程接口"><a href="#Runnable线程接口" class="headerlink" title="Runnable线程接口"></a>Runnable线程接口</h3><p>Runnable接口是Java中的一个线程接口，此接口提供一个唯一的run方法，Runable接口的主要作用就是可以让多个Thread的实例共享此接口的run方法，达到一个线程间通信更加方便的目的。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">MyRunnable</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//线程要完成的工作</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="使用Runnable构建Thread"><a href="#使用Runnable构建Thread" class="headerlink" title="使用Runnable构建Thread"></a>使用Runnable构建Thread</h4><p><img data-src="https://img-blog.csdnimg.cn/3230cdf50d29434ca5e8d2e5fbd534ba.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="使用Runnable接口"><br><img data-src="https://img-blog.csdnimg.cn/a08c9124ad714c618a05d2c9fd1ce486.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="注意"></p>
+<h3 id="Thread常用构造器"><a href="#Thread常用构造器" class="headerlink" title="Thread常用构造器"></a>Thread常用构造器</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token function">Thread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//构建默认名称普通用户线程</span>
+
+<span class="token keyword">public</span> <span class="token function">Thread</span><span class="token punctuation">(</span>Runnable target<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//构建依赖于Runnable接口实例的普通用户线程</span>
+
+<span class="token keyword">public</span> <span class="token function">Thread</span><span class="token punctuation">(</span>Runnable target<span class="token punctuation">,</span>String name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//构建依赖于Runnable接口实例的普通用户线程并设置线程名称</span>
+</code></pre>
+<h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><p><img data-src="https://img-blog.csdnimg.cn/b96408eb663c411c9204810c92e0c7c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程的生命周期"></p>
+<h3 id="线程和启动优先级"><a href="#线程和启动优先级" class="headerlink" title="线程和启动优先级"></a>线程和启动优先级</h3><p><img data-src="https://img-blog.csdnimg.cn/15baf0240f4046e09f961f3c5399e6a8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程启动优先级"></p>
+<h3 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h3><p><img data-src="https://img-blog.csdnimg.cn/9d574155085547e19c8dfcc9e1022043.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程状态"><br><img data-src="https://img-blog.csdnimg.cn/45cc695c0dba45cfbba561b2106a9dab.png" alt="获取线程状态"></p>
+<h3 id="线程的阻塞和处理"><a href="#线程的阻塞和处理" class="headerlink" title="线程的阻塞和处理"></a>线程的阻塞和处理</h3><p><img data-src="https://img-blog.csdnimg.cn/6f09d489ce894a63b54ba9e24c4b5b39.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程的阻塞和处理"><br><img data-src="https://img-blog.csdnimg.cn/11a03a5b36e34048b72727f5a0ac1c67.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程阻塞原因"></p>
+<h3 id="线程的休眠和唤醒"><a href="#线程的休眠和唤醒" class="headerlink" title="线程的休眠和唤醒"></a>线程的休眠和唤醒</h3><p><img data-src="https://img-blog.csdnimg.cn/5c07f457a50f4a4c8c5f9a8905747fd3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程休眠和唤醒"></p>
+<h3 id="线程联合"><a href="#线程联合" class="headerlink" title="线程联合"></a>线程联合</h3><p><img data-src="https://img-blog.csdnimg.cn/3e85679455e14d908d3540e94afc3766.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程联合"><br><img data-src="https://img-blog.csdnimg.cn/5f109fbef7844b788609b29f19a6069e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="暂停"></p>
+<h3 id="线程之间的通信"><a href="#线程之间的通信" class="headerlink" title="线程之间的通信"></a>线程之间的通信</h3><p><img data-src="https://img-blog.csdnimg.cn/38282d1e39f74c4a8571164e312ff713.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="i线程通信"><br><img data-src="https://img-blog.csdnimg.cn/ee15f67169fc49d288524af0fcfe776e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程同步"></p>
+<h3 id="Java如何实现线程安全"><a href="#Java如何实现线程安全" class="headerlink" title="Java如何实现线程安全"></a>Java如何实现线程安全</h3><p><img data-src="https://img-blog.csdnimg.cn/d32795f042ea4d109e282deda94e14ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="线程安全"></p>
+<h4 id="Synchronized作用"><a href="#Synchronized作用" class="headerlink" title="Synchronized作用"></a>Synchronized作用</h4><p>Java多线程中唯一用来处理线程安全问题的语法糖，被Synchronized关键字所修饰代码中所有资源在同一时间只能被一个线程持有当前对象访问，任何其他线程必需等待当前线程执行完所有Synchronized所限制的代码啊才能有机会获得执行此代码的机会，Synchronized称为唯一用来处理线程同步安全的语法糖。</p>
+<h4 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h4><p><img data-src="https://img-blog.csdnimg.cn/7a43e08fced64636949f41a739017568.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="锁"></p>
+<pre class=" language-java"><code class="language-java"><span class="token function">Synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">/*同步执行代码*/</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img data-src="https://img-blog.csdnimg.cn/efe528ad20fc49e6825e3edc5896aa96.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="java中的锁"><br><img data-src="https://img-blog.csdnimg.cn/f48cbf6e0ff243b8ac907deb01da551c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JVM如何管理锁"><br><img data-src="https://img-blog.csdnimg.cn/f3e653ccab9f4b2885f8ecac5764c227.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="对象监视器"></p>
+<h3 id="重入"><a href="#重入" class="headerlink" title="重入"></a>重入</h3><p><img data-src="https://img-blog.csdnimg.cn/3b201f61a7694d46b20c0f51ff72a533.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="重入"><br><font face="楷体">答案是可以</font></p>
+<p><img data-src="https://img-blog.csdnimg.cn/752452f4c9a748979515c84c66e66945.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="重入的概念"></p>
+<h3 id="多线程同步安全this对象"><a href="#多线程同步安全this对象" class="headerlink" title="多线程同步安全this对象"></a>多线程同步安全this对象</h3><p><strong>对象同步锁</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2a9523f94f704dcab89068b4123e5eda.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="同步当前对象"></p>
+<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p> <img data-src="https://img-blog.csdnimg.cn/b1880e4da2064da79ec9374c5522f3ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="方法同步锁"><br><img data-src="https://img-blog.csdnimg.cn/9b70c2bc0cc044048ede13ce0ce9429c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="同步方法"><br><img data-src="https://img-blog.csdnimg.cn/9907f644ac074f4299b2bb817c827fe1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="同步线程的等待与唤醒"><br><img data-src="https://img-blog.csdnimg.cn/571ea2cced76403a9cacb69640353f7b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="同步线程等待"><br><img data-src="https://img-blog.csdnimg.cn/d99a09ac44fd4f3db80f4c128d107710.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="同步线程唤醒"><br><img data-src="https://img-blog.csdnimg.cn/8c021699293e48bbb114af8bbc1a441c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="唤醒方法"></p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><img data-src="https://img-blog.csdnimg.cn/b893dab7177c47af8e4c86c2bc14f358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="死锁概述"></p>
+<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><p><img data-src="https://img-blog.csdnimg.cn/b94d5680da614b2baa00393c8987afcd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="守护线程"></p>
+<h2 id="网络应用程序开发"><a href="#网络应用程序开发" class="headerlink" title="网络应用程序开发"></a>网络应用程序开发</h2><p><img data-src="https://img-blog.csdnimg.cn/c50c62c40624413093ab83436ba54c7f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="有连接通讯"><img data-src="https://img-blog.csdnimg.cn/cb98f9b372774a7cb03b7c3c6abc2d4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="无连接通讯"></p>
+<h3 id="java-net核心组件包"><a href="#java-net核心组件包" class="headerlink" title="java.net核心组件包"></a>java.net核心组件包</h3><p><img data-src="https://img-blog.csdnimg.cn/b6833d32780845b7a57ed6d595f1d7b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="组件包"></p>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p><img data-src="https://img-blog.csdnimg.cn/57d6bb3b134b41c4ad39264220c9e6db.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="URL"><br><img data-src="https://img-blog.csdnimg.cn/bed16640f85a486fb9291655161b51b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="URL构造器"></p>
+<h3 id="InetAddress-SocketAddress"><a href="#InetAddress-SocketAddress" class="headerlink" title="InetAddress/SocketAddress"></a>InetAddress/SocketAddress</h3><p><img data-src="https://img-blog.csdnimg.cn/c8e9be57b2064e4582ea66a392aded86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Ip表示"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/d90c0626653e40c1a7f8e308c8ef883b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="1"><br><img data-src="https://img-blog.csdnimg.cn/9b64abf17a9d4555b5286b486ba836c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="构建SocketAddress"></p>
+<h3 id="ServerSocket"><a href="#ServerSocket" class="headerlink" title="ServerSocket"></a>ServerSocket</h3><p><img data-src="https://img-blog.csdnimg.cn/fdfd8a6436c64f97b543d2314b5f8194.png" alt="ServerSocket"><br><img data-src="https://img-blog.csdnimg.cn/b2b04a16148a4f80be142c0d4dbc1239.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用构造器"><br><img data-src="https://img-blog.csdnimg.cn/40d4b9f43a1e4c81858ca98c90f0e31a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16" alt="常用方法"></p>
+<h3 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h3><p><img data-src="https://img-blog.csdnimg.cn/9556d84e3bf944e4af255277ac07680b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16" alt="Socket"><br><img data-src="https://img-blog.csdnimg.cn/a256a7b216fb46349ddacc4ee3dc6a30.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16" alt="概述"><br><img data-src="https://img-blog.csdnimg.cn/e4fc9408ef2d488dbd9eca175395530d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="构造器"></p>
+<h3 id="数据包的作用"><a href="#数据包的作用" class="headerlink" title="数据包的作用"></a>数据包的作用</h3><p><img data-src="https://img-blog.csdnimg.cn/645a23cb45a44db1886acd19884115ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基于UDP协议的套接字实现"></p>
+<h3 id="DatagramPacket"><a href="#DatagramPacket" class="headerlink" title="DatagramPacket"></a>DatagramPacket</h3><p><img data-src="https://img-blog.csdnimg.cn/a467f944d8df4dd2a73088252f7c413e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DatagramPacket"></p>
+<h4 id="构建DatagramPacket"><a href="#构建DatagramPacket" class="headerlink" title="构建DatagramPacket"></a>构建DatagramPacket</h4><p><img data-src="https://img-blog.csdnimg.cn/7885b2ea3cd44b0fbe25456fdc46e006.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="构建DatagramPacket"><br><img data-src="https://img-blog.csdnimg.cn/99ed41c64b82490e9100516a15e657aa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="构建DatagramPacket"></p>
+<h4 id="DatagramPacket-常用API"><a href="#DatagramPacket-常用API" class="headerlink" title="DatagramPacket 常用API"></a>DatagramPacket 常用API</h4><p><img data-src="https://img-blog.csdnimg.cn/f58dda3bf7504649941028ae7d880d5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DatagramPacket常用API"></p>
+<h3 id="DatagramSocket"><a href="#DatagramSocket" class="headerlink" title="DatagramSocket"></a>DatagramSocket</h3><p><img data-src="https://img-blog.csdnimg.cn/08b91e34d6fc4d5d9d3d934682b1e587.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="UDP协议DatagramSocket"><br><img data-src="https://img-blog.csdnimg.cn/bec897540160475a96abd9c7161278d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DatagramSocket常用API"><br><img data-src="https://img-blog.csdnimg.cn/9c63d8672db4496fbbf28d33a2cc2808.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="UDP数据报包收发过程"></p>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p><img data-src="https://img-blog.csdnimg.cn/68c27f7c59d74da096077f88fc46110f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="企业系统数据管理"><br><img data-src="https://img-blog.csdnimg.cn/ff90347d983c4fcaa71c8911adb33e0c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="核心API"><br><img data-src="https://img-blog.csdnimg.cn/9004faad92f040e3aca737a75afd8c5e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库连接信息配置"><br><img data-src="https://img-blog.csdnimg.cn/0bb0db5c5bb948a4be01dccc049b3cda.png" alt="1"><br><img data-src="https://img-blog.csdnimg.cn/1465c8425039491ea4b65d8b5c4e11ad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_9,color_FFFFFF,t_70,g_se,x_16" alt="2"></p>
+<h3 id="建立数据源管理组件"><a href="#建立数据源管理组件" class="headerlink" title="建立数据源管理组件"></a>建立数据源管理组件</h3><p><img data-src="https://img-blog.csdnimg.cn/df2861c5555c4595953d14b331b3644f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_13,color_FFFFFF,t_70,g_se,x_16" alt="建立数据源管理组件"></p>
+<h3 id="编写DAO数据处理组件"><a href="#编写DAO数据处理组件" class="headerlink" title="编写DAO数据处理组件"></a>编写DAO数据处理组件</h3><p>DAO：数据库访问对象</p>
+<p><img data-src="https://img-blog.csdnimg.cn/b3f5363a0ab64964a80362a1905713ca.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="编写DAO组件"></p>
+<h3 id="JDBC功能类详解"><a href="#JDBC功能类详解" class="headerlink" title="JDBC功能类详解"></a>JDBC功能类详解</h3><h4 id="DriveManger驱动管理对象"><a href="#DriveManger驱动管理对象" class="headerlink" title="DriveManger驱动管理对象"></a>DriveManger驱动管理对象</h4><p><img data-src="https://img-blog.csdnimg.cn/ff87e30d3bef4cfb8860dc27f224a393.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DriveManger驱动管理对象"></p>
+<p>因为存在静态代码块 所以为了防止重复执行<br> 注册驱动的时候只需要<br> Class.forName(“com.mysql.cj.jdbc.Driver”);即可<br><img data-src="https://img-blog.csdnimg.cn/35224d3faac64f47bbf43ccbf67833f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="获取数据库连接"></p>
+<h4 id="Connection对象"><a href="#Connection对象" class="headerlink" title="Connection对象"></a>Connection对象</h4><p><img data-src="https://img-blog.csdnimg.cn/41b31a8ae5a94876b40a19502cc9bd31.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Connection对象"></p>
+<h4 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h4><p><img data-src="https://img-blog.csdnimg.cn/7396144e294a49f9a264ad533668764f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_16,color_FFFFFF,t_70,g_se,x_16" alt="Statement对象"></p>
+<h4 id="ResultSet"><a href="#ResultSet" class="headerlink" title="ResultSet"></a>ResultSet</h4><p><img data-src="https://img-blog.csdnimg.cn/3bd6aa7953404d59a57d93859b5129e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_15,color_FFFFFF,t_70,g_se,x_16" alt="Result对象"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>投喂QAQ！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="LoveFit 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="LoveFit 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LoveFit
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lovefix.github.io/2022/03/29/javase-bi-ji-bu-chong/" title="JAVASE笔记(补充)">http://lovefix.github.io/2022/03/29/javase-bi-ji-bu-chong/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/03/javase-bi-ji/" rel="prev" title="JAVASE笔记">
+      <i class="fa fa-chevron-left"></i> JAVASE笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+
+    
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NDYxMC8zMTA4MQ=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVASE%EF%BC%88%E8%A1%A5%E5%85%85%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">JAVASE（补充）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E5%BA%94%E7%94%A8%E7%A6%81%E5%BF%8C"><span class="nav-number">1.1.</span> <span class="nav-text">泛型应用禁忌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">JAVA异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-number">1.2.1.</span> <span class="nav-text">异常处理的重要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">Java异常组织结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%BC%82%E5%B8%B8%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">Java异常组织结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E6%8A%9B%E5%87%BA"><span class="nav-number">1.2.4.</span> <span class="nav-text">异常的声明和抛出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7%E5%92%8C%E5%A4%84%E7%90%86"><span class="nav-number">1.2.5.</span> <span class="nav-text">异常的捕获和处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.6.</span> <span class="nav-text">异常常用的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="nav-number">1.2.7.</span> <span class="nav-text">自定义异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">File类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建文件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">File类常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.3.</span> <span class="nav-text">File文件流分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B5%81"><span class="nav-number">1.3.4.</span> <span class="nav-text">输入流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">1.3.5.</span> <span class="nav-text">输出流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.5.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%BA%BF%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="nav-number">1.5.1.</span> <span class="nav-text">Java线程简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.2.</span> <span class="nav-text">多线程结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%BB%84%E4%BB%B6"><span class="nav-number">1.5.3.</span> <span class="nav-text">线程组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable%E7%BA%BF%E7%A8%8B%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.5.4.</span> <span class="nav-text">Runnable线程接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Runnable%E6%9E%84%E5%BB%BAThread"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">使用Runnable构建Thread</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread%E5%B8%B8%E7%94%A8%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">1.5.5.</span> <span class="nav-text">Thread常用构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.5.6.</span> <span class="nav-text">线程的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%90%AF%E5%8A%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">1.5.7.</span> <span class="nav-text">线程和启动优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.5.8.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E9%98%BB%E5%A1%9E%E5%92%8C%E5%A4%84%E7%90%86"><span class="nav-number">1.5.9.</span> <span class="nav-text">线程的阻塞和处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%91%E7%9C%A0%E5%92%8C%E5%94%A4%E9%86%92"><span class="nav-number">1.5.10.</span> <span class="nav-text">线程的休眠和唤醒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E8%81%94%E5%90%88"><span class="nav-number">1.5.11.</span> <span class="nav-text">线程联合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">1.5.12.</span> <span class="nav-text">线程之间的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.5.13.</span> <span class="nav-text">Java如何实现线程安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Synchronized%E4%BD%9C%E7%94%A8"><span class="nav-number">1.5.13.1.</span> <span class="nav-text">Synchronized作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E9%94%81"><span class="nav-number">1.5.13.2.</span> <span class="nav-text">Java中的锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%85%A5"><span class="nav-number">1.5.14.</span> <span class="nav-text">重入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E5%AE%89%E5%85%A8this%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.5.15.</span> <span class="nav-text">多线程同步安全this对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.16.</span> <span class="nav-text">同步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81"><span class="nav-number">1.5.17.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.5.18.</span> <span class="nav-text">守护线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91"><span class="nav-number">1.6.</span> <span class="nav-text">网络应用程序开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-net%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%8C%85"><span class="nav-number">1.6.1.</span> <span class="nav-text">java.net核心组件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL"><span class="nav-number">1.6.2.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InetAddress-SocketAddress"><span class="nav-number">1.6.3.</span> <span class="nav-text">InetAddress&#x2F;SocketAddress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ServerSocket"><span class="nav-number">1.6.4.</span> <span class="nav-text">ServerSocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket"><span class="nav-number">1.6.5.</span> <span class="nav-text">Socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.6.6.</span> <span class="nav-text">数据包的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatagramPacket"><span class="nav-number">1.6.7.</span> <span class="nav-text">DatagramPacket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BADatagramPacket"><span class="nav-number">1.6.7.1.</span> <span class="nav-text">构建DatagramPacket</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DatagramPacket-%E5%B8%B8%E7%94%A8API"><span class="nav-number">1.6.7.2.</span> <span class="nav-text">DatagramPacket 常用API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DatagramSocket"><span class="nav-number">1.6.8.</span> <span class="nav-text">DatagramSocket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC"><span class="nav-number">1.7.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E6%BA%90%E7%AE%A1%E7%90%86%E7%BB%84%E4%BB%B6"><span class="nav-number">1.7.1.</span> <span class="nav-text">建立数据源管理组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99DAO%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%BB%84%E4%BB%B6"><span class="nav-number">1.7.2.</span> <span class="nav-text">编写DAO数据处理组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC%E5%8A%9F%E8%83%BD%E7%B1%BB%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.7.3.</span> <span class="nav-text">JDBC功能类详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DriveManger%E9%A9%B1%E5%8A%A8%E7%AE%A1%E7%90%86%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">DriveManger驱动管理对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Connection%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">Connection对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statement"><span class="nav-number">1.7.3.3.</span> <span class="nav-text">Statement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ResultSet"><span class="nav-number">1.7.3.4.</span> <span class="nav-text">ResultSet</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LoveFit"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LoveFit</p>
+  <div class="site-description" itemprop="description">成功的秘诀：知识 汗水 灵感 机遇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LoveFix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LoveFix" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2369914238@qq.com" title="E-Mail → mailto:2369914238@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.csdn.com/people/user_id" title="Zhihu → https:&#x2F;&#x2F;www.csdn.com&#x2F;people&#x2F;user_id" rel="noopener" target="_blank"><i class="iconfont csdn fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/user_id/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;user_id&#x2F;" rel="noopener" target="_blank"><i class="iconfont douban fa-fw"></i>Douban</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LoveFit</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">83k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:16</span>
+</div>
+
+
+<span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+
+   
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+    <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js">
+  
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
