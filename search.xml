@@ -3705,7 +3705,7 @@ numberList <span class="token operator">=</span><span class="token keyword">new<
   </entry>
   <entry>
     <title>JAVASE笔记(补充)</title>
-    <url>/2022/03/29/javase-bi-ji-bu-chong/</url>
+    <url>/2022/04/06/javase-bi-ji-bu-chong/</url>
     <content><![CDATA[<h1 id="JAVASE（补充）"><a href="#JAVASE（补充）" class="headerlink" title="JAVASE（补充）"></a>JAVASE（补充）</h1><h2 id="泛型应用禁忌"><a href="#泛型应用禁忌" class="headerlink" title="泛型应用禁忌"></a>泛型应用禁忌</h2><p><strong>不能使用基本数据类型实例化泛型类</strong><br>java泛型是一种编译的语法规则<br>只在接口 类 集合 或者参数范围限制</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ParseManger</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span><span class="token punctuation">{</span>
 <span class="token keyword">private</span> K key<span class="token punctuation">;</span>
@@ -3884,6 +3884,12 @@ list<span class="token punctuation">.</span><span class="token function">add</sp
 <h4 id="Connection对象"><a href="#Connection对象" class="headerlink" title="Connection对象"></a>Connection对象</h4><p><img data-src="https://img-blog.csdnimg.cn/41b31a8ae5a94876b40a19502cc9bd31.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Connection对象"></p>
 <h4 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h4><p><img data-src="https://img-blog.csdnimg.cn/7396144e294a49f9a264ad533668764f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_16,color_FFFFFF,t_70,g_se,x_16" alt="Statement对象"></p>
 <h4 id="ResultSet"><a href="#ResultSet" class="headerlink" title="ResultSet"></a>ResultSet</h4><p><img data-src="https://img-blog.csdnimg.cn/3bd6aa7953404d59a57d93859b5129e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_15,color_FFFFFF,t_70,g_se,x_16" alt="Result对象"></p>
+<h2 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h2><p><img data-src="https://img-blog.csdnimg.cn/144c97c40467408cb96df67ebbd5b2ea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<p><strong>例如任务管理器 多次启动只会打开一个窗口 一个任务管理器窗口已经可以实现所有功能</strong></p>
+<h3 id="饿汉单例设计模式"><a href="#饿汉单例设计模式" class="headerlink" title="饿汉单例设计模式"></a>饿汉单例设计模式</h3><p><img data-src="https://img-blog.csdnimg.cn/12bf6536607941ff911ff55cf2a2c91b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="饿汉单例模式"></p>
+<h3 id="懒汉单例设计模式"><a href="#懒汉单例设计模式" class="headerlink" title="懒汉单例设计模式"></a>懒汉单例设计模式</h3><p><img data-src="https://img-blog.csdnimg.cn/fdecc803d4b8434b903a7d0494c2be03.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="懒汉单例模式"><br><img data-src="https://img-blog.csdnimg.cn/c1386ecade6f4e8685a753c9cb0941e8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="懒汉单例模式"></p>
+<p><strong>最好私有化静态对象，使得只能通过方法来获得实例对象，不然假如直接使用类名获得对象得到的是null</strong> </p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>获取对象 饿汉单例模式比较快 但是对于内存来说 如果不急着获取对象 而是想调用类中其他方法  使用饿汉单例模式会耗费内存</p>
 ]]></content>
       <categories>
         <category>笔记整理</category>
