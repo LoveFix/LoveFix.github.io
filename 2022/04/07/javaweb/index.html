@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lovefix.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb">
+<meta property="og:url" content="http://lovefix.github.io/2022/04/07/javaweb/index.html">
+<meta property="og:site_name" content="七凉">
+<meta property="og:description" content="JAVA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8643b738f96e4c6ab3124bebeda20b40.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/dfd71969c90d4f089b398953b3f79eec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/eea850a512194b3da105fc46294a69b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c640abdd2ba34b62b827d0ce6072c0de.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/31df5297058f42c6b5ae8049eb4d2fce.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/94f097f9db284509a6ab44cb5dfa53a1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/de7cadfe739d4767a5b8dc71d352dae3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bed69815fe2348d3a40b31de44302d0b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3cd37586115547ddbc6203ecb63cceb3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/deff452db6f34e7aa527bac6e2f131d3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aafd68bb6d8a45039c6a5693171f1f06.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c21d0edbd1e84b1996d00c0f7c44889b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3a39ae07502b4975907de01a44d7e776.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e6e0e4d05319495c9e62417fb2565a0f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2eb0bc129f4446dfbd392da87a997eaa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a25ca62ec2d34a8a934a19708cdc71af.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7ad24530bf08469f93fba81b85e8a008.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/01acac567a7044ed8b69abd96cc934a5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/486ab8190cf34e58853f9b6891b3e7a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/99560a99dad44678aa025886f8364f96.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1c61d7c58b6b48ce84d4cf3d8cc696e3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c5e3724d491f4dc0b30e610ef0ff91ce.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2dc9fedd652e4127a70a2ae33b8977d3.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e20d8086f37c4bd0a78eff0f1034a523.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4f2f69d4341e4981af1b4a36a72d452f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/63593c1924fd4f5587c6407a3c463d03.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3a369e6f0dd44c59820300d0202dd4a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/19df53f84e904d4487ee7503f5122e86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/32e2e177f35b485ebde03563bd2addb5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ba4db981cd554f1cac0a4cbd48e70f02.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ce99261e787742c8821feb546736b6d5.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a3af3ae773774fe2860ee5fb6d56d973.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4074996733e5408d86e540bac5b2b35b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9568dd66a5dc47d89e5ab8a6aa5831e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/526bdf739ef64bf487d2ca590392c4a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8524e054fbfd4157899341a1eadbd19f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/499fb06d2a9d4f37beeaa68dc5d3cc0a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/237f20c0187f4de1a0e1582f7b3b3ab9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d43449c3ab5d4883856af71478274a71.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9fbc5be0da3242498a5bfa2272b1f17a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/96ada4856f6042b0b25a38e98c399db5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d5376dee0ece4c5fa226be7092d5cef7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/04b4db9609f94189b1299018add8b3c3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/47c3134a69b34c6bad214f2a117e8ff8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/eb18454b58624da592b2e5dc74cf9d35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a101c964e0ba4649af0ca5ba3920e39e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2652b704a9004974a47e1b8cda5116c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e642b617c69f4655aac069f80b3eeee2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/987fddd7965a4ea39b0ea2dc90d769b6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4c002cfee8124b11b0fb973015ea4903.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/84aaf0b7f4d6410296720c43197d0268.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1415e15242584f54ae4bf320498b05b9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/85b5c2424d0b420da6060bac7ed09885.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fdc74b74d6804272aba81b4df3f98d91.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/906004fc2ff5423aa2700a84e63b8283.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/38e58f33eb524f568903a479e7ebe0b5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/76baecfcc89b4bdc8a84cfaa529a47dc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_11,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/24ddd1204e3040df94bd93588f78a9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a2b9293204524735a2dfbcb11c9311cb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7be4b978bcf0424bb922469b4b926223.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/50e6a29ff0d740b889ade6c45a84d791.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/902de72a04374f98b64e48c63fe3e6d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/44a952cf14a747e28ba68f83217c4169.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/210d96a6084b43fba0080efe49678a23.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2d0d95a99d8548e0b26c209a13025531.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/86b492cf52844472b8216bc17c77d17c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6abf1b4fecc04a408dc6cccc2d441538.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0d46f8c677054083af7ea478d5de4ce4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/87f0e1d6ea2f4d4dbee19f1085fa0137.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f817945be43846f4810d3bf6f4694ebb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b472aabe34774548b88783622f11b19b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d40c32b3b6c248a781534ec5c7cafb46.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8941bddb3deb424f958a54445530d1c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/91b259481494497fa2338b039d98072a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/784191fe88e24dcab12ddf9094fe7d33.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/652bd690a7cb47cb8550d6b7417b88f9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4da073292f794a2092ac845544c25aee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2c522ce3631044cb8d656f23d2cdc4a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6f6339ef8b714d50be2cdca2fc390992.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6d634770fffe4414b3c1b4b7bfd43851.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b6e4869163e74ca9aa7c96f14c08b7b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5ea98cf27519431f97dd020a99748afd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8b48145108f54e42b44ce83af8782649.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4c153f0fc5fc474182ff41cd67028395.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e6b511f751c64b3690588b9c2f716bd3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b22776d0f1f44017bcad353f80bc0874.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/78258badad32426986a56fbe88959e17.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5e5b0c5e9c894fd18fca153606087c52.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/29ab9f0a4d2a45a2aea4eedcae7911f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/951f1203439d404c84e43d8f857c6750.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/04106b783cb34b4181c51929388b236f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/99a1a80e820e4768b004c268ffad4ec9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f9e09fe8f6114dd18cdb31fa17053d4a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a672200a0cdf4264a64e6118e0626ae9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b870bac8e88d4e73bdabca87958871ab.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b1a7af7a51c24f399320a7c49240c8b1.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/46f6e4d988a54d148e6aa4c0c8cb0e2f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_15,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/86b4866a08e44fa8a9d7bbcf0d9a9d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a2d22fb6d05c4187b7e6de7bf0f6fe7b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/efbeda21a3ff43ab945b1da987af6164.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8c3a5359b0ad4b71878ed0ee2f89c56e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c829ced42cfd4719acedea20f9c5c55a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ab8b0829d2ea4b11a4fccddc6bfaec4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f95900d4e6314a8cb51c0930fa6eb419.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3e58bb21cae04d57b729c1db02a8b7f5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/beb5154ced0948f892229aa2ac76d9cf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3a7987b6e7134adaaa0b1dd0c4907a03.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/65255cc96a3e4938ae4e81f9de43df9f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c0903f122d3443e59eb98cd11f716b09.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/72dc331f93dc4b2f89965b505baccb1e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/412a45ffe7ce4e71acd39fcd522c416d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/1826749da2a948c58ea94805f5ebd106.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_16,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3327902e7cc247b4848af1a899589ef9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/156de23689f640229f67c1b79958b63d.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a584828db1084676a6042f33036ad00f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e400ddd47b14481fb1ee838bd6bd099b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4f387664162f4d80adcf495179109937.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_18,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a32f62559afa429495db5fb169a18f64.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fafd74162d794d11bc685a2ee44e147c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b55d461df9fa498c8e81b935e0343ac5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2708c68c04a54743acc7895a16736a01.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d69e7618af1848fd8c1b1ebbac50d506.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cc2fbf570ad7439f9a149de2a67c16d8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d9e11b2ded844ab18f60121f48b182f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e8719586aa404d3891cec9b7190069b7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8196394e8eed48c3bac289b7b3b7e56a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ed89ef124059407f8e761512cfc87b09.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d530cd709f4e4c04bbb4f4d992d46abd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6bc66678309340818dee28c37ecb369f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9e6d1409575b46ad99430583cc7ab460.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e8c08fbdd11244b0bee7db1bc7645378.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bd63a7df9cd24fc280e51c2e767151aa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cf0d66e3a2354d2aa420695ef01d5503.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/627a5b92bdd848a2b4496e42b4a2b419.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c8dc5e6fe1a14387bb4731d1212c2b53.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f1f98518b8aa4a228d086254480fc77d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/131faa1a4c3b42f8a1e076900dab0ce6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f4c0f4f0b9c040dca347bead2ffd1510.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6e616485031b443caa0d3fbd657c4f2e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d7269143594f476f9bf9194aa9e1188f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/426dd583eeb94761a527058554dc43d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/70a91d479bf14070b14e2bb6376290b2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cf5a2c86999e4ef7847889fd45aa010f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/780175ab6cad41db9ef665f4c7ad5f76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/75bfa4fab1874d62b81a0c3efdce1387.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a8e3434e18d340a8ae220e9687661ca8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3bd3cba09367417fbb5799a132781ddc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5b2edd0acd88420a85ec9980f5608657.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/21f16f92d41a475cbfa056121415e358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0424e184e70641f9a6b4916fe2f9c300.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a0c08c2920b8467eaa2db14d2ceaf701.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d51bdb0a02484bb7a90c7ec12133147f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4693db5576b644929ca00c20dd113358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/307c82daf18048099659f420c3b44ea1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9d496493506349328ea2db2c8fcd024a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/164418571c2b4cdc94c1bdf780b429f9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aa98184877b3483a8e632b5967b2b8fd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/613b00252d7940c28f88dcdf26e1c0a8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/847e3bf6016c49e7aeca344e624edda8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4d7df70efc6a4de289e287d195461a74.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6eef88c2702f4079b43016ba75d2e7b0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6235c4451e4345b1929f198b506e56a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d7e7cb469fee4223b742535d5d26ce01.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ac92047242d0499ab57f8215c28cbe89.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/92da1e8ecdd24139987668b74f27e67a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f872344690ce43cbb665d6d78c47224d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7ed7f061917f409198d61d53f0e67d3e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/085441881cfd4629aa00889ed522cd12.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/828d47013ee1441a8f7cbde0205975b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e573626505f34cf397295fbdcec2649e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5c793bdfd9344335af4ab77d80f746b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3d4646a59e734916b2322272642a5a8d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a45f246bbc8445c7a104ababbb3e0239.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/448d23ee3a2e42d8b5cf50354780c351.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4cd053dda2024aa682b67fa2e93de67a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9fa02968e79f48058672c241e0d9b3e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/891659dbb25148369b83e69a639bb8d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cce4af6d2f4f42cfb3112a887b35d386.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b59d75f82b5489eb2c42d28e3e40b1c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/31f1f64a56704aa0a7890c40c6d68193.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/687243c86c05462cac4d04f8aaf61a0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aee2c6dbda34474d8356f9cc2d363339.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/aa08819f7f0a4de186bd5d7ca9d83647.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c1f3a5ba578e49cb9077497a081c6f56.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/172f380424b946c3b48b29b12c3c55d7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/119d47b13a21417792e8929cb93e4f97.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/023841a90a954a6f9bc28bdb30228002.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d12b7bf697504a8f997e335913f9dfca.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/80663c16b7364f7f882ec8a7839deccc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8561f337e703461db65cc238a7516d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/673b1b4f63554b1781cee7a94a2eba08.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/96a24691239845a5a36a0382ac92ff8a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/882b5e9e77044b209370e4196f5918a6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8104425e7d6c4414ab3e9a5b71896684.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/6b163711f51a4587a9c01e1eabb0fb5b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4618bdb80ef74acfa79bf32b5f3650d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2a6be4d1ec9b44a5b454c90b73566cb7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b3e06a0666274ecda02d273134e0cfcb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/da8809f528274514aa4ef75df4ba6aea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e46bbd6f7c394cd8abc4cc17049d7247.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/e62ec98e7cb1470190ef5fbee55e09c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/67665035431841c0950c2fb79e28c7c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7f18e735c20b4e14bd7a8d57f2de06d1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5ee8d8d279ee4ddd9c3343498e56398b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5fe320a915384df181b2d2aed102c2d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/c2625fc07d9f4fb0a73ea07bb49a5d62.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cd23eedbbbb842ce9f447e9475652d1d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a8fcfa56f7ab4127be17878f55a0d836.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/84dc320ae53f44618e79f2fc8d7d435f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fe4db253eeb840ec81ddbc8a9f571349.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/afdc1cd35a4244dbb46b914bc85fbcad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/fcf102a561684607ba9ecda6be276b72.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/8e992cd29af6401381c4666b5c564bc7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/625bc2e87f754e97b67b17e265f48015.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/13b2733b2ce74ceb80276897bcc987df.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f2663015645b425581cd5216fc6a95ac.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/30204783fcc34c919cdbfce4c39fe012.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/43b2d63cbbf947b18870a6e560668336.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/34c12471680b4098b55dc29f5d5dd05c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/ecb90bb4e40f421584ee6483c4f47eb2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/5690a21680de4f40bcad935aff1996f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/9b3b661db6e64f8f9dc8a2938d037166.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/635f42b08fd8471182882646e0184c5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/58e7d4de8ac94106aa9020708a73c456.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4f45a2b4698745c3b6643fb9508cab35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/752b0d92645b40b1b58ec7c98ad7e3b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b16a4631381f4091907e8c221e9f5712.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a530d8286e514ddca800bc5ebe67efb8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/774d4e9bac74429fa285674987a83597.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/eaae1b80c6c644aeb4f31ecc905ddebb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4cf66a9764e8482a8b3ce8e9ea7e3036.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/f6fa969046364a9f92d56dbddceb498c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/833907d6f95d4717899be8dc0cfd3d2e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/293396c6cfbc48a294992c9efd33a920.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/18c8b3d98f8f48268c84e8bc4e0421e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/49e9562f6d374f72b8b95ba0d1b7e7de.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/587309479e714663a8133a6b19506805.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/714443c2df954197a9a4779cf9a7e0f8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d5e554dd952945da812cc5f0ef950bc8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/0563105c1dbb470996b74cb78c2ea2dc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2c57d6fb6caf4e57bf6aa2f81b43d748.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/3a9273c548704c0b8c986f2e2487a9b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/af109a689d4f4dfa85f02840fd8ccd94.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/68a5be1cb76149ca809b3984a8656857.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/801e9274f8c8420c8a0ac3ee8aa2bef5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/b6b79a68267849ec89553093919ffaf9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="article:published_time" content="2022-04-07T02:05:58.951Z">
+<meta property="article:modified_time" content="2022-04-07T02:13:20.516Z">
+<meta property="article:author" content="LoveFit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/8643b738f96e4c6ab3124bebeda20b40.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16">
+
+<link rel="canonical" href="http://lovefix.github.io/2022/04/07/javaweb/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+
+
+  <title>JavaWeb | 七凉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="七凉" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">七凉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个喜欢摸鱼的码农</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/LoveFix" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lovefix.github.io/2022/04/07/javaweb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="LoveFit">
+      <meta itemprop="description" content="成功的秘诀：知识 汗水 灵感 机遇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="七凉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaWeb
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-07 10:05:58 / 修改时间：10:13:20" itemprop="dateCreated datePublished" datetime="2022-04-07T10:05:58+08:00">2022-04-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">笔记整理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+            <div class="post-description">JAVA</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>﻿﻿﻿# JavaWeb</p>
+<h2 id="JavaWeb介绍"><a href="#JavaWeb介绍" class="headerlink" title="JavaWeb介绍"></a>JavaWeb介绍</h2><p><img data-src="https://img-blog.csdnimg.cn/8643b738f96e4c6ab3124bebeda20b40.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="介绍"><br><img data-src="https://img-blog.csdnimg.cn/dfd71969c90d4f089b398953b3f79eec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库相关概念"></p>
+<h2 id="常见关系型数据库"><a href="#常见关系型数据库" class="headerlink" title="常见关系型数据库"></a>常见关系型数据库</h2><p><img data-src="https://img-blog.csdnimg.cn/eea850a512194b3da105fc46294a69b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16" alt="常见关系数据库管理系统"></p>
+<h2 id="MySql数据模型"><a href="#MySql数据模型" class="headerlink" title="MySql数据模型"></a>MySql数据模型</h2><p><img data-src="https://img-blog.csdnimg.cn/c640abdd2ba34b62b827d0ce6072c0de.png" alt="关系数据库"></p>
+<h3 id="SQL通用语法"><a href="#SQL通用语法" class="headerlink" title="SQL通用语法"></a>SQL通用语法</h3><p><img data-src="https://img-blog.csdnimg.cn/31df5297058f42c6b5ae8049eb4d2fce.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="语法"></p>
+<h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><p><img data-src="https://img-blog.csdnimg.cn/94f097f9db284509a6ab44cb5dfa53a1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="SQL语句分类"><br><img data-src="https://img-blog.csdnimg.cn/de7cadfe739d4767a5b8dc71d352dae3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="解析"></p>
+<h4 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h4><p><img data-src="https://img-blog.csdnimg.cn/bed69815fe2348d3a40b31de44302d0b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DDL"><br><strong>查询表</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/3cd37586115547ddbc6203ecb63cceb3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="查询表"><br><strong>数据库数据类型</strong><br><img data-src="https://img-blog.csdnimg.cn/deff452db6f34e7aa527bac6e2f131d3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库数据类型"><br><strong>删除表</strong><br><img data-src="https://img-blog.csdnimg.cn/aafd68bb6d8a45039c6a5693171f1f06.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="删除表"></p>
+<p><strong>修改表</strong><br><img data-src="https://img-blog.csdnimg.cn/c21d0edbd1e84b1996d00c0f7c44889b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改表"></p>
+<h4 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h4><p><img data-src="https://img-blog.csdnimg.cn/3a39ae07502b4975907de01a44d7e776.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="添加数据"><br><img data-src="https://img-blog.csdnimg.cn/e6e0e4d05319495c9e62417fb2565a0f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改数据"><br><img data-src="https://img-blog.csdnimg.cn/2eb0bc129f4446dfbd392da87a997eaa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="删除数据"></p>
+<h4 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h4><p><img data-src="https://img-blog.csdnimg.cn/a25ca62ec2d34a8a934a19708cdc71af.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="查询语法"><br><strong>基础查询</strong><br><img data-src="https://img-blog.csdnimg.cn/7ad24530bf08469f93fba81b85e8a008.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基础查询"><br>取别名可以省略AS 但是需要用空格隔开字段名和别名</p>
+<p><img data-src="https://img-blog.csdnimg.cn/01acac567a7044ed8b69abd96cc934a5.png" alt="1"><br><img data-src="https://img-blog.csdnimg.cn/486ab8190cf34e58853f9b6891b3e7a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="2"><br><img data-src="https://img-blog.csdnimg.cn/99560a99dad44678aa025886f8364f96.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="3"><br><strong>条件查询</strong><br><img data-src="https://img-blog.csdnimg.cn/1c61d7c58b6b48ce84d4cf3d8cc696e3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="条件查询"><br><img data-src="https://img-blog.csdnimg.cn/c5e3724d491f4dc0b30e610ef0ff91ce.png" alt="模糊查询"><br><img data-src="https://img-blog.csdnimg.cn/2dc9fedd652e4127a70a2ae33b8977d3.png" alt="排序查询"><strong>聚合函数</strong><br><img data-src="https://img-blog.csdnimg.cn/e20d8086f37c4bd0a78eff0f1034a523.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="聚合函数"><br><strong>注意</strong>:null值不参与所有聚合函数的运算</p>
+<p><img data-src="https://img-blog.csdnimg.cn/4f2f69d4341e4981af1b4a36a72d452f.png" alt="统计人数"><br><strong>代表只要那一行有一个数据就会被统计</strong></p>
+<p><strong>分组查询</strong><br><img data-src="https://img-blog.csdnimg.cn/63593c1924fd4f5587c6407a3c463d03.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分组查询"><br><img data-src="https://img-blog.csdnimg.cn/3a369e6f0dd44c59820300d0202dd4a3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分组查询"><br><strong>分页查询</strong><br><img data-src="https://img-blog.csdnimg.cn/19df53f84e904d4487ee7503f5122e86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分页查询"><br><img data-src="https://img-blog.csdnimg.cn/32e2e177f35b485ebde03563bd2addb5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="分页查询"></p>
+<h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><p><img data-src="https://img-blog.csdnimg.cn/ba4db981cd554f1cac0a4cbd48e70f02.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事务的概念"><br><img data-src="https://img-blog.csdnimg.cn/ce99261e787742c8821feb546736b6d5.png" alt="添加约束"></p>
+<p><strong>自动增长</strong>:当列是数字类型并且唯一约束</p>
+<p><img data-src="https://img-blog.csdnimg.cn/a3af3ae773774fe2860ee5fb6d56d973.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="非空约束"><br><img data-src="https://img-blog.csdnimg.cn/4074996733e5408d86e540bac5b2b35b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="唯一约束"><br><img data-src="https://img-blog.csdnimg.cn/9568dd66a5dc47d89e5ab8a6aa5831e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="主键约束"><br><img data-src="https://img-blog.csdnimg.cn/526bdf739ef64bf487d2ca590392c4a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="默认约束"><br><strong>外键约束</strong><br><img data-src="https://img-blog.csdnimg.cn/8524e054fbfd4157899341a1eadbd19f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="外键约束"></p>
+<h3 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h3><p><img data-src="https://img-blog.csdnimg.cn/499fb06d2a9d4f37beeaa68dc5d3cc0a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库设计"></p>
+<h4 id="表关系"><a href="#表关系" class="headerlink" title="表关系"></a>表关系</h4><p><img data-src="https://img-blog.csdnimg.cn/237f20c0187f4de1a0e1582f7b3b3ab9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表关系"><br><strong>一对多</strong><br><img data-src="https://img-blog.csdnimg.cn/d43449c3ab5d4883856af71478274a71.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="一对多"></p>
+<p><strong>多对多</strong><br><img data-src="https://img-blog.csdnimg.cn/9fbc5be0da3242498a5bfa2272b1f17a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="多对多"><br><strong>一对一</strong><br><img data-src="https://img-blog.csdnimg.cn/96ada4856f6042b0b25a38e98c399db5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="一对一"></p>
+<h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><p><img data-src="https://img-blog.csdnimg.cn/d5376dee0ece4c5fa226be7092d5cef7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="多表查询分类"><br><strong>隐式内连接</strong><br><img data-src="https://img-blog.csdnimg.cn/04b4db9609f94189b1299018add8b3c3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="隐式内连接"><br><strong>显示内连接</strong><br><img data-src="https://img-blog.csdnimg.cn/47c3134a69b34c6bad214f2a117e8ff8.png" alt="显示内连接"></p>
+<p><strong>外连接</strong><br><img data-src="https://img-blog.csdnimg.cn/eb18454b58624da592b2e5dc74cf9d35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="外连接"><br><strong>子查询</strong><br><img data-src="https://img-blog.csdnimg.cn/a101c964e0ba4649af0ca5ba3920e39e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="子查询"><br><img data-src="https://img-blog.csdnimg.cn/2652b704a9004974a47e1b8cda5116c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="子查询"></p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p><img data-src="https://img-blog.csdnimg.cn/e642b617c69f4655aac069f80b3eeee2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事务概念"><br><img data-src="https://img-blog.csdnimg.cn/987fddd7965a4ea39b0ea2dc90d769b6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="发生异常"><br>开启事务后所执行的SQL语句都只是暂时性的 在其他窗口查询数据还是没有发生变化<br>回滚之后数据将会回到开启事务之前的样子<br>当事务异常处理完成之后可以执行提交操作<br>这时才会永久改变数据</p>
+<p><img data-src="https://img-blog.csdnimg.cn/4c002cfee8124b11b0fb973015ea4903.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="持久化更改"><br><img data-src="https://img-blog.csdnimg.cn/84aaf0b7f4d6410296720c43197d0268.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事务四大特征"><br><img data-src="https://img-blog.csdnimg.cn/1415e15242584f54ae4bf320498b05b9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事务提交"><br>MySQL默认事务自动提交<br>select @@atuocommit 的结果为1<br>如果设置为0则不会自动提交<br>Oracle数据库默认为0</p>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="JDBC简介"><a href="#JDBC简介" class="headerlink" title="JDBC简介"></a>JDBC简介</h3><p><img data-src="https://img-blog.csdnimg.cn/85b5c2424d0b420da6060bac7ed09885.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="jdbc简介"></p>
+<h3 id="JDBC快速入门"><a href="#JDBC快速入门" class="headerlink" title="JDBC快速入门"></a>JDBC快速入门</h3><p><img data-src="https://img-blog.csdnimg.cn/fdc74b74d6804272aba81b4df3f98d91.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h3 id="JDBC-API详解"><a href="#JDBC-API详解" class="headerlink" title="JDBC API详解"></a>JDBC API详解</h3><p><img data-src="https://img-blog.csdnimg.cn/906004fc2ff5423aa2700a84e63b8283.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DriverManger"><br><strong>DriverManger</strong><br><img data-src="https://img-blog.csdnimg.cn/38e58f33eb524f568903a479e7ebe0b5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DriverManger"><br><strong>Connection</strong><br><img data-src="https://img-blog.csdnimg.cn/76baecfcc89b4bdc8a84cfaa529a47dc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_11,color_FFFFFF,t_70,g_se,x_16" alt="Connection"><br><img data-src="https://img-blog.csdnimg.cn/24ddd1204e3040df94bd93588f78a9d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Connection功能"><br><img data-src="https://img-blog.csdnimg.cn/a2b9293204524735a2dfbcb11c9311cb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Connection功能"><br><strong>Statement</strong><br><img data-src="https://img-blog.csdnimg.cn/7be4b978bcf0424bb922469b4b926223.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Statement"></p>
+<p><strong>ResultSet</strong><br><img data-src="https://img-blog.csdnimg.cn/50e6a29ff0d740b889ade6c45a84d791.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="ResultSet"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/902de72a04374f98b64e48c63fe3e6d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="ResultSet"><br><strong>PreparedStatement</strong><br><img data-src="https://img-blog.csdnimg.cn/44a952cf14a747e28ba68f83217c4169.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="PrepardStatement"><br><strong>PreparedStatement 原理</strong><br><img data-src="https://img-blog.csdnimg.cn/210d96a6084b43fba0080efe49678a23.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="PreparedStatement原理"><br><img data-src="https://img-blog.csdnimg.cn/2d0d95a99d8548e0b26c209a13025531.png" alt="设置"></p>
+<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><p><img data-src="https://img-blog.csdnimg.cn/86b492cf52844472b8216bc17c77d17c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库连接池简介"><br><img data-src="https://img-blog.csdnimg.cn/6abf1b4fecc04a408dc6cccc2d441538.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据库连接池实现"><br><img data-src="https://img-blog.csdnimg.cn/0d46f8c677054083af7ea478d5de4ce4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_17,color_FFFFFF,t_70,g_se,x_16" alt="Druid使用"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/87f0e1d6ea2f4d4dbee19f1085fa0137.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Druid使用"></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p><img data-src="https://img-blog.csdnimg.cn/f817945be43846f4810d3bf6f4694ebb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="查询练习"></p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testSelectALl</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span>  Exception<span class="token punctuation">{</span>
+        Properties properties<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        properties<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"src/jdbc/druid/druid.properties"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        DataSource dataSource <span class="token operator">=</span> DruidDataSourceFactory<span class="token punctuation">.</span><span class="token function">createDataSource</span><span class="token punctuation">(</span>properties<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Connection connection <span class="token operator">=</span> dataSource<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        String sql<span class="token operator">=</span><span class="token string">"select * from studentinfo"</span><span class="token punctuation">;</span>
+
+
+        PreparedStatement preparedStatement <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">prepareStatement</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        ResultSet rs<span class="token operator">=</span>preparedStatement<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Student student<span class="token operator">=</span>null<span class="token punctuation">;</span>
+        List<span class="token operator">&lt;</span>Student<span class="token operator">></span> list<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>rs<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> sid<span class="token operator">=</span>rs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token string">"sid"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            String name<span class="token operator">=</span>rs<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> age<span class="token operator">=</span>rs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token string">"age"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            student<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            student<span class="token punctuation">.</span><span class="token function">setSid</span><span class="token punctuation">(</span>sid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            student<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            student<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//System.out.println(student);</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//        for(Student s:list) {</span>
+<span class="token comment" spellcheck="true">//            System.out.println(s);</span>
+<span class="token comment" spellcheck="true">//        }</span>
+
+        rs<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        preparedStatement<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connection<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//System.out.println(System.getProperty("user.dir"));</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p><img data-src="https://img-blog.csdnimg.cn/b472aabe34774548b88783622f11b19b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="添加"><br><img data-src="https://img-blog.csdnimg.cn/d40c32b3b6c248a781534ec5c7cafb46.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改"><br><img data-src="https://img-blog.csdnimg.cn/8941bddb3deb424f958a54445530d1c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="删除"></p>
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p><img data-src="https://img-blog.csdnimg.cn/91b259481494497fa2338b039d98072a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven的功能"><br><img data-src="https://img-blog.csdnimg.cn/784191fe88e24dcab12ddf9094fe7d33.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="标准化的项目结构"><br><img data-src="https://img-blog.csdnimg.cn/652bd690a7cb47cb8550d6b7417b88f9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="标准化的构建流程"><br><img data-src="https://img-blog.csdnimg.cn/4da073292f794a2092ac845544c25aee.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="依赖管理"></p>
+<h3 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h3><p><img data-src="https://img-blog.csdnimg.cn/2c522ce3631044cb8d656f23d2cdc4a4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven简介"><br><img data-src="https://img-blog.csdnimg.cn/6f6339ef8b714d50be2cdca2fc390992.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven简介"></p>
+<h3 id="Maven安装配置"><a href="#Maven安装配置" class="headerlink" title="Maven安装配置"></a>Maven安装配置</h3><p><img data-src="https://img-blog.csdnimg.cn/6d634770fffe4414b3c1b4b7bfd43851.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven安装配置"></p>
+<h3 id="Maven基本使用"><a href="#Maven基本使用" class="headerlink" title="Maven基本使用"></a>Maven基本使用</h3><p><strong>Maven常用命令</strong></p>
+<ul>
+<li>complie：编译</li>
+<li>clean：清理</li>
+<li>test：测试</li>
+<li>package：打包</li>
+<li>install：安装</li>
+</ul>
+<p><strong>Maven生命周期</strong><br><img data-src="https://img-blog.csdnimg.cn/b6e4869163e74ca9aa7c96f14c08b7b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven生命周期"></p>
+<h3 id="IDEA配置Maven"><a href="#IDEA配置Maven" class="headerlink" title="IDEA配置Maven"></a>IDEA配置Maven</h3><p><img data-src="https://img-blog.csdnimg.cn/5ea98cf27519431f97dd020a99748afd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="IDEA配置Maven"><br><strong>IDEA创建Maven项目</strong><br><img data-src="https://img-blog.csdnimg.cn/8b48145108f54e42b44ce83af8782649.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="IDEA创建Maven项目"><br><strong>IDEA导入Maven项目</strong><br><img data-src="https://img-blog.csdnimg.cn/4c153f0fc5fc474182ff41cd67028395.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="IDEA导入Maven项目"><br><strong>配置Maven-Helper插件</strong><br><img data-src="https://img-blog.csdnimg.cn/e6b511f751c64b3690588b9c2f716bd3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="配置Maven-Helper插件"></p>
+<h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><h4 id="导入jar包"><a href="#导入jar包" class="headerlink" title="导入jar包"></a>导入jar包</h4><p><strong>使用坐标导入jar包</strong><br><img data-src="https://img-blog.csdnimg.cn/b22776d0f1f44017bcad353f80bc0874.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="使用坐标导入jar包"><br><strong>使用坐标导入jar-自动导入</strong><br><img data-src="https://img-blog.csdnimg.cn/78258badad32426986a56fbe88959e17.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="自动导入"><br><strong>使用坐标导入jar包-快捷方式</strong><br><img data-src="https://img-blog.csdnimg.cn/5e5b0c5e9c894fd18fca153606087c52.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快捷方式"></p>
+<h4 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h4><p>**通过设置坐标的依赖范围（scope），可以设置对应jar包的作用范围：编译环境、测试环境、运行环境。<br><img data-src="https://img-blog.csdnimg.cn/29ab9f0a4d2a45a2aea4eedcae7911f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="设置依赖范围"></p>
+<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><h3 id="Mybatis简介"><a href="#Mybatis简介" class="headerlink" title="Mybatis简介"></a>Mybatis简介</h3><p><img data-src="https://img-blog.csdnimg.cn/951f1203439d404c84e43d8f857c6750.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="什么是Mybatis"></p>
+<h3 id="Mybatis简化"><a href="#Mybatis简化" class="headerlink" title="Mybatis简化"></a>Mybatis简化</h3><p><img data-src="https://img-blog.csdnimg.cn/04106b783cb34b4181c51929388b236f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Mybatis简化"></p>
+<h3 id="Mybatis快速入门"><a href="#Mybatis快速入门" class="headerlink" title="Mybatis快速入门"></a>Mybatis快速入门</h3><p><img data-src="https://img-blog.csdnimg.cn/99a1a80e820e4768b004c268ffad4ec9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Mybatis快速入门"><br><img data-src="https://img-blog.csdnimg.cn/f9e09fe8f6114dd18cdb31fa17053d4a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Maven代理开发"><br>创建目录时不能用点 需要用/隔开</p>
+<p>修改namespace之后记得修改核心配置文件 mapper标签里的resource</p>
+<h3 id="配置文件完成增删改查"><a href="#配置文件完成增删改查" class="headerlink" title="配置文件完成增删改查"></a>配置文件完成增删改查</h3><h4 id="查询所有数据"><a href="#查询所有数据" class="headerlink" title="查询所有数据"></a>查询所有数据</h4><p><img data-src="https://img-blog.csdnimg.cn/a672200a0cdf4264a64e6118e0626ae9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="配置文件完成增删改查"><br><img data-src="https://img-blog.csdnimg.cn/b870bac8e88d4e73bdabca87958871ab.png" alt="1"><br><img data-src="https://img-blog.csdnimg.cn/b1a7af7a51c24f399320a7c49240c8b1.png" alt="2"><br><img data-src="https://img-blog.csdnimg.cn/46f6e4d988a54d148e6aa4c0c8cb0e2f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_15,color_FFFFFF,t_70,g_se,x_16" alt="3"></p>
+<h4 id="多条件查询"><a href="#多条件查询" class="headerlink" title="多条件查询"></a>多条件查询</h4><p><img data-src="https://img-blog.csdnimg.cn/86b4866a08e44fa8a9d7bbcf0d9a9d4b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="多条件查询"><br><img data-src="https://img-blog.csdnimg.cn/a2d22fb6d05c4187b7e6de7bf0f6fe7b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_14,color_FFFFFF,t_70,g_se,x_16" alt="设置多个参数"><br><strong>动态条件查询</strong><br><img data-src="https://img-blog.csdnimg.cn/efbeda21a3ff43ab945b1da987af6164.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="动态条件查询"><br><img data-src="https://img-blog.csdnimg.cn/8c3a5359b0ad4b71878ed0ee2f89c56e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_19,color_FFFFFF,t_70,g_se,x_16" alt="总结"></p>
+<h4 id="单条件查询"><a href="#单条件查询" class="headerlink" title="单条件查询"></a>单条件查询</h4><p><img data-src="https://img-blog.csdnimg.cn/c829ced42cfd4719acedea20f9c5c55a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="单条件查询"></p>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><p><img data-src="https://img-blog.csdnimg.cn/ab8b0829d2ea4b11a4fccddc6bfaec4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="添加"></p>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><p><strong>修改全部字段</strong><br><img data-src="https://img-blog.csdnimg.cn/f95900d4e6314a8cb51c0930fa6eb419.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改全部字段"><br><strong>修改部分字段</strong><br><img data-src="https://img-blog.csdnimg.cn/3e58bb21cae04d57b729c1db02a8b7f5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="修改动态字段"></p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><p><strong>删除一个数据</strong><br><img data-src="https://img-blog.csdnimg.cn/beb5154ced0948f892229aa2ac76d9cf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="删除一个"><br><strong>批量删除</strong><br><img data-src="https://img-blog.csdnimg.cn/3a7987b6e7134adaaa0b1dd0c4907a03.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="批量删除"></p>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p><img data-src="https://img-blog.csdnimg.cn/65255cc96a3e4938ae4e81f9de43df9f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="参数传递"><br>/*<br>    mybatis 参数列表<br>    1.POJO类型 直接使用，属性名和参数占位符名称一致<br>    2.Map集合 直接使用键名和参数占位符名称一致<br>    3.Collection:封装为Map集合<br>        map.put(“arg0”,collection集合)<br>        map.put(“collection”,collection集合)<br>    4.List<br>    map.put(“arg0”,list集合)<br>    map.put(“collection”,list集合)<br>    map.put(“list”,list集合)<br>    5.Array 封装为Map集合<br>        map.put(“arg0”,数组)<br>        map.put(“array”,数组)<br>    6.其他类型 直接使用<br>    *多个参数：封装为Map集合<br>    可以使用@Param注解替换Map集合中默认的arg键名<br>    map.put(“arg0”,参数值1)<br>    map.put(“param1”,参数值1)<br>    map.put(“arg1”,参数值2)<br>    map.put(“param2”,参数值2)<br>    --------@Param(“username”)<br>     map.put(“username”,参数值1)<br>    map.put(“param1”,参数值1)<br>    map.put(“arg1”,参数值2)<br>    map.put(“param2”,参数值2)<br>     */</p>
+<h3 id="注解完成增删改查"><a href="#注解完成增删改查" class="headerlink" title="注解完成增删改查"></a>注解完成增删改查</h3><p><img data-src="https://img-blog.csdnimg.cn/c0903f122d3443e59eb98cd11f716b09.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="注解完成增删改查"></p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><img data-src="https://img-blog.csdnimg.cn/72dc331f93dc4b2f89965b505baccb1e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><p><img data-src="https://img-blog.csdnimg.cn/412a45ffe7ce4e71acd39fcd522c416d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="HTML快速入门"><br><img data-src="https://img-blog.csdnimg.cn/1826749da2a948c58ea94805f5ebd106.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_16,color_FFFFFF,t_70,g_se,x_16" alt="入门语法"></p>
+<h4 id="基础标签"><a href="#基础标签" class="headerlink" title="基础标签"></a>基础标签</h4><p><img data-src="https://img-blog.csdnimg.cn/3327902e7cc247b4848af1a899589ef9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基础标签"><br><img data-src="https://img-blog.csdnimg.cn/156de23689f640229f67c1b79958b63d.png" alt="颜色"><br><img data-src="https://img-blog.csdnimg.cn/a584828db1084676a6042f33036ad00f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="转义字符"></p>
+<h4 id="图片-视频-音频"><a href="#图片-视频-音频" class="headerlink" title="图片 视频 音频"></a>图片 视频 音频</h4><p><img data-src="https://img-blog.csdnimg.cn/e400ddd47b14481fb1ee838bd6bd099b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="图片 视频和音频"><br><img data-src="https://img-blog.csdnimg.cn/4f387664162f4d80adcf495179109937.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_18,color_FFFFFF,t_70,g_se,x_16" alt="访问路径"></p>
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><p><img data-src="https://img-blog.csdnimg.cn/a32f62559afa429495db5fb169a18f64.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="超链接"></p>
+<h4 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h4><p><img data-src="https://img-blog.csdnimg.cn/fafd74162d794d11bc685a2ee44e147c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="列表标签"></p>
+<h4 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h4><p><img data-src="https://img-blog.csdnimg.cn/b55d461df9fa498c8e81b935e0343ac5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表格标签"></p>
+<h4 id="布局标签"><a href="#布局标签" class="headerlink" title="布局标签"></a>布局标签</h4><p><img data-src="https://img-blog.csdnimg.cn/2708c68c04a54743acc7895a16736a01.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="布局标签"><br>div 占满整行</p>
+<h4 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h4><p><img data-src="https://img-blog.csdnimg.cn/d69e7618af1848fd8c1b1ebbac50d506.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表单标签"></p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--
+form
+     action:指定表提交数据的URL
+        设置为#代表提交到当前html页面
+        *表单项数据要想被提交，则必需指定其name属性
+     method:指定表单提交的方式
+        1.get 默认值
+            *请求参数会拼接在URL后边
+            *请求参数有限制 4KB
+
+        2.post
+            *请求参数会在http请求协议的请求体中
+            *请求参数无限制
+--></span>
+</code></pre>
+<h4 id="表单标签-表单项"><a href="#表单标签-表单项" class="headerlink" title="表单标签-表单项"></a>表单标签-表单项</h4><p><img data-src="https://img-blog.csdnimg.cn/cc2fbf570ad7439f9a149de2a67c16d8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表单项"></p>
+<h2 id="Css"><a href="#Css" class="headerlink" title="Css"></a>Css</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p><img data-src="https://img-blog.csdnimg.cn/d9e11b2ded844ab18f60121f48b182f4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="css简介"></p>
+<h3 id="Css导入方式"><a href="#Css导入方式" class="headerlink" title="Css导入方式"></a>Css导入方式</h3><p><img data-src="https://img-blog.csdnimg.cn/e8719586aa404d3891cec9b7190069b7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Css导入方式"></p>
+<h3 id="Css选择器"><a href="#Css选择器" class="headerlink" title="Css选择器"></a>Css选择器</h3><p><img data-src="https://img-blog.csdnimg.cn/8196394e8eed48c3bac289b7b3b7e56a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Css选择器"><br>id一般唯一<br>如果同时存在id和内部css 选择范围越小则生效 </p>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="Javascript简介"><a href="#Javascript简介" class="headerlink" title="Javascript简介"></a>Javascript简介</h3><p><img data-src="https://img-blog.csdnimg.cn/ed89ef124059407f8e761512cfc87b09.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JS简介"></p>
+<h3 id="JavaScript引入方式"><a href="#JavaScript引入方式" class="headerlink" title="JavaScript引入方式"></a>JavaScript引入方式</h3><p><img data-src="https://img-blog.csdnimg.cn/d530cd709f4e4c04bbb4f4d992d46abd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JS引入方式"></p>
+<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p><img data-src="https://img-blog.csdnimg.cn/6bc66678309340818dee28c37ecb369f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基础语法"></p>
+<h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><p><img data-src="https://img-blog.csdnimg.cn/9e6d1409575b46ad99430583cc7ab460.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="输出语句"></p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p><img data-src="https://img-blog.csdnimg.cn/e8c08fbdd11244b0bee7db1bc7645378.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="变量"><br>/*<br>     var:<br>        1.作用域：全局变量<br>        2.变量可以重复定义<br>     */</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p><img data-src="https://img-blog.csdnimg.cn/bd63a7df9cd24fc280e51c2e767151aa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数据类型"><br>typeof null的返回值是object 这是最初JavaScript的一个错误但是被沿用至今</p>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p><img data-src="https://img-blog.csdnimg.cn/cf0d66e3a2354d2aa420695ef01d5503.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="运算符"><br> /*<br>    ==<br>        1.判断类型是否一样 如果不一样则进行类型转换<br>        2.再去比较其值<br>    ===：全等于<br>         1.判断类型是否一样 如果不一样则返回false<br>         2.再去比较其值<br>     */</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p><img data-src="https://img-blog.csdnimg.cn/627a5b92bdd848a2b4496e42b4a2b419.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="类型转换"><br> /*<br>        类型转换：<br>            *其他类型转为number：<br>                1.String ：按照字符串的字面值 转为数组，如果字面值不是数字，则转为NaN<br>                一般使用parseInt（参数值）<br>                NaN：不是数字的数字类型<br>                var str=+”abc”;<br>                2.boolean true转为1 false转为0<br>                    1.number:0和NaN转为false 其他的数字转为true<br>                    2.String 空字符串转为false 其他字符串转为true<br>                    3.null 转为false<br>                    4.undefined 转为false<br>   */ </p>
+<h4 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h4><p><img data-src="https://img-blog.csdnimg.cn/c8dc5e6fe1a14387bb4731d1212c2b53.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="流程控制语句"></p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><p><img data-src="https://img-blog.csdnimg.cn/f1f98518b8aa4a228d086254480fc77d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="函数"><br><img data-src="https://img-blog.csdnimg.cn/131faa1a4c3b42f8a1e076900dab0ce6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="定义方式二"></p>
+<h3 id="Javascript对象"><a href="#Javascript对象" class="headerlink" title="Javascript对象"></a>Javascript对象</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p><img data-src="https://img-blog.csdnimg.cn/f4c0f4f0b9c040dca347bead2ffd1510.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="数组"></p>
+<p><strong>特点：Javascript数组相当于Java集合，变长 变类型</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/6e616485031b443caa0d3fbd657c4f2e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="属性和方法"></p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><p><img data-src="https://img-blog.csdnimg.cn/d7269143594f476f9bf9194aa9e1188f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="String"><br>trim()方法没有出现在文档中 但是所有浏览器都支持此方法<br>此方法的作用是取出字符串前后的空格</p>
+<h4 id="自定义对象"><a href="#自定义对象" class="headerlink" title="自定义对象"></a>自定义对象</h4><p><img data-src="https://img-blog.csdnimg.cn/426dd583eeb94761a527058554dc43d5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="自定义对象"></p>
+<h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><p><img data-src="https://img-blog.csdnimg.cn/70a91d479bf14070b14e2bb6376290b2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="BOM对象"></p>
+<h4 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h4><p><img data-src="https://img-blog.csdnimg.cn/cf5a2c86999e4ef7847889fd45aa010f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Window对象"><br>confirm 点击确定返回true 点击取消返回false<br> 定时器<br>  setTimeout(function,毫秒值):<br>  在一定的时间间隔后执行一个function 只执行一次<br>  setInterval(function ,毫秒值):<br>  在一定的时间间隔后执行一个function 循环执行</p>
+<h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><p><img data-src="https://img-blog.csdnimg.cn/780175ab6cad41db9ef665f4c7ad5f76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="history对象"></p>
+<h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p><img data-src="https://img-blog.csdnimg.cn/75bfa4fab1874d62b81a0c3efdce1387.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="location"></p>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p><img data-src="https://img-blog.csdnimg.cn/a8e3434e18d340a8ae220e9687661ca8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DOM对象"><br><img data-src="https://img-blog.csdnimg.cn/3bd3cba09367417fbb5799a132781ddc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DOM对象"><br><img data-src="https://img-blog.csdnimg.cn/5b2edd0acd88420a85ec9980f5608657.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="DOM"></p>
+<h4 id="获取Element对象"><a href="#获取Element对象" class="headerlink" title="获取Element对象"></a>获取Element对象</h4><p><img data-src="https://img-blog.csdnimg.cn/21f16f92d41a475cbfa056121415e358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="获取Element"></p>
+<h3 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h3><p><img data-src="https://img-blog.csdnimg.cn/0424e184e70641f9a6b4916fe2f9c300.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事件监听"></p>
+<h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p><img data-src="https://img-blog.csdnimg.cn/a0c08c2920b8467eaa2db14d2ceaf701.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="事件绑定"></p>
+<h4 id="常见事件"><a href="#常见事件" class="headerlink" title="常见事件"></a>常见事件</h4><p><img data-src="https://img-blog.csdnimg.cn/d51bdb0a02484bb7a90c7ec12133147f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常见事件"></p>
+<h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4><p><img data-src="https://img-blog.csdnimg.cn/4693db5576b644929ca00c20dd113358.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表单验证"><br><img data-src="https://img-blog.csdnimg.cn/307c82daf18048099659f420c3b44ea1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="表单验证"></p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p><img data-src="https://img-blog.csdnimg.cn/9d496493506349328ea2db2c8fcd024a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="正则表达式"></p>
+<h2 id="Web核心技术"><a href="#Web核心技术" class="headerlink" title="Web核心技术"></a>Web核心技术</h2><h3 id="什么是JavaWeb"><a href="#什么是JavaWeb" class="headerlink" title="什么是JavaWeb"></a>什么是JavaWeb</h3><p><img data-src="https://img-blog.csdnimg.cn/164418571c2b4cdc94c1bdf780b429f9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="javaweb"></p>
+<h3 id="javaWeb技术栈"><a href="#javaWeb技术栈" class="headerlink" title="javaWeb技术栈"></a>javaWeb技术栈</h3><p><img data-src="https://img-blog.csdnimg.cn/aa98184877b3483a8e632b5967b2b8fd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JavaWeb技术栈"></p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><h4 id="HTTP简介"><a href="#HTTP简介" class="headerlink" title="HTTP简介"></a>HTTP简介</h4><p><img data-src="https://img-blog.csdnimg.cn/613b00252d7940c28f88dcdf26e1c0a8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h4 id="HTTP请求数据格式"><a href="#HTTP请求数据格式" class="headerlink" title="HTTP请求数据格式"></a>HTTP请求数据格式</h4><p><img data-src="https://img-blog.csdnimg.cn/847e3bf6016c49e7aeca344e624edda8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="HTTP请求数据格式"></p>
+<h4 id="HTTP响应数据格式"><a href="#HTTP响应数据格式" class="headerlink" title="HTTP响应数据格式"></a>HTTP响应数据格式</h4><p><img data-src="https://img-blog.csdnimg.cn/4d7df70efc6a4de289e287d195461a74.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="HTTP响应状态格式"></p>
+<h4 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h4><p><strong>状态码大类</strong><br><img data-src="https://img-blog.csdnimg.cn/6eef88c2702f4079b43016ba75d2e7b0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="状态码大类"><br><img data-src="https://img-blog.csdnimg.cn/6235c4451e4345b1929f198b506e56a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常见响应状态码"></p>
+<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><h4 id="Web服务器简介"><a href="#Web服务器简介" class="headerlink" title="Web服务器简介"></a>Web服务器简介</h4><p><img data-src="https://img-blog.csdnimg.cn/d7e7cb469fee4223b742535d5d26ce01.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="web服务器简介"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><img data-src="https://img-blog.csdnimg.cn/ac92047242d0499ab57f8215c28cbe89.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="总结"></p>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><h4 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/92da1e8ecdd24139987668b74f27e67a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p><img data-src="https://img-blog.csdnimg.cn/f872344690ce43cbb665d6d78c47224d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基本使用"><br><img data-src="https://img-blog.csdnimg.cn/7ed7f061917f409198d61d53f0e67d3e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基本使用"><br>配置端口号时一定要注意检查端口号是否被占用不然可能也会出现一闪而过的情况 </p>
+<p><img data-src="https://img-blog.csdnimg.cn/085441881cfd4629aa00889ed522cd12.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="部署项目"></p>
+<h4 id="IDEA中创建Tomcat项目"><a href="#IDEA中创建Tomcat项目" class="headerlink" title="IDEA中创建Tomcat项目"></a>IDEA中创建Tomcat项目</h4><p><img data-src="https://img-blog.csdnimg.cn/828d47013ee1441a8f7cbde0205975b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="新建Tomcat项目"><br><img data-src="https://img-blog.csdnimg.cn/e573626505f34cf397295fbdcec2649e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="使用骨架创建项目"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/5c793bdfd9344335af4ab77d80f746b8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="不适用骨架创建项目"><br>如果使用maven打包时出现Cannot access defaults field of Properties<br>在pom.xml文件中加入</p>
+<plugin>
+    <groupid>org.apache.maven.plugins</groupid>
+    <artifactid>maven-war-plugin</artifactid>
+    <version>3.2.0</version>
+</plugin>
+
+<h4 id="IDEA中使用Tomcat"><a href="#IDEA中使用Tomcat" class="headerlink" title="IDEA中使用Tomcat"></a>IDEA中使用Tomcat</h4><p><strong>集成本地Tomcat</strong><br><img data-src="https://img-blog.csdnimg.cn/3d4646a59e734916b2322272642a5a8d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="集成本地Tomcat"><br><strong>pom.xml添加Tomcat插件</strong><br><img data-src="https://img-blog.csdnimg.cn/a45f246bbc8445c7a104ababbb3e0239.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="添加Tomcat插件"></p>
+<h4 id="Tomcat-Maven-插件"><a href="#Tomcat-Maven-插件" class="headerlink" title="Tomcat Maven 插件"></a>Tomcat Maven 插件</h4><p><img data-src="https://img-blog.csdnimg.cn/448d23ee3a2e42d8b5cf50354780c351.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Tomcat Maven插件"></p>
+<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><h4 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/4cd053dda2024aa682b67fa2e93de67a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Servlet简介"></p>
+<h4 id="快速入门-1"><a href="#快速入门-1" class="headerlink" title="快速入门"></a>快速入门</h4><p><img data-src="https://img-blog.csdnimg.cn/9fa02968e79f48058672c241e0d9b3e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h4><p><img data-src="https://img-blog.csdnimg.cn/891659dbb25148369b83e69a639bb8d9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="执行流程"></p>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p><img data-src="https://img-blog.csdnimg.cn/cce4af6d2f4f42cfb3112a887b35d386.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="生命周期"></p>
+<h4 id="Servlet方法"><a href="#Servlet方法" class="headerlink" title="Servlet方法"></a>Servlet方法</h4><p><img data-src="https://img-blog.csdnimg.cn/9b59d75f82b5489eb2c42d28e3e40b1c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Servlet方法"></p>
+<h4 id="Servlet体系结构"><a href="#Servlet体系结构" class="headerlink" title="Servlet体系结构"></a>Servlet体系结构</h4><p><img data-src="https://img-blog.csdnimg.cn/31f1f64a56704aa0a7890c40c6d68193.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Servlet体系结构"></p>
+<h4 id="Servlet-urlPattern配置"><a href="#Servlet-urlPattern配置" class="headerlink" title="Servlet urlPattern配置"></a>Servlet urlPattern配置</h4><p><img data-src="https://img-blog.csdnimg.cn/687243c86c05462cac4d04f8aaf61a0d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="urlPattern配置"><br><img data-src="https://img-blog.csdnimg.cn/aee2c6dbda34474d8356f9cc2d363339.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="urlPattern配置规则"></p>
+<p>DefaultServlet用来处理项目的静态资源<br>如果配置了任意匹配则无法访问 静态资源</p>
+<h4 id="XML配置方式编写Servlet"><a href="#XML配置方式编写Servlet" class="headerlink" title="XML配置方式编写Servlet"></a>XML配置方式编写Servlet</h4><p><img data-src="https://img-blog.csdnimg.cn/aa08819f7f0a4de186bd5d7ca9d83647.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="XML配置方式编写Servlet"></p>
+<h3 id="Request对象和Response对象"><a href="#Request对象和Response对象" class="headerlink" title="Request对象和Response对象"></a>Request对象和Response对象</h3><h4 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/c1f3a5ba578e49cb9077497a081c6f56.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h3 id="Resquest对象"><a href="#Resquest对象" class="headerlink" title="Resquest对象"></a>Resquest对象</h3><h4 id="Request继承体系"><a href="#Request继承体系" class="headerlink" title="Request继承体系"></a>Request继承体系</h4><p><img data-src="https://img-blog.csdnimg.cn/172f380424b946c3b48b29b12c3c55d7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Resquest继承体系"></p>
+<h4 id="获取请求数据"><a href="#获取请求数据" class="headerlink" title="获取请求数据"></a>获取请求数据</h4><p><img data-src="https://img-blog.csdnimg.cn/119d47b13a21417792e8929cb93e4f97.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="获取请求数据"></p>
+<h4 id="Request-通用方式获取请求参数"><a href="#Request-通用方式获取请求参数" class="headerlink" title="Request 通用方式获取请求参数"></a>Request 通用方式获取请求参数</h4><p><img data-src="https://img-blog.csdnimg.cn/023841a90a954a6f9bc28bdb30228002.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="通用方式获取请求参数"></p>
+<h4 id="Request请求参数乱码"><a href="#Request请求参数乱码" class="headerlink" title="Request请求参数乱码"></a>Request请求参数乱码</h4><p><img data-src="https://img-blog.csdnimg.cn/d12b7bf697504a8f997e335913f9dfca.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="POST"><br><img data-src="https://img-blog.csdnimg.cn/80663c16b7364f7f882ec8a7839deccc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="请求参数乱码"></p>
+<pre class=" language-java"><code class="language-java">username<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>username<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span>StandardCharsets<span class="token punctuation">.</span>ISO_8859_1<span class="token punctuation">)</span><span class="token punctuation">,</span>StandardCharsets<span class="token punctuation">.</span>UTF_8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p><img data-src="https://img-blog.csdnimg.cn/8561f337e703461db65cc238a7516d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="总结"></p>
+<h4 id="Request请求转发"><a href="#Request请求转发" class="headerlink" title="Request请求转发"></a>Request请求转发</h4><p><img data-src="https://img-blog.csdnimg.cn/673b1b4f63554b1781cee7a94a2eba08.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Request请求转发"></p>
+<h3 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h3><h4 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/96a24691239845a5a36a0382ac92ff8a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h4 id="Response设置响应数据"><a href="#Response设置响应数据" class="headerlink" title="Response设置响应数据"></a>Response设置响应数据</h4><p><img data-src="https://img-blog.csdnimg.cn/882b5e9e77044b209370e4196f5918a6.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Response设置响应数据"></p>
+<h4 id="Response重定向"><a href="#Response重定向" class="headerlink" title="Response重定向"></a>Response重定向</h4><p><img data-src="https://img-blog.csdnimg.cn/8104425e7d6c4414ab3e9a5b71896684.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Response重定向"></p>
+<h4 id="资源路径问题"><a href="#资源路径问题" class="headerlink" title="资源路径问题"></a>资源路径问题</h4><p><img data-src="https://img-blog.csdnimg.cn/6b163711f51a4587a9c01e1eabb0fb5b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="资源路径问题"></p>
+<h4 id="Response响应字符数据"><a href="#Response响应字符数据" class="headerlink" title="Response响应字符数据"></a>Response响应字符数据</h4><p><img data-src="https://img-blog.csdnimg.cn/4618bdb80ef74acfa79bf32b5f3650d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Response响应字符数据"></p>
+<h4 id="Response响应字节数据"><a href="#Response响应字节数据" class="headerlink" title="Response响应字节数据"></a>Response响应字节数据</h4><p><img data-src="https://img-blog.csdnimg.cn/2a6be4d1ec9b44a5b454c90b73566cb7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Response响应字节数据"></p>
+<h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><h4 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/b3e06a0666274ecda02d273134e0cfcb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="jsp简介"><br><strong>JSP原理</strong><br><img data-src="https://img-blog.csdnimg.cn/da8809f528274514aa4ef75df4ba6aea.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JSP原理"></p>
+<h4 id="JSP快速入门"><a href="#JSP快速入门" class="headerlink" title="JSP快速入门"></a>JSP快速入门</h4><p><img data-src="https://img-blog.csdnimg.cn/e46bbd6f7c394cd8abc4cc17049d7247.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JSP快速入门"></p>
+<h4 id="JSP脚本"><a href="#JSP脚本" class="headerlink" title="JSP脚本"></a>JSP脚本</h4><p><img data-src="https://img-blog.csdnimg.cn/e62ec98e7cb1470190ef5fbee55e09c4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JSP脚本"></p>
+<h4 id="JSP缺点"><a href="#JSP缺点" class="headerlink" title="JSP缺点"></a>JSP缺点</h4><p><img data-src="https://img-blog.csdnimg.cn/67665035431841c0950c2fb79e28c7c0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JSP缺点"></p>
+<h4 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h4><p><img data-src="https://img-blog.csdnimg.cn/7f18e735c20b4e14bd7a8d57f2de06d1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="EL表达式"></p>
+<h3 id="JSTL标签"><a href="#JSTL标签" class="headerlink" title="JSTL标签"></a>JSTL标签</h3><p><img data-src="https://img-blog.csdnimg.cn/5ee8d8d279ee4ddd9c3343498e56398b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="JSTL标签"></p>
+<h4 id="快速入门-2"><a href="#快速入门-2" class="headerlink" title="快速入门"></a>快速入门</h4><p><img data-src="https://img-blog.csdnimg.cn/5fe320a915384df181b2d2aed102c2d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h4 id="foreach标签"><a href="#foreach标签" class="headerlink" title="foreach标签"></a>foreach标签</h4><p><img data-src="https://img-blog.csdnimg.cn/c2625fc07d9f4fb0a73ea07bb49a5d62.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="foreach"></p>
+<h3 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h3><p><img data-src="https://img-blog.csdnimg.cn/cd23eedbbbb842ce9f447e9475652d1d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="MVC模式"></p>
+<h4 id="三层架构"><a href="#三层架构" class="headerlink" title="三层架构"></a>三层架构</h4><p><img data-src="https://img-blog.csdnimg.cn/a8fcfa56f7ab4127be17878f55a0d836.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="三层架构"><br><img data-src="https://img-blog.csdnimg.cn/84dc320ae53f44618e79f2fc8d7d435f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="MVC模式和三层架构"></p>
+<h3 id="会话跟踪技术"><a href="#会话跟踪技术" class="headerlink" title="会话跟踪技术"></a>会话跟踪技术</h3><p><img data-src="https://img-blog.csdnimg.cn/fe4db253eeb840ec81ddbc8a9f571349.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="会话跟踪技术"></p>
+<h4 id="Cookie基本使用"><a href="#Cookie基本使用" class="headerlink" title="Cookie基本使用"></a>Cookie基本使用</h4><p><img data-src="https://img-blog.csdnimg.cn/afdc1cd35a4244dbb46b914bc85fbcad.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Cookie基本使用"></p>
+<h4 id="Cookie原理"><a href="#Cookie原理" class="headerlink" title="Cookie原理"></a>Cookie原理</h4><p><img data-src="https://img-blog.csdnimg.cn/fcf102a561684607ba9ecda6be276b72.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Cookie原理"></p>
+<h4 id="Cookie使用细节"><a href="#Cookie使用细节" class="headerlink" title="Cookie使用细节"></a>Cookie使用细节</h4><p><img data-src="https://img-blog.csdnimg.cn/8e992cd29af6401381c4666b5c564bc7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Cookie使用细节"></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//URL编码</span>
+        value<span class="token operator">=</span> URLEncoder<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//URL解码</span>
+                 value<span class="token operator">=</span>URLDecoder<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="Session基本使用"><a href="#Session基本使用" class="headerlink" title="Session基本使用"></a>Session基本使用</h4><p><img data-src="https://img-blog.csdnimg.cn/625bc2e87f754e97b67b17e265f48015.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Session基本使用"></p>
+<h4 id="Session原理"><a href="#Session原理" class="headerlink" title="Session原理"></a>Session原理</h4><p><img data-src="https://img-blog.csdnimg.cn/13b2733b2ce74ceb80276897bcc987df.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Session原理"></p>
+<h4 id="Session使用细节"><a href="#Session使用细节" class="headerlink" title="Session使用细节"></a>Session使用细节</h4><p><img data-src="https://img-blog.csdnimg.cn/f2663015645b425581cd5216fc6a95ac.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Session使用细节"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p><img data-src="https://img-blog.csdnimg.cn/30204783fcc34c919cdbfce4c39fe012.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="小结"><br><img data-src="https://img-blog.csdnimg.cn/43b2d63cbbf947b18870a6e560668336.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="传输cookie内的数据"></p>
+<h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><p><img data-src="https://img-blog.csdnimg.cn/34c12471680b4098b55dc29f5d5dd05c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h4 id="Filter执行流程"><a href="#Filter执行流程" class="headerlink" title="Filter执行流程"></a>Filter执行流程</h4><p><img data-src="https://img-blog.csdnimg.cn/ecb90bb4e40f421584ee6483c4f47eb2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h4 id="Filter使用细节"><a href="#Filter使用细节" class="headerlink" title="Filter使用细节"></a>Filter使用细节</h4><p><img data-src="https://img-blog.csdnimg.cn/5690a21680de4f40bcad935aff1996f2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Filter使用细节"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/9b3b661db6e64f8f9dc8a2938d037166.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="使用细节"><br><img data-src="https://img-blog.csdnimg.cn/635f42b08fd8471182882646e0184c5c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="过滤器链"></p>
+<h3 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h3><h4 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/58e7d4de8ac94106aa9020708a73c456.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Listener简介"></p>
+<h4 id="contextLoaderListener使用"><a href="#contextLoaderListener使用" class="headerlink" title="contextLoaderListener使用"></a>contextLoaderListener使用</h4><p><img data-src="https://img-blog.csdnimg.cn/4f45a2b4698745c3b6643fb9508cab35.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="基本使用"></p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><h4 id="AJAX简介与作用"><a href="#AJAX简介与作用" class="headerlink" title="AJAX简介与作用"></a>AJAX简介与作用</h4><p><img data-src="https://img-blog.csdnimg.cn/752b0d92645b40b1b58ec7c98ad7e3b4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Ajax简介"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/b16a4631381f4091907e8c221e9f5712.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Ajax"></p>
+<h4 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h4><p><img data-src="https://img-blog.csdnimg.cn/a530d8286e514ddca800bc5ebe67efb8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="异步和同步"></p>
+<h4 id="Ajax快速入门"><a href="#Ajax快速入门" class="headerlink" title="Ajax快速入门"></a>Ajax快速入门</h4><p><img data-src="https://img-blog.csdnimg.cn/774d4e9bac74429fa285674987a83597.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Ajax快速入门"></p>
+<h4 id="Axios异步框架"><a href="#Axios异步框架" class="headerlink" title="Axios异步框架"></a>Axios异步框架</h4><p><img data-src="https://img-blog.csdnimg.cn/eaae1b80c6c644aeb4f31ecc905ddebb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Axios简介"><br><strong>快速入门</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/4cf66a9764e8482a8b3ce8e9ea7e3036.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<p><strong>Axios请求方式别名</strong></p>
+<p><img data-src="https://img-blog.csdnimg.cn/f6fa969046364a9f92d56dbddceb498c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Axios请求方式别名"></p>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><h4 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h4><p><img data-src="https://img-blog.csdnimg.cn/833907d6f95d4717899be8dc0cfd3d2e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h4 id="JSON对象和JAVA对象转换"><a href="#JSON对象和JAVA对象转换" class="headerlink" title="JSON对象和JAVA对象转换"></a>JSON对象和JAVA对象转换</h4><p><img data-src="https://img-blog.csdnimg.cn/293396c6cfbc48a294992c9efd33a920.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="对象转换"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/18c8b3d98f8f48268c84e8bc4e0421e1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="步骤"></p>
+<h2 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h2><h3 id="简介-9"><a href="#简介-9" class="headerlink" title="简介"></a>简介</h3><p><img data-src="https://img-blog.csdnimg.cn/49e9562f6d374f72b8b95ba0d1b7e7de.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h3 id="快速入门-3"><a href="#快速入门-3" class="headerlink" title="快速入门"></a>快速入门</h3><p><img data-src="https://img-blog.csdnimg.cn/587309479e714663a8133a6b19506805.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p><img data-src="https://img-blog.csdnimg.cn/714443c2df954197a9a4779cf9a7e0f8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用指令"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/d5e554dd952945da812cc5f0ef950bc8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用指令2"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/0563105c1dbb470996b74cb78c2ea2dc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用指令3"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/2c57d6fb6caf4e57bf6aa2f81b43d748.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="常用指令4"></p>
+<h3 id="生命周期-1"><a href="#生命周期-1" class="headerlink" title="生命周期"></a>生命周期</h3><p><img data-src="https://img-blog.csdnimg.cn/3a9273c548704c0b8c986f2e2487a9b1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="生命周期"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/af109a689d4f4dfa85f02840fd8ccd94.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="生命周期"></p>
+<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><h3 id="简介-10"><a href="#简介-10" class="headerlink" title="简介"></a>简介</h3><p><img data-src="https://img-blog.csdnimg.cn/68a5be1cb76149ca809b3984a8656857.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="简介"></p>
+<h3 id="快速入门-4"><a href="#快速入门-4" class="headerlink" title="快速入门"></a>快速入门</h3><p><img data-src="https://img-blog.csdnimg.cn/801e9274f8c8420c8a0ac3ee8aa2bef5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="快速入门"></p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p><img data-src="https://img-blog.csdnimg.cn/b6b79a68267849ec89553093919ffaf9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5Y-q54ix5LiA6I6yUUFR,size_20,color_FFFFFF,t_70,g_se,x_16" alt="布局"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>投喂QAQ！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="LoveFit 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="LoveFit 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LoveFit
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lovefix.github.io/2022/04/07/javaweb/" title="JavaWeb">http://lovefix.github.io/2022/04/07/javaweb/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/06/javase-bi-ji-bu-chong/" rel="prev" title="JAVASE笔记(补充)">
+      <i class="fa fa-chevron-left"></i> JAVASE笔记(补充)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+
+    
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NDYxMC8zMTA4MQ=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaWeb%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">JavaWeb介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">常见关系型数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySql%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">MySql数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">3.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL"><span class="nav-number">3.2.1.</span> <span class="nav-text">DDL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DML"><span class="nav-number">3.2.2.</span> <span class="nav-text">DML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DQL"><span class="nav-number">3.2.3.</span> <span class="nav-text">DQL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A6%E6%9D%9F"><span class="nav-number">3.3.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.4.</span> <span class="nav-text">数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%85%B3%E7%B3%BB"><span class="nav-number">3.4.1.</span> <span class="nav-text">表关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.5.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">3.6.</span> <span class="nav-text">事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDBC"><span class="nav-number">4.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">JDBC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">4.2.</span> <span class="nav-text">JDBC快速入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC-API%E8%AF%A6%E8%A7%A3"><span class="nav-number">4.3.</span> <span class="nav-text">JDBC API详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="nav-number">4.4.</span> <span class="nav-text">数据库连接池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-number">4.5.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.5.1.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0"><span class="nav-number">4.5.2.</span> <span class="nav-text">添加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">5.</span> <span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E7%AE%80%E4%BB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">Maven简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-number">5.2.</span> <span class="nav-text">Maven安装配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">5.3.</span> <span class="nav-text">Maven基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E9%85%8D%E7%BD%AEMaven"><span class="nav-number">5.4.</span> <span class="nav-text">IDEA配置Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-number">5.5.</span> <span class="nav-text">依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5jar%E5%8C%85"><span class="nav-number">5.5.1.</span> <span class="nav-text">导入jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E8%8C%83%E5%9B%B4"><span class="nav-number">5.5.2.</span> <span class="nav-text">依赖范围</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis"><span class="nav-number">6.</span> <span class="nav-text">MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis%E7%AE%80%E4%BB%8B"><span class="nav-number">6.1.</span> <span class="nav-text">Mybatis简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis%E7%AE%80%E5%8C%96"><span class="nav-number">6.2.</span> <span class="nav-text">Mybatis简化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">6.3.</span> <span class="nav-text">Mybatis快速入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">6.4.</span> <span class="nav-text">配置文件完成增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE"><span class="nav-number">6.4.1.</span> <span class="nav-text">查询所有数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.4.2.</span> <span class="nav-text">多条件查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.4.3.</span> <span class="nav-text">单条件查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-number">6.4.4.</span> <span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-number">6.4.5.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">6.4.6.</span> <span class="nav-text">删除数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">6.5.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">6.6.</span> <span class="nav-text">注解完成增删改查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">7.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">7.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">7.2.</span> <span class="nav-text">快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A0%87%E7%AD%BE"><span class="nav-number">7.2.1.</span> <span class="nav-text">基础标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%89%87-%E8%A7%86%E9%A2%91-%E9%9F%B3%E9%A2%91"><span class="nav-number">7.2.2.</span> <span class="nav-text">图片 视频 音频</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">7.2.3.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="nav-number">7.2.4.</span> <span class="nav-text">列表标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%AD%BE"><span class="nav-number">7.2.5.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%83%E5%B1%80%E6%A0%87%E7%AD%BE"><span class="nav-number">7.2.6.</span> <span class="nav-text">布局标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="nav-number">7.2.7.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE-%E8%A1%A8%E5%8D%95%E9%A1%B9"><span class="nav-number">7.2.8.</span> <span class="nav-text">表单标签-表单项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Css"><span class="nav-number">8.</span> <span class="nav-text">Css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="nav-number">8.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Css%E5%AF%BC%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">8.2.</span> <span class="nav-text">Css导入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Css%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">8.3.</span> <span class="nav-text">Css选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">9.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript%E7%AE%80%E4%BB%8B"><span class="nav-number">9.1.</span> <span class="nav-text">Javascript简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">9.2.</span> <span class="nav-text">JavaScript引入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">9.3.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5"><span class="nav-number">9.3.1.</span> <span class="nav-text">输出语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">9.3.2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">9.3.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">9.3.4.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">9.3.5.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">9.3.6.</span> <span class="nav-text">流程控制语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">9.3.7.</span> <span class="nav-text">函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript%E5%AF%B9%E8%B1%A1"><span class="nav-number">9.4.</span> <span class="nav-text">Javascript对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">9.4.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">9.4.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1"><span class="nav-number">9.4.3.</span> <span class="nav-text">自定义对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM"><span class="nav-number">9.5.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Window"><span class="nav-number">9.5.1.</span> <span class="nav-text">Window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">9.5.2.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">9.5.3.</span> <span class="nav-text">location</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-number">9.6.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96Element%E5%AF%B9%E8%B1%A1"><span class="nav-number">9.6.1.</span> <span class="nav-text">获取Element对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="nav-number">9.7.</span> <span class="nav-text">事件监听</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A"><span class="nav-number">9.7.1.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6"><span class="nav-number">9.7.2.</span> <span class="nav-text">常见事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81"><span class="nav-number">9.7.3.</span> <span class="nav-text">表单验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">9.8.</span> <span class="nav-text">正则表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF"><span class="nav-number">10.</span> <span class="nav-text">Web核心技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJavaWeb"><span class="nav-number">10.1.</span> <span class="nav-text">什么是JavaWeb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javaWeb%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">10.2.</span> <span class="nav-text">javaWeb技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">10.3.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E7%AE%80%E4%BB%8B"><span class="nav-number">10.3.1.</span> <span class="nav-text">HTTP简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">10.3.2.</span> <span class="nav-text">HTTP请求数据格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">10.3.3.</span> <span class="nav-text">HTTP响应数据格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">10.3.4.</span> <span class="nav-text">响应状态码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">10.4.</span> <span class="nav-text">Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">10.4.1.</span> <span class="nav-text">Web服务器简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">10.4.2.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">10.5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-2"><span class="nav-number">10.5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">10.5.2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E4%B8%AD%E5%88%9B%E5%BB%BATomcat%E9%A1%B9%E7%9B%AE"><span class="nav-number">10.5.3.</span> <span class="nav-text">IDEA中创建Tomcat项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8Tomcat"><span class="nav-number">10.5.4.</span> <span class="nav-text">IDEA中使用Tomcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat-Maven-%E6%8F%92%E4%BB%B6"><span class="nav-number">10.5.5.</span> <span class="nav-text">Tomcat Maven 插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet"><span class="nav-number">10.6.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-3"><span class="nav-number">10.6.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-1"><span class="nav-number">10.6.2.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">10.6.3.</span> <span class="nav-text">执行流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">10.6.4.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet%E6%96%B9%E6%B3%95"><span class="nav-number">10.6.5.</span> <span class="nav-text">Servlet方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">10.6.6.</span> <span class="nav-text">Servlet体系结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet-urlPattern%E9%85%8D%E7%BD%AE"><span class="nav-number">10.6.7.</span> <span class="nav-text">Servlet urlPattern配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XML%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E7%BC%96%E5%86%99Servlet"><span class="nav-number">10.6.8.</span> <span class="nav-text">XML配置方式编写Servlet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request%E5%AF%B9%E8%B1%A1%E5%92%8CResponse%E5%AF%B9%E8%B1%A1"><span class="nav-number">10.7.</span> <span class="nav-text">Request对象和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-4"><span class="nav-number">10.7.1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resquest%E5%AF%B9%E8%B1%A1"><span class="nav-number">10.8.</span> <span class="nav-text">Resquest对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB"><span class="nav-number">10.8.1.</span> <span class="nav-text">Request继承体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE"><span class="nav-number">10.8.2.</span> <span class="nav-text">获取请求数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-%E9%80%9A%E7%94%A8%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="nav-number">10.8.3.</span> <span class="nav-text">Request 通用方式获取请求参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E4%B9%B1%E7%A0%81"><span class="nav-number">10.8.4.</span> <span class="nav-text">Request请求参数乱码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">10.8.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">10.8.6.</span> <span class="nav-text">Request请求转发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response%E5%AF%B9%E8%B1%A1"><span class="nav-number">10.9.</span> <span class="nav-text">Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-5"><span class="nav-number">10.9.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE"><span class="nav-number">10.9.2.</span> <span class="nav-text">Response设置响应数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">10.9.3.</span> <span class="nav-text">Response重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="nav-number">10.9.4.</span> <span class="nav-text">资源路径问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response%E5%93%8D%E5%BA%94%E5%AD%97%E7%AC%A6%E6%95%B0%E6%8D%AE"><span class="nav-number">10.9.5.</span> <span class="nav-text">Response响应字符数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response%E5%93%8D%E5%BA%94%E5%AD%97%E8%8A%82%E6%95%B0%E6%8D%AE"><span class="nav-number">10.9.6.</span> <span class="nav-text">Response响应字节数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP"><span class="nav-number">10.10.</span> <span class="nav-text">JSP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-6"><span class="nav-number">10.10.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">10.10.2.</span> <span class="nav-text">JSP快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP%E8%84%9A%E6%9C%AC"><span class="nav-number">10.10.3.</span> <span class="nav-text">JSP脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP%E7%BC%BA%E7%82%B9"><span class="nav-number">10.10.4.</span> <span class="nav-text">JSP缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">10.10.5.</span> <span class="nav-text">EL表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL%E6%A0%87%E7%AD%BE"><span class="nav-number">10.11.</span> <span class="nav-text">JSTL标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-2"><span class="nav-number">10.11.1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#foreach%E6%A0%87%E7%AD%BE"><span class="nav-number">10.11.2.</span> <span class="nav-text">foreach标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.12.</span> <span class="nav-text">MVC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">10.12.1.</span> <span class="nav-text">三层架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA%E6%8A%80%E6%9C%AF"><span class="nav-number">10.13.</span> <span class="nav-text">会话跟踪技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">10.13.1.</span> <span class="nav-text">Cookie基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie%E5%8E%9F%E7%90%86"><span class="nav-number">10.13.2.</span> <span class="nav-text">Cookie原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82"><span class="nav-number">10.13.3.</span> <span class="nav-text">Cookie使用细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">10.13.4.</span> <span class="nav-text">Session基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session%E5%8E%9F%E7%90%86"><span class="nav-number">10.13.5.</span> <span class="nav-text">Session原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82"><span class="nav-number">10.13.6.</span> <span class="nav-text">Session使用细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">10.13.7.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter"><span class="nav-number">10.14.</span> <span class="nav-text">Filter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">10.14.1.</span> <span class="nav-text">Filter执行流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter%E4%BD%BF%E7%94%A8%E7%BB%86%E8%8A%82"><span class="nav-number">10.14.2.</span> <span class="nav-text">Filter使用细节</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Listener"><span class="nav-number">10.15.</span> <span class="nav-text">Listener</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-7"><span class="nav-number">10.15.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#contextLoaderListener%E4%BD%BF%E7%94%A8"><span class="nav-number">10.15.2.</span> <span class="nav-text">contextLoaderListener使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX"><span class="nav-number">10.16.</span> <span class="nav-text">AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AJAX%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="nav-number">10.16.1.</span> <span class="nav-text">AJAX简介与作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="nav-number">10.16.2.</span> <span class="nav-text">同步与异步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-number">10.16.3.</span> <span class="nav-text">Ajax快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Axios%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6"><span class="nav-number">10.16.4.</span> <span class="nav-text">Axios异步框架</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">10.17.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-8"><span class="nav-number">10.17.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1%E5%92%8CJAVA%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%8D%A2"><span class="nav-number">10.17.2.</span> <span class="nav-text">JSON对象和JAVA对象转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VUE"><span class="nav-number">11.</span> <span class="nav-text">VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-9"><span class="nav-number">11.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-3"><span class="nav-number">11.2.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">11.3.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-1"><span class="nav-number">11.4.</span> <span class="nav-text">生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element"><span class="nav-number">12.</span> <span class="nav-text">Element</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B-10"><span class="nav-number">12.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-4"><span class="nav-number">12.2.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%83%E5%B1%80"><span class="nav-number">12.3.</span> <span class="nav-text">布局</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LoveFit"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LoveFit</p>
+  <div class="site-description" itemprop="description">成功的秘诀：知识 汗水 灵感 机遇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LoveFix" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LoveFix" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2369914238@qq.com" title="E-Mail → mailto:2369914238@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.csdn.com/people/user_id" title="Zhihu → https:&#x2F;&#x2F;www.csdn.com&#x2F;people&#x2F;user_id" rel="noopener" target="_blank"><i class="iconfont csdn fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.douban.com/people/user_id/" title="Douban → https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;user_id&#x2F;" rel="noopener" target="_blank"><i class="iconfont douban fa-fw"></i>Douban</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LoveFit</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">88k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:20</span>
+</div>
+
+
+<span id="jinrishici-sentence">正在加载今日诗词....</span>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+
+   
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+    <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js">
+  
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
