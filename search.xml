@@ -4153,4 +4153,73 @@ form
         <category>笔记整理</category>
       </categories>
   </entry>
+  <entry>
+    <title>JavaSE笔记补充内容(待更新)</title>
+    <url>/2022/04/10/java-bi-ji-bu-chong-nei-rong-1/</url>
+    <content><![CDATA[<h1 id="JAVA笔记补充内容"><a href="#JAVA笔记补充内容" class="headerlink" title="JAVA笔记补充内容"></a>JAVA笔记补充内容</h1><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p><img data-src="https://img-blog.csdnimg.cn/img_convert/307057cfc06177a878d2393b5983e115.png"></p>
+<h3 id="多态的优点和缺点"><a href="#多态的优点和缺点" class="headerlink" title="多态的优点和缺点"></a>多态的优点和缺点</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/6b4fdd6f4c83cb11cabc603886e91c1a.png"></p>
+<h3 id="多态的类型转换"><a href="#多态的类型转换" class="headerlink" title="多态的类型转换"></a>多态的类型转换</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/1eb457ce1c11e879e1c92cd310f4ceb9.png"></p>
+<pre class=" language-java"><code class="language-java">Animal a<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">DOg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Animal a2<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Totorise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+a2<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">go</span><span class="token punctuation">(</span>Animal a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">//不知道a是什么动物 如果是狗 而此时强转成乌龟类型 编译不会报错 但是运行时会检测出异常 因为他们的内存地址不一样</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token keyword">instanceof</span> <span class="token class-name">Tortoise</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+       Tortoise t<span class="token operator">=</span><span class="token function">Tortoise</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        t<span class="token punctuation">.</span><span class="token function">layEggs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token keyword">instanceof</span> <span class="token class-name">Dog</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        Dog d<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        d<span class="token punctuation">.</span><span class="token function">lookDoor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p><img data-src="https://img-blog.csdnimg.cn/img_convert/7bdbf73d452b382d5761b1eafa56fda5.png"></p>
+<p>开发中不是我们主动去定义匿名内部类，而是别人需要我们写或者我们可以写的时候才会使用。匿名内部类的代码可以实现代码进一步的简化。</p>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><p><img data-src="https://img-blog.csdnimg.cn/img_convert/61fa687e48b3af437149f33729848b95.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/45aa3a41df0d99ee56d5fc8f8192827d.png"></p>
+<h3 id="Lambda表达式的省略写法"><a href="#Lambda表达式的省略写法" class="headerlink" title="Lambda表达式的省略写法"></a>Lambda表达式的省略写法</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/b87f0515980e1732f67b356b3a6b78c7.png"></p>
+<h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p><img data-src="https://img-blog.csdnimg.cn/img_convert/34457d4ffde1ac917e36c5f02c7215a7.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/8667c94c6c479dcb801c95888bd30e0a.png"></p>
+<h3 id="第一步：获取Class类的对象"><a href="#第一步：获取Class类的对象" class="headerlink" title="第一步：获取Class类的对象"></a>第一步：获取Class类的对象</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/47e414a70ac63091efbb4f954edbf525.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/37908a85123e0a1ca3df056abaee3451.png"></p>
+<h3 id="第二步获取构造器对象"><a href="#第二步获取构造器对象" class="headerlink" title="第二步获取构造器对象"></a>第二步获取构造器对象</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/c83f2908b53cd01d71551dc70a53beb0.png"></p>
+<h3 id="第三步：利用构造器对象创建实例"><a href="#第三步：利用构造器对象创建实例" class="headerlink" title="第三步：利用构造器对象创建实例"></a>第三步：利用构造器对象创建实例</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/474f22465a0a72802129cdc90b1890f2.png"></p>
+<p>当构造器是私有时 可以使用暴力反射</p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/d06cf38d1679e9076635413da5d327bf.png"></p>
+<h3 id="第四步获取成员变量"><a href="#第四步获取成员变量" class="headerlink" title="第四步获取成员变量"></a>第四步获取成员变量</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/2fea3278e86b8d769ac57a6ce61d495d.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/31d24c219012d73dc426713916fd8229.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/5418c81710fcac0ab6081fca1a13352f.png"></p>
+<h3 id="第五步-获取方法对象"><a href="#第五步-获取方法对象" class="headerlink" title="第五步 获取方法对象"></a>第五步 获取方法对象</h3><p><img data-src="https://img-blog.csdnimg.cn/img_convert/4e6e83c3bf8dd441bb40421e9fd8f13d.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/47cc86ef3782c9096a695d5b45d4803d.png"></p>
+<h3 id="反射的作用"><a href="#反射的作用" class="headerlink" title="反射的作用"></a>反射的作用</h3><p><strong>反射可以暴力破解私有属性和方法还可以突破泛型约束</strong></p>
+<p>除了反射 还可以通过以下方法破解泛型约束</p>
+<pre class=" language-java"><code class="language-java">ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> list<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+list2<span class="token operator">=</span>list<span class="token punctuation">;</span>
+
+list2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//此时也可以输入其他类型的数据</span>
+</code></pre>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/5c033626e6f39dbeb384977d0c9f1829.png"></p>
+<p><img data-src="https://img-blog.csdnimg.cn/img_convert/62682cd83e3f0387202db1c41d599070.png"></p>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p><img data-src="https://img-blog.csdnimg.cn/img_convert/27265c1e9b55d1289ea188d38ee411e0.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/cc9c09e7d21ffac57a35e4a234a09e64.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/b0da4eb11ef41527d26b8c20763d60d5.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/a2fe7c470f7d0e00289725784124bac1.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/d62190240265fd0aac2a394b23e63911.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/0640a7da5574e15c8a807893afbaa244.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/badc843ab3eaeda4060ae3352accbdad.png"><br><img data-src="https://img-blog.csdnimg.cn/img_convert/d4d65748efadedb2c2e95825d85568c6.png"></p>
+]]></content>
+      <categories>
+        <category>笔记整理</category>
+      </categories>
+  </entry>
 </search>
