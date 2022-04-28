@@ -6,7 +6,7 @@
   <link href="http://lovefix.github.io/atom.xml" rel="self"/>
   
   <link href="http://lovefix.github.io/"/>
-  <updated>2022-04-10T15:04:59.514Z</updated>
+  <updated>2022-04-28T07:14:54.923Z</updated>
   <id>http://lovefix.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring笔记</title>
+    <link href="http://lovefix.github.io/2022/04/28/yi-spring-gai-shu/"/>
+    <id>http://lovefix.github.io/2022/04/28/yi-spring-gai-shu/</id>
+    <published>2022-04-28T07:15:01.153Z</published>
+    <updated>2022-04-28T07:14:54.923Z</updated>
+    
+    
+    <summary type="html">Spring</summary>
+    
+    
+    
+    <category term="笔记整理" scheme="http://lovefix.github.io/categories/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC以及SSM整合</title>
+    <link href="http://lovefix.github.io/2022/04/28/yi-springmvc-gai-shu-yi-ji-ssm-zheng-he/"/>
+    <id>http://lovefix.github.io/2022/04/28/yi-springmvc-gai-shu-yi-ji-ssm-zheng-he/</id>
+    <published>2022-04-28T07:13:50.624Z</published>
+    <updated>2022-04-28T07:13:39.810Z</updated>
+    
+    
+    <summary type="html">SSM整合</summary>
+    
+    
+    
+    <category term="笔记整理" scheme="http://lovefix.github.io/categories/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis笔记</title>
+    <link href="http://lovefix.github.io/2022/04/28/yi-mybatis-jian-jie/"/>
+    <id>http://lovefix.github.io/2022/04/28/yi-mybatis-jian-jie/</id>
+    <published>2022-04-28T07:11:21.001Z</published>
+    <updated>2022-04-28T07:11:00.447Z</updated>
+    
+    
+    <summary type="html">Mybatis</summary>
+    
+    
+    
+    <category term="笔记整理" scheme="http://lovefix.github.io/categories/%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JavaSE笔记补充内容(待更新)</title>
